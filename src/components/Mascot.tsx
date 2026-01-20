@@ -10,7 +10,13 @@ const TIPS = [
     "Pawns only move forward! ♟️"
 ];
 
-export function Mascot({ isCheckmate, isCheck, turn }) {
+interface MascotProps {
+    isCheckmate: boolean;
+    isCheck: boolean;
+    turn: 'w' | 'b';
+}
+
+export function Mascot({ isCheckmate, isCheck, turn }: MascotProps) {
     const [message, setMessage] = useState("Hi! I'm Leo! Let's play Chess! 🦁");
 
     useEffect(() => {
