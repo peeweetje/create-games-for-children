@@ -1,6 +1,11 @@
 import { motion, AnimatePresence } from 'framer-motion';
 
-export function RulesModal({ isOpen, onClose }) {
+interface RulesModalProps {
+    isOpen: boolean;
+    onClose: () => void;
+}
+
+export function RulesModal({ isOpen, onClose }: RulesModalProps) {
     if (!isOpen) return null;
 
     return (
