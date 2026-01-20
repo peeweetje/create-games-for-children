@@ -11,7 +11,7 @@ function App() {
     const { game, makeMove, makeComputerMove, turn, isGameOver, isCheckmate, isDraw, isCheck, resetGame } = useChessGame();
     const [boardWidth, setBoardWidth] = useState(400);
     const [showRules, setShowRules] = useState(false);
-    const containerRef = useRef(null);
+    const containerRef = useRef<HTMLDivElement>(null);
     const [windowSize, setWindowSize] = useState({ width: window.innerWidth, height: window.innerHeight });
 
     // Computer Move Effect
@@ -43,7 +43,7 @@ function App() {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    function onDrop(sourceSquare, targetSquare) {
+    function onDrop(sourceSquare: string, targetSquare: string) {
         const move = makeMove({
             from: sourceSquare,
             to: targetSquare,
