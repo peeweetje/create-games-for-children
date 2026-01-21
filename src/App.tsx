@@ -8,7 +8,7 @@ import Confetti from 'react-confetti'
 
 
 function App() {
-    const { game, makeMove, makeComputerMove, turn, isGameOver, isCheckmate, isDraw, isCheck, resetGame } = useChessGame();
+    const { game, makeMove, makeComputerMove, turn, isGameOver, isCheckmate, isDraw, isCheck, resetGame, moveSquares, onSquareClick } = useChessGame();
     const [boardWidth, setBoardWidth] = useState(400);
     const [showRules, setShowRules] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
@@ -74,6 +74,8 @@ function App() {
                         game={game}
                         onPieceDrop={onDrop}
                         boardWidth={boardWidth}
+                        moveSquares={moveSquares}
+                        onSquareClick={onSquareClick}
                     />
                 </div>
 

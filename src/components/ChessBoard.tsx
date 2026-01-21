@@ -1,14 +1,16 @@
 import { Chessboard } from "react-chessboard";
 import { Chess } from "chess.js";
-import { PieceDropHandlerArgs } from "react-chessboard";
+import { PieceDropHandlerArgs, PieceHandlerArgs } from "react-chessboard";
 
 interface ChessBoardProps {
     game: Chess;
     onPieceDrop: (sourceSquare: string, targetSquare: string, piece: string) => boolean;
     boardWidth?: number;
+    moveSquares: Record<string, React.CSSProperties>;
+    onSquareClick: (square: string) => void;
 }
 
-export function ChessBoard({ game, onPieceDrop, boardWidth = 400 }: ChessBoardProps) {
+export function ChessBoard({ game, onPieceDrop, boardWidth = 400, moveSquares, onSquareClick }: ChessBoardProps) {
 
     const customBoardStyle = {
         borderRadius: "8px",
@@ -19,7 +21,15 @@ export function ChessBoard({ game, onPieceDrop, boardWidth = 400 }: ChessBoardPr
     const customLightSquareStyle = { backgroundColor: "#FFF4E0" }; // Creamy white
 
     function handlePieceDrop({ sourceSquare, targetSquare, piece }: PieceDropHandlerArgs) {
-        return onPieceDrop(sourceSquare, targetSquare || "", piece.pieceType);
+        return onPieceDrop(sourceSquare, targetSquare || "", piece.pieceType!);
+    }
+
+    function handleSquareClick({ square }: { square: string }) {
+        onSquareClick(square);
+    }
+
+    function handlePieceDragBegin({ square }: PieceHandlerArgs) {
+        onSquareClick(square);
     }
 
     return (
@@ -29,6 +39,9 @@ export function ChessBoard({ game, onPieceDrop, boardWidth = 400 }: ChessBoardPr
                     id: "ChessBoard",
                     position: game.fen(),
                     onPieceDrop: handlePieceDrop,
+                    onSquareClick: handleSquareClick,
+                    onPieceDrag: handlePieceDragBegin,
+                    squareStyles: moveSquares,
                     boardStyle: customBoardStyle,
                     darkSquareStyle: customDarkSquareStyle,
                     lightSquareStyle: customLightSquareStyle,
