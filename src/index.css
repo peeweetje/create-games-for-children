@@ -1,7 +1,2 @@
 @import "tailwindcss";
 
-@layer base {
-  body {
-    @apply bg-orange-50 text-slate-800;
-  }
-}
