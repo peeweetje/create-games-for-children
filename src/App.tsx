@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
+import { useTranslation } from 'react-i18next';
 import { useChessGame } from './hooks/useChessGame'
 import { ChessBoard } from './components/ChessBoard'
 import { GameInfo } from './components/GameInfo'
@@ -13,6 +14,11 @@ function App() {
     const [showRules, setShowRules] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
     const [windowSize, setWindowSize] = useState({ width: window.innerWidth, height: window.innerHeight });
+    const { t, i18n } = useTranslation();
+
+    const changeLanguage = (lng: string) => {
+        i18n.changeLanguage(lng);
+    };
 
     // Computer Move Effect
     useEffect(() => {
@@ -54,11 +60,15 @@ function App() {
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen p-4 bg-orange-50 font-sans">
+            <div className="absolute top-4 right-4 flex gap-2">
+                <button onClick={() => changeLanguage('en')} className={`text-2xl hover:scale-110 transition-transform ${i18n.language === 'en' ? 'opacity-100' : 'opacity-50'}`}>🇬🇧</button>
+                <button onClick={() => changeLanguage('nl')} className={`text-2xl hover:scale-110 transition-transform ${i18n.language === 'nl' ? 'opacity-100' : 'opacity-50'}`}>🇳🇱</button>
+            </div>
             <header className="mb-6 text-center">
                 <h1 className="text-5xl font-extrabold text-orange-500 mb-2 drop-shadow-sm tracking-wide">
-                    🦁 Chess for Kids 🦄
+                    🦁 {t('app.title')} 🦄
                 </h1>
-                <p className="text-xl text-orange-400 font-medium">Learn & Play!</p>
+                <p className="text-xl text-orange-400 font-medium">{t('app.subtitle')}</p>
             </header>
 
             <main ref={containerRef} className="w-full max-w-2xl flex flex-col items-center gap-6">
@@ -84,13 +94,13 @@ function App() {
                         onClick={resetGame}
                         className="px-8 py-3 bg-green-500 hover:bg-green-600 text-white font-bold rounded-full shadow-lg transform transition active:scale-95 text-lg"
                     >
-                        New Game 🔄
+                        {t('app.newGame')} 🔄
                     </button>
                     <button
                         onClick={() => setShowRules(true)}
                         className="px-6 py-3 bg-blue-400 hover:bg-blue-500 text-white font-bold rounded-full shadow-lg transform transition active:scale-95 text-lg"
                     >
-                        Help ❓
+                        {t('app.help')} ❓
                     </button>
                 </div>
 
