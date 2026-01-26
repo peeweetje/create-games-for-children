@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 interface GameInfoProps {
     turn: 'w' | 'b';
@@ -8,6 +9,8 @@ interface GameInfoProps {
 }
 
 export function GameInfo({ turn, isGameOver, isCheckmate, isDraw }: GameInfoProps) {
+    const { t } = useTranslation();
+
     return (
         <div className="flex flex-col items-center justify-center p-4 bg-white rounded-xl shadow-lg border-2 border-orange-200">
             {isGameOver ? (
@@ -17,21 +20,21 @@ export function GameInfo({ turn, isGameOver, isCheckmate, isDraw }: GameInfoProp
                     className="text-2xl font-bold text-center"
                 >
                     {isCheckmate ? (
-                        <span className="text-purple-600">🎉 Game Over! {turn === 'w' ? "Black" : "White"} Wins! 🎉</span>
+                        <span className="text-purple-600">🎉 {turn === 'w' ? t('gameInfo.gameOverBlack') : t('gameInfo.gameOverWhite')} 🎉</span>
                     ) : (
-                        <span className="text-gray-600">It's a Draw! 🤝</span>
+                        <span className="text-gray-600">{t('gameInfo.draw')} 🤝</span>
                     )}
                 </motion.div>
             ) : (
                 <div className="flex items-center gap-4">
-                    <span className="text-xl font-bold text-orange-800">Turn:</span>
+                    <span className="text-xl font-bold text-orange-800">{t('gameInfo.turn')}</span>
                     <motion.div
                         animate={{ scale: [1, 1.1, 1] }}
                         transition={{ repeat: Infinity, duration: 2 }}
                         className={`px-6 py-2 rounded-full font-bold text-white shadow-md ${turn === 'w' ? 'bg-amber-400' : 'bg-slate-700'
                             }`}
                     >
-                        {turn === 'w' ? "White (You)" : "Black (Opponent)"}
+                        {turn === 'w' ? t('gameInfo.whiteTurn') : t('gameInfo.blackTurn')}
                     </motion.div>
                 </div>
             )}

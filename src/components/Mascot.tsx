@@ -1,14 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-
-const TIPS = [
-    "Rooks move in straight lines! 🏰",
-    "Bishops move diagonally! ♝",
-    "Knights jump in an L-shape! 🐴",
-    "Protect your King! 👑",
-    "Control the center of the board! 🎯",
-    "Pawns only move forward! ♟️"
-];
+import { useTranslation } from 'react-i18next';
 
 interface MascotProps {
     isCheckmate: boolean;
@@ -17,19 +9,34 @@ interface MascotProps {
 }
 
 export function Mascot({ isCheckmate, isCheck, turn }: MascotProps) {
-    const [message, setMessage] = useState("Hi! I'm Leo! Let's play Chess! 🦁");
+    const { t } = useTranslation();
+    const [message, setMessage] = useState("");
 
     useEffect(() => {
+        // Initialize message after translation is ready
+        setMessage(t('mascot.welcome') + " 🦁");
+    }, [t]);
+
+    useEffect(() => {
+        const TIPS = [
+            t('mascot.tips.rook') + " 🏰",
+            t('mascot.tips.bishop') + " ♝",
+            t('mascot.tips.knight') + " 🐴",
+            t('mascot.tips.king') + " 👑",
+            t('mascot.tips.center') + " 🎯",
+            t('mascot.tips.pawn') + " ♟️"
+        ];
+
         if (isCheckmate) {
-            setMessage("Game Over! What a great game! 🎉");
+            setMessage(t('mascot.gameOver') + " 🎉");
         } else if (isCheck) {
-            setMessage("Oh no! The King is in danger! (Check!) 😱");
+            setMessage(t('mascot.check') + " 😱");
         } else if (turn === 'w') {
-            setMessage("Your turn! What will you do? 🤔");
+            setMessage(t('mascot.yourTurn') + " 🤔");
         } else {
             setMessage(TIPS[Math.floor(Math.random() * TIPS.length)]);
         }
-    }, [turn, isCheck, isCheckmate]);
+    }, [turn, isCheck, isCheckmate, t]);
 
     return (
         <div className="fixed bottom-4 right-4 flex items-end max-w-[200px] pointer-events-none md:pointer-events-auto">
