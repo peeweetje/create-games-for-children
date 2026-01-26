@@ -1,0 +1,42 @@
+{
+    "app": {
+        "title": "Chess for Kids",
+        "subtitle": "Learn & Play!",
+        "newGame": "New Game",
+        "help": "Help"
+    },
+    "gameInfo": {
+        "gameOverWhite": "Game Over! White Wins!",
+        "gameOverBlack": "Game Over! Black Wins!",
+        "draw": "It's a Draw!",
+        "turn": "Turn:",
+        "whiteTurn": "White (You)",
+        "blackTurn": "Black (Opponent)"
+    },
+    "mascot": {
+        "welcome": "Hi! I'm Leo! Let's play Chess!",
+        "gameOver": "Game Over! What a great game!",
+        "check": "Oh no! The King is in danger! (Check!)",
+        "yourTurn": "Your turn! What will you do?",
+        "tips": {
+            "rook": "Rooks move in straight lines!",
+            "bishop": "Bishops move diagonally!",
+            "knight": "Knights jump in an L-shape!",
+            "king": "Protect your King!",
+            "center": "Control the center of the board!",
+            "pawn": "Pawns only move forward!"
+        }
+    },
+    "rules": {
+        "title": "How to Play?",
+        "pawn": "Pawn",
+        "pawnDesc": "Moves forward one step. Captures diagonally!",
+        "rook": "Rook",
+        "rookDesc": "Moves in straight lines (up, down, left, right)!",
+        "knight": "Knight",
+        "knightDesc": "Jumps in an 'L' shape! Can jump over others.",
+        "king": "King",
+        "kingDesc": "Most important! Usage one step in any direction. Don't lose him!",
+        "gotIt": "Got it! Let's Play!"
+    }
+}
