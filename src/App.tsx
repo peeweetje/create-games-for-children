@@ -40,7 +40,7 @@ function App() {
         function handleResize() {
             if (containerRef.current) {
                 const width = containerRef.current.offsetWidth;
-                setBoardWidth(Math.min(width - 40, 500)); // Max 500px, padding handled
+                setBoardWidth(Math.min(width - 16, 600)); // Reduced padding for mobile, larger max width
             }
         }
 
@@ -59,19 +59,19 @@ function App() {
     }
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen p-4 bg-orange-50 font-sans">
+        <div className="flex flex-col items-center justify-center min-h-screen p-2 md:p-4 bg-orange-50 font-sans">
             <div className="absolute top-4 right-4 flex gap-2">
                 <button onClick={() => changeLanguage('en')} className={`text-2xl hover:scale-110 transition-transform ${i18n.language === 'en' ? 'opacity-100' : 'opacity-50'}`}>🇬🇧</button>
                 <button onClick={() => changeLanguage('nl')} className={`text-2xl hover:scale-110 transition-transform ${i18n.language === 'nl' ? 'opacity-100' : 'opacity-50'}`}>🇳🇱</button>
             </div>
-            <header className="mb-6 text-center">
-                <h1 className="text-5xl font-extrabold text-orange-500 mb-2 drop-shadow-sm tracking-wide">
+            <header className="mb-4 md:mb-6 text-center">
+                <h1 className="text-2xl md:text-5xl font-extrabold text-orange-500 mb-2 drop-shadow-sm tracking-wide">
                     🦁 {t('app.title')} 🦄
                 </h1>
-                <p className="text-xl text-orange-400 font-medium">{t('app.subtitle')}</p>
+                <p className="text-lg md:text-xl text-orange-400 font-medium">{t('app.subtitle')}</p>
             </header>
 
-            <main ref={containerRef} className="w-full max-w-2xl flex flex-col items-center gap-6">
+            <main ref={containerRef} className="w-full max-w-2xl flex flex-col items-center gap-4 md:gap-6">
                 <GameInfo
                     turn={turn}
                     isGameOver={isGameOver}
@@ -79,7 +79,7 @@ function App() {
                     isDraw={isDraw}
                 />
 
-                <div className="border-8 border-white rounded-2xl shadow-2xl relative">
+                <div className="border-4 md:border-8 border-white rounded-xl md:rounded-2xl shadow-xl md:shadow-2xl relative">
                     <ChessBoard
                         game={game}
                         onPieceDrop={onDrop}
@@ -89,16 +89,16 @@ function App() {
                     />
                 </div>
 
-                <div className="flex gap-4 mt-4">
+                <div className="flex gap-2 md:gap-4 mt-2 md:mt-4">
                     <button
                         onClick={resetGame}
-                        className="px-8 py-3 bg-green-500 hover:bg-green-600 text-white font-bold rounded-full shadow-lg transform transition active:scale-95 text-lg"
+                        className="px-4 py-2 md:px-8 md:py-3 bg-green-500 hover:bg-green-600 text-white font-bold rounded-full shadow-lg transform transition active:scale-95 text-sm md:text-lg"
                     >
                         {t('app.newGame')} 🔄
                     </button>
                     <button
                         onClick={() => setShowRules(true)}
-                        className="px-6 py-3 bg-blue-400 hover:bg-blue-500 text-white font-bold rounded-full shadow-lg transform transition active:scale-95 text-lg"
+                        className="px-4 py-2 md:px-6 md:py-3 bg-blue-400 hover:bg-blue-500 text-white font-bold rounded-full shadow-lg transform transition active:scale-95 text-sm md:text-lg"
                     >
                         {t('app.help')} ❓
                     </button>

@@ -53,7 +53,7 @@ export function Mascot({ isCheckmate, isCheck, turn }: MascotProps) {
                     </p>
                 </motion.div>
             </AnimatePresence>
-            <div className="text-6xl filter drop-shadow-lg transform hover:scale-110 transition-transform cursor-pointer" role="img" aria-label="Lion Mascot">
+            <div className="text-4xl md:text-6xl filter drop-shadow-lg transform hover:scale-110 transition-transform cursor-pointer" role="img" aria-label="Lion Mascot">
                 🦁
             </div>
         </div>
