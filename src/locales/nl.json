@@ -38,5 +38,11 @@
         "king": "Koning",
         "kingDesc": "Belangrijkste stuk! Eén stap in elke richting. Verlies hem niet!",
         "gotIt": "Begrepen! Laten we spelen!"
+    },
+     "sidebar": {
+        "chess": "Schaken",
+        "puzzles": "Puzzels",
+        "learn": "Leren",
+        "play": "Spelen"
     }
 }

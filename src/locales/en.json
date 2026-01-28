@@ -38,5 +38,11 @@
         "king": "King",
         "kingDesc": "Most important! Usage one step in any direction. Don't lose him!",
         "gotIt": "Got it! Let's Play!"
+    },
+    "sidebar": {
+        "chess": "Chess",
+        "puzzles": "Puzzles",
+        "learn": "Learn",
+        "play": "Play"
     }
 }
