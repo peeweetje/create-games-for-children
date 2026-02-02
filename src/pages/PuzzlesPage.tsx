@@ -59,7 +59,7 @@ export const PuzzlesPage = () => {
                     <p className="text-gray-600">{currentPuzzle.description}</p>
                 </div>
 
-                <div className="bg-white p-2 md:p-6 rounded-2xl shadow-xl w-full max-w-lg md:max-w-md">
+                <div className="bg-white p-2 md:p-6 rounded-2xl shadow-xl w-full max-w-xl transition-all duration-300">
                     <div className="aspect-square w-full">
                         <ChessPuzzle.Root
                             key={key}
