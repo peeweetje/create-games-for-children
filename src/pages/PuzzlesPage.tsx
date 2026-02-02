@@ -44,12 +44,12 @@ export const PuzzlesPage = () => {
     };
 
     return (
-        <div className="flex flex-col items-center justify-center p-8 bg-orange-50 min-h-full">
+        <div className="flex flex-col items-center justify-center p-2 md:p-8 bg-orange-50 min-h-full">
             {showConfetti && <Confetti recycle={false} numberOfPieces={200} />}
 
-            <div className="max-w-4xl w-full flex flex-col items-center gap-8">
+            <div className="max-w-4xl w-full flex flex-col items-center gap-4 md:gap-8">
                 <div className="text-center space-y-2">
-                    <h1 className="text-4xl font-bold text-orange-600 flex items-center justify-center gap-3">
+                    <h1 className="text-2xl md:text-4xl font-bold text-orange-600 flex items-center justify-center gap-3">
                         <Trophy className="w-10 h-10" />
                         Chess Puzzles
                     </h1>
@@ -59,7 +59,7 @@ export const PuzzlesPage = () => {
                     <p className="text-gray-600">{currentPuzzle.description}</p>
                 </div>
 
-                <div className="bg-white p-6 rounded-2xl shadow-xl w-full max-w-md">
+                <div className="bg-white p-2 md:p-6 rounded-2xl shadow-xl w-full max-w-lg md:max-w-md">
                     <div className="aspect-square w-full">
                         <ChessPuzzle.Root
                             key={key}
