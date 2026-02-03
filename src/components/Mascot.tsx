@@ -39,7 +39,7 @@ export function Mascot({ isCheckmate, isCheck, turn }: MascotProps) {
     }, [turn, isCheck, isCheckmate, t]);
 
     return (
-        <div className="fixed bottom-4 right-4 flex items-end max-w-[200px] pointer-events-none md:pointer-events-auto">
+        <div className="fixed bottom-20 md:bottom-4 right-4 flex items-end max-w-[200px] pointer-events-none md:pointer-events-auto z-40">
             <AnimatePresence mode='wait'>
                 <motion.div
                     key={message}
