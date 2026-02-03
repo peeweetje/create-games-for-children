@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { ChessPuzzle } from '@react-chess-tools/react-chess-puzzle';
+import { ChessGame } from '@react-chess-tools/react-chess-game';
+
 import Confetti from 'react-confetti';
 import { Trophy, ArrowRight, RefreshCw } from 'lucide-react';
 import { SAMPLE_PUZZLES } from '../components/ChessPuzzles';
@@ -47,6 +49,7 @@ export const PuzzlesPage = () => {
                             puzzle={currentPuzzle}
                             onSolve={() => setShowConfetti(true)}
                         >
+                            <ChessGame.Sounds />
                             <ChessPuzzle.Board />
                             {/* Hidden hints component if needed, or custom UI below */}
                         </ChessPuzzle.Root>
