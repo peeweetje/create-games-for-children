@@ -16,6 +16,7 @@ A kid-friendly chess application built with React, Vite, and Chess.js.
 - **Board UI**: react-chessboard (v5)
 - **Styling**: Tailwind CSS
 - **Animations**: Framer Motion
+- **Translations**: Dutch and english
 
 ## Changelog
 
