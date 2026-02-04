@@ -44,5 +44,51 @@
         "puzzles": "Puzzles",
         "learn": "Learn",
         "play": "Play"
+    },
+    "puzzles": {
+        "descriptions": {
+            "mate1White": "Mate in 1: Find the winning move for White!",
+            "captureHanging": "White to move: Capture the hanging piece!",
+            "scholarsMate": "Mate in 1: Scholar's Mate pattern.",
+            "backRankMate": "Mate in 1: Back rank checkmate!",
+            "foolsMate": "Mate in 1: Fool's Mate pattern.",
+            "escapePin": "Escape the pin!",
+            "blockCheck": "Block the check!",
+            "promotePawn": "Black to move: Promote the pawn!",
+            "developPieces": "Develop your pieces!",
+            "removeDefender": "Remove the defender!",
+            "castleSafety": "Castle to safety!",
+            "simplifyPosition": "Simplify the position!",
+            "kingSafety": "King safety!",
+            "controlCenter": "Control the center!",
+            "pinKnight": "Pin the knight!",
+            "defendCheck": "Defend against the check!",
+            "solidifyPosition": "Solidify your position!",
+            "kickKnight": "Kick the knight!",
+            "challengeBishop": "Challenge the bishop!",
+            "activeDevelopment": "Active development!"
+        },
+        "hints": {
+            "checkmateRook": "Look for a checkmate with the rook.",
+            "undefendedQueen": "The black queen is undefended.",
+            "weakF7": "Target the weak f7 pawn.",
+            "trappedKing": "The black king is trapped behind his own pawns.",
+            "openDiagonal": "Look for a checkmate on the open diagonal.",
+            "unpinKnight": "Unpin your knight by developing a piece.",
+            "blockCheckPiece": "Develop a piece to block the check.",
+            "supportPromotion": "Move your king to support the pawn promotion.",
+            "controlCenterKnight": "Bring your knight out to control the center.",
+            "captureDefender": "Capture the piece defending the knight.",
+            "saferPosition": "Move your king to a safer position.",
+            "tradeRooks": "Trade rooks to enter a winning endgame.",
+            "awayFromCorner": "Move your king away from the corner.",
+            "gainSpace": "Push your pawn to gain space.",
+            "pinToQueen": "Develop your bishop to pin the knight to the queen.",
+            "blockWithBishop": "Block the check with your bishop.",
+            "supportCenter": "Support your center pawn.",
+            "attackKnight": "Attack the knight with a pawn.",
+            "forceBishop": "Force the bishop to move or exchange.",
+            "activeSquare": "Develop your bishop to an active square."
+        }
     }
 }
