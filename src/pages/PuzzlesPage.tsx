@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ChessPuzzle } from '@react-chess-tools/react-chess-puzzle';
 import { ChessGame } from '@react-chess-tools/react-chess-game';
 
@@ -8,6 +9,7 @@ import { SAMPLE_PUZZLES } from '../components/ChessPuzzles';
 
 
 export const PuzzlesPage = () => {
+    const { t } = useTranslation();
     const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(0);
     const [showConfetti, setShowConfetti] = useState(false);
     const [key, setKey] = useState(0); // Used to reset the puzzle component
@@ -39,7 +41,7 @@ export const PuzzlesPage = () => {
                     <p className="text-xl text-gray-700 font-medium">
                         Puzzle {currentPuzzleIndex + 1} of {SAMPLE_PUZZLES.length}
                     </p>
-                    <p className="text-gray-600">{currentPuzzle.description}</p>
+                    <p className="text-gray-600">{t(currentPuzzle.descriptionKey)}</p>
                 </div>
 
                 <div className="bg-white p-6 rounded-2xl shadow-xl w-full max-w-md">
@@ -76,7 +78,7 @@ export const PuzzlesPage = () => {
                     </div>
                     {/* Hint Text Display */}
                     <div className="mt-4 text-center ">
-                        <p className="text-sm text-gray-500 italic">Hint: {currentPuzzle.hint}</p>
+                        <p className="text-sm text-gray-500 italic">Hint: {t(currentPuzzle.hintKey)}</p>
                     </div>
                 </div>
             </div>
