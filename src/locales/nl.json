@@ -44,5 +44,51 @@
         "puzzles": "Puzzels",
         "learn": "Leren",
         "play": "Spelen"
+    },
+    "puzzles": {
+        "descriptions": {
+            "mate1White": "Mat in 1: Vind de winnende zet voor Wit!",
+            "captureHanging": "Wit aan zet: Vang het losse stuk!",
+            "scholarsMate": "Mat in 1: Scholar's Mate patroon.",
+            "backRankMate": "Mat in 1: Achterrank mat!",
+            "foolsMate": "Mat in 1: Fool's Mate patroon.",
+            "escapePin": "Ontsnap uit de pin!",
+            "blockCheck": "Blokkeer de schaak!",
+            "promotePawn": "Zwart aan zet: Promoveer de pion!",
+            "developPieces": "Ontwikkel je stukken!",
+            "removeDefender": "Verwijder de verdediger!",
+            "castleSafety": "Rokade voor veiligheid!",
+            "simplifyPosition": "Vereenvoudig de stelling!",
+            "kingSafety": "Koning veiligheid!",
+            "controlCenter": "Beheers het centrum!",
+            "pinKnight": "Pin het paard!",
+            "defendCheck": "Verdedig tegen de schaak!",
+            "solidifyPosition": "Verzeker je positie!",
+            "kickKnight": "Schop het paard!",
+            "challengeBishop": "Daag de loper uit!",
+            "activeDevelopment": "Actieve ontwikkeling!"
+        },
+        "hints": {
+            "checkmateRook": "Zoek een schaakmat met de toren.",
+            "undefendedQueen": "De zwarte koningin is onverdedigd.",
+            "weakF7": "Richt je op de zwakke f7 pion.",
+            "trappedKing": "De zwarte koning zit gevangen achter zijn eigen pionnen.",
+            "openDiagonal": "Zoek een schaakmat op de open diagonaal.",
+            "unpinKnight": "Ontpin je paard door een stuk te ontwikkelen.",
+            "blockCheckPiece": "Ontwikkel een stuk om de schaak te blokkeren.",
+            "supportPromotion": "Verplaats je koning om de pion promotie te ondersteunen.",
+            "controlCenterKnight": "Breng je paard naar buiten om het centrum te beheersen.",
+            "captureDefender": "Vang het stuk dat het paard verdedigt.",
+            "saferPosition": "Verplaats je koning naar een veiligere positie.",
+            "tradeRooks": "Ruilde torens om een winnend eindspel binnen te gaan.",
+            "awayFromCorner": "Verplaats je koning weg van de hoek.",
+            "gainSpace": "Druk je pion naar voren om ruimte te winnen.",
+            "pinToQueen": "Ontwikkel je loper om het paard vast te pinnen aan de koningin.",
+            "blockWithBishop": "Blokkeer de schaak met je loper.",
+            "supportCenter": "Steun je centrum pion.",
+            "attackKnight": "Val het paard aan met een pion.",
+            "forceBishop": "Forceer de loper om te bewegen of te ruilen.",
+            "activeSquare": "Ontwikkel je loper naar een actief veld."
+        }
     }
 }
