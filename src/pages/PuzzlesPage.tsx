@@ -36,10 +36,10 @@ export const PuzzlesPage = () => {
                 <div className="text-center space-y-2">
                     <h1 className="text-4xl font-bold text-orange-600 flex items-center justify-center gap-3">
                         <Trophy className="w-10 h-10" />
-                        Chess Puzzles
+                       {t("puzzles.title")}
                     </h1>
                     <p className="text-xl text-gray-700 font-medium">
-                        Puzzle {currentPuzzleIndex + 1} of {SAMPLE_PUZZLES.length}
+                        {t("puzzles.puzzles")} {currentPuzzleIndex + 1} {t("puzzles.off")} {SAMPLE_PUZZLES.length}
                     </p>
                     <p className="text-gray-600">{t(currentPuzzle.descriptionKey)}</p>
                 </div>

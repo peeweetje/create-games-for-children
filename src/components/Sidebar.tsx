@@ -48,7 +48,7 @@ export const Sidebar = () => {
 
                 <div className="p-4 mt-auto border-t border-[#3b3a37]">
                     <div className="flex justify-center gap-4">
-                        <button onClick={() => changeLanguage('en')} className={`text-2xl hover:scale-110 transition-transform ${i18n.language === 'en' ? 'opacity-100' : 'opacity-50'}`} title="English">🇬🇧</button>
+                        <button onClick={() => changeLanguage('en')} className={`text-2xl hover:scale-110 transition-transform ${i18n.language === 'en' ? 'opacity-100' : 'opacity-50'}`} title="English">en</button>
                         <button onClick={() => changeLanguage('nl')} className={`text-2xl hover:scale-110 transition-transform ${i18n.language === 'nl' ? 'opacity-100' : 'opacity-50'}`} title="Nederlands">🇳🇱</button>
                     </div>
                 </div>
