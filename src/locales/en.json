@@ -46,6 +46,9 @@
         "play": "Play"
     },
     "puzzles": {
+        "title": "Chess Puzzles",
+        "puzzles":"Puzzle",
+        "off": "of",
         "descriptions": {
             "mate1White": "Mate in 1: Find the winning move for White!",
             "captureHanging": "White to move: Capture the hanging piece!",

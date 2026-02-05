@@ -46,6 +46,9 @@
         "play": "Spelen"
     },
     "puzzles": {
+        "title": "Schaakpuzzels",
+         "puzzles":"Puzzel",
+         "off": "van",
         "descriptions": {
             "mate1White": "Mat in 1: Vind de winnende zet voor Wit!",
             "captureHanging": "Wit aan zet: Vang het losse stuk!",
