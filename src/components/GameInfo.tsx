@@ -8,7 +8,7 @@ interface GameInfoProps {
     isDraw: boolean;
 }
 
-export function GameInfo({ turn, isGameOver, isCheckmate, isDraw }: GameInfoProps) {
+export function GameInfo({ turn, isGameOver, isCheckmate }: GameInfoProps) {
     const { t } = useTranslation();
 
     return (
@@ -31,7 +31,7 @@ export function GameInfo({ turn, isGameOver, isCheckmate, isDraw }: GameInfoProp
                     <motion.div
                         animate={{ scale: [1, 1.1, 1] }}
                         transition={{ repeat: Infinity, duration: 2 }}
-                        className={`px-3 py-1 md:px-6 md:py-2 rounded-full font-bold text-white shadow-md text-xs sm:text-sm md:text-base min-w-[140px] md:min-w-[200px] text-center ${turn === 'w' ? 'bg-amber-400' : 'bg-slate-700'
+                        className={`px-3 py-1 md:px-6 md:py-2 rounded-full font-bold text-white shadow-md text-xs sm:text-sm md:text-base min-w-[140px] md:min-w-[200px] text-center ${turn === 'w' ? 'bg-orange-400' : 'bg-gray-700'
                             }`}
                     >
                         {turn === 'w' ? t('gameInfo.whiteTurn') : t('gameInfo.blackTurn')}
