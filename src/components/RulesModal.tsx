@@ -18,55 +18,71 @@ export function RulesModal({ isOpen, onClose }: RulesModalProps) {
                     initial={{ scale: 0.8, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     exit={{ scale: 0.8, opacity: 0 }}
-                    className="bg-white rounded-3xl p-6 md:p-8 max-w-lg w-full shadow-2xl border-4 border-orange-400 relative overflow-y-auto max-h-[90vh]"
+                    className="bg-white rounded-3xl p-4 md:p-6 max-w-lg w-full shadow-2xl border-4 border-orange-400 relative overflow-y-auto max-h-[85vh]"
                 >
                     <button
                         onClick={onClose}
-                        className="absolute top-4 right-4 text-3xl hover:scale-110 transition-transform"
+                        className="absolute top-2 right-2 text-2xl hover:scale-110 transition-transform"
                     >
                         ❌
                     </button>
 
-                    <h2 className="text-3xl font-extrabold text-orange-600 mb-6 text-center">{t('rules.title')} 🤔</h2>
+                    <h2 className="text-2xl font-extrabold text-orange-600 mb-4 text-center">{t('rules.title')} 🤔</h2>
 
-                    <div className="space-y-6">
-                        <div className="flex items-center gap-4 bg-orange-50 p-4 rounded-xl">
-                            <span className="text-4xl">♟️</span>
+                    <div className="space-y-3">
+                        <div className="flex items-center gap-3 bg-orange-50 p-3 rounded-xl">
+                            <span className="text-3xl">♟️</span>
                             <div>
-                                <h3 className="font-bold text-xl text-orange-800">{t('rules.pawn')}</h3>
-                                <p className="text-sm text-slate-600">{t('rules.pawnDesc')}</p>
+                                <h3 className="font-bold text-lg text-orange-800">{t('rules.pawn')}</h3>
+                                <p className="text-xs text-slate-600">{t('rules.pawnDesc')}</p>
                             </div>
                         </div>
 
-                        <div className="flex items-center gap-4 bg-blue-50 p-4 rounded-xl">
-                            <span className="text-4xl">🏰</span>
+                        <div className="flex items-center gap-3 bg-blue-50 p-3 rounded-xl">
+                            <span className="text-3xl">🏰</span>
                             <div>
-                                <h3 className="font-bold text-xl text-blue-800">{t('rules.rook')}</h3>
-                                <p className="text-sm text-slate-600">{t('rules.rookDesc')}</p>
+                                <h3 className="font-bold text-lg text-blue-800">{t('rules.rook')}</h3>
+                                <p className="text-xs text-slate-600">{t('rules.rookDesc')}</p>
                             </div>
                         </div>
 
-                        <div className="flex items-center gap-4 bg-purple-50 p-4 rounded-xl">
-                            <span className="text-4xl">🐴</span>
+                        <div className="flex items-center gap-3 bg-purple-50 p-3 rounded-xl">
+                            <span className="text-3xl">🐴</span>
                             <div>
-                                <h3 className="font-bold text-xl text-purple-800">{t('rules.knight')}</h3>
-                                <p className="text-sm text-slate-600">{t('rules.knightDesc')}</p>
+                                <h3 className="font-bold text-lg text-purple-800">{t('rules.knight')}</h3>
+                                <p className="text-xs text-slate-600">{t('rules.knightDesc')}</p>
                             </div>
                         </div>
 
-                        <div className="flex items-center gap-4 bg-yellow-50 p-4 rounded-xl">
-                            <span className="text-4xl">👑</span>
+                        <div className="flex items-center gap-3 bg-green-50 p-3 rounded-xl">
+                            <span className="text-3xl">♝</span>
                             <div>
-                                <h3 className="font-bold text-xl text-yellow-800">{t('rules.king')}</h3>
-                                <p className="text-sm text-slate-600">{t('rules.kingDesc')}</p>
+                                <h3 className="font-bold text-lg text-green-800">{t('rules.bishop')}</h3>
+                                <p className="text-xs text-slate-600">{t('rules.bishopDesc')}</p>
+                            </div>
+                        </div>
+
+                        <div className="flex items-center gap-3 bg-red-50 p-3 rounded-xl">
+                            <span className="text-3xl">♛</span>
+                            <div>
+                                <h3 className="font-bold text-lg text-red-800">{t('rules.queen')}</h3>
+                                <p className="text-xs text-slate-600">{t('rules.queenDesc')}</p>
+                            </div>
+                        </div>
+
+                        <div className="flex items-center gap-3 bg-yellow-50 p-3 rounded-xl">
+                            <span className="text-3xl">👑</span>
+                            <div>
+                                <h3 className="font-bold text-lg text-yellow-800">{t('rules.king')}</h3>
+                                <p className="text-xs text-slate-600">{t('rules.kingDesc')}</p>
                             </div>
                         </div>
                     </div>
 
-                    <div className="mt-8 text-center">
+                    <div className="mt-4 text-center">
                         <button
                             onClick={onClose}
-                            className="bg-orange-500 text-white font-bold py-3 px-8 rounded-full shadow-lg text-lg hover:bg-orange-600 transition-colors"
+                            className="bg-orange-500 text-white font-bold py-2 px-6 rounded-full shadow-lg text-base hover:bg-orange-600 transition-colors"
                         >
                             {t('rules.gotIt')} 🚀
                         </button>
