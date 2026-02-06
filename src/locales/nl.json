@@ -77,8 +77,8 @@
             "weakF7": "Richt je op de zwakke f7 pion.",
             "trappedKing": "De zwarte koning zit gevangen achter zijn eigen pionnen.",
             "openDiagonal": "Zoek een schaakmat op de open diagonaal.",
-            "unpinKnight": "Ontpin je paard door een stuk te ontwikkelen.",
-            "blockCheckPiece": "Ontwikkel een stuk om de schaak te blokkeren.",
+            "unpinKnight": "Ontpin je paard door een stuk te verplaatsen.",
+            "blockCheckPiece": "Verplaats een stuk om de schaak te blokkeren.",
             "supportPromotion": "Verplaats je koning om de pion promotie te ondersteunen.",
             "controlCenterKnight": "Breng je paard naar buiten om het centrum te beheersen.",
             "captureDefender": "Vang het stuk dat het paard verdedigt.",
@@ -86,12 +86,12 @@
             "tradeRooks": "Ruilde torens om een winnend eindspel binnen te gaan.",
             "awayFromCorner": "Verplaats je koning weg van de hoek.",
             "gainSpace": "Druk je pion naar voren om ruimte te winnen.",
-            "pinToQueen": "Ontwikkel je loper om het paard vast te pinnen aan de koningin.",
+            "pinToQueen": "Verplaats je loper om het paard vast te pinnen aan de koningin.",
             "blockWithBishop": "Blokkeer de schaak met je loper.",
             "supportCenter": "Steun je centrum pion.",
             "attackKnight": "Val het paard aan met een pion.",
             "forceBishop": "Forceer de loper om te bewegen of te ruilen.",
-            "activeSquare": "Ontwikkel je loper naar een actief veld."
+            "activeSquare": "Verplaats je loper naar een actief veld."
         }
     }
 }
