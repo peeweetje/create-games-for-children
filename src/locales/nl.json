@@ -35,9 +35,14 @@
         "rookDesc": "Beweegt in rechte lijnen (omhoog, omlaag, links, rechts)!",
         "knight": "Paard",
         "knightDesc": "Springt in een L-vorm! Kan over anderen springen.",
+        "bishop": "Loper",
+        "bishopDesc": "Beweegt diagonaal over het bord!",
+        "queen": "Koningin",
+        "queenDesc": "Beweegt in alle richtingen! Zeer krachtig!",
         "king": "Koning",
         "kingDesc": "Belangrijkste stuk! Eén stap in elke richting. Verlies hem niet!",
         "gotIt": "Begrepen! Laten we spelen!"
+        
     },
      "sidebar": {
         "chess": "Schaken",
@@ -69,7 +74,7 @@
             "solidifyPosition": "Verzeker je positie!",
             "kickKnight": "Schop het paard!",
             "challengeBishop": "Daag de loper uit!",
-            "activeDevelopment": "Actieve ontwikkeling!"
+            "activeDevelopment": "Actieve verplaatsing!"
         },
         "hints": {
             "checkmateRook": "Zoek een schaakmat met de toren.",

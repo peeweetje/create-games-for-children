@@ -24,7 +24,7 @@
             "knight": "Knights jump in an L-shape!",
             "king": "Protect your King!",
             "center": "Control the center of the board!",
-            "pawn": "Pawns only move forward!"
+            "pawn": "Pawns only move forward!"   
         }
     },
     "rules": {
@@ -35,6 +35,10 @@
         "rookDesc": "Moves in straight lines (up, down, left, right)!",
         "knight": "Knight",
         "knightDesc": "Jumps in an 'L' shape! Can jump over others.",
+         "bishop": "Bishop",
+        "bishopDesc": "Moves diagonally across the board!",
+        "queen": "Queen",
+        "queenDesc": "Moves in all directions! Very powerful!",
         "king": "King",
         "kingDesc": "Most important! Usage one step in any direction. Don't lose him!",
         "gotIt": "Got it! Let's Play!"
