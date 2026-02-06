@@ -44,15 +44,20 @@ export const PuzzlesPage = () => {
                     <p className="text-gray-600">{t(currentPuzzle.descriptionKey)}</p>
                 </div>
 
-                <div className="bg-white p-6 rounded-2xl shadow-xl w-full max-w-md">
-                    <div className="aspect-square w-full">
+<div className="bg-orange-100 p-4 rounded-xl shadow-inner w-full max-w-xl">
+                    <div className="aspect-square w-full bg-white border-4 md:border-8 border-white rounded-xl md:rounded-2xl shadow-xl md:shadow-2xl">
                         <ChessPuzzle.Root
                             key={key}
                             puzzle={currentPuzzle}
                             onSolve={() => setShowConfetti(true)}
                         >
                             <ChessGame.Sounds />
-                            <ChessPuzzle.Board />
+                            <ChessPuzzle.Board
+                                options={{
+                                    darkSquareStyle: { backgroundColor: "#FFB067" },
+                                    lightSquareStyle: { backgroundColor: "#FFF4E0" }
+                                }}
+                            />
                             {/* Hidden hints component if needed, or custom UI below */}
                         </ChessPuzzle.Root>
                     </div>
