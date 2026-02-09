@@ -1,10 +1,28 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { RuleItem } from './RuleItem';
 
 interface RulesModalProps {
     isOpen: boolean;
     onClose: () => void;
 }
+
+interface RuleItemData {
+    emoji: string;
+    titleKey: string;
+    descKey: string;
+    bgColor: string;
+    textColor: string;
+}
+
+const RULE_ITEMS: RuleItemData[] = [
+    { emoji: '♟️', titleKey: 'rules.pawn', descKey: 'rules.pawnDesc', bgColor: 'bg-orange-50', textColor: 'text-orange-800' },
+    { emoji: '🏰', titleKey: 'rules.rook', descKey: 'rules.rookDesc', bgColor: 'bg-blue-50', textColor: 'text-blue-800' },
+    { emoji: '🐴', titleKey: 'rules.knight', descKey: 'rules.knightDesc', bgColor: 'bg-purple-50', textColor: 'text-purple-800' },
+    { emoji: '♝', titleKey: 'rules.bishop', descKey: 'rules.bishopDesc', bgColor: 'bg-green-50', textColor: 'text-green-800' },
+    { emoji: '♛', titleKey: 'rules.queen', descKey: 'rules.queenDesc', bgColor: 'bg-red-50', textColor: 'text-red-800' },
+    { emoji: '👑', titleKey: 'rules.king', descKey: 'rules.kingDesc', bgColor: 'bg-yellow-50', textColor: 'text-yellow-800' },
+];
 
 export function RulesModal({ isOpen, onClose }: RulesModalProps) {
     const { t } = useTranslation();
@@ -30,53 +48,9 @@ export function RulesModal({ isOpen, onClose }: RulesModalProps) {
                     <h2 className="text-2xl font-extrabold text-orange-600 mb-4 text-center">{t('rules.title')} 🤔</h2>
 
                     <div className="space-y-3">
-                        <div className="flex items-center gap-3 bg-orange-50 p-3 rounded-xl">
-                            <span className="text-3xl">♟️</span>
-                            <div>
-                                <h3 className="font-bold text-lg text-orange-800">{t('rules.pawn')}</h3>
-                                <p className="text-xs text-slate-600">{t('rules.pawnDesc')}</p>
-                            </div>
-                        </div>
-
-                        <div className="flex items-center gap-3 bg-blue-50 p-3 rounded-xl">
-                            <span className="text-3xl">🏰</span>
-                            <div>
-                                <h3 className="font-bold text-lg text-blue-800">{t('rules.rook')}</h3>
-                                <p className="text-xs text-slate-600">{t('rules.rookDesc')}</p>
-                            </div>
-                        </div>
-
-                        <div className="flex items-center gap-3 bg-purple-50 p-3 rounded-xl">
-                            <span className="text-3xl">🐴</span>
-                            <div>
-                                <h3 className="font-bold text-lg text-purple-800">{t('rules.knight')}</h3>
-                                <p className="text-xs text-slate-600">{t('rules.knightDesc')}</p>
-                            </div>
-                        </div>
-
-                        <div className="flex items-center gap-3 bg-green-50 p-3 rounded-xl">
-                            <span className="text-3xl">♝</span>
-                            <div>
-                                <h3 className="font-bold text-lg text-green-800">{t('rules.bishop')}</h3>
-                                <p className="text-xs text-slate-600">{t('rules.bishopDesc')}</p>
-                            </div>
-                        </div>
-
-                        <div className="flex items-center gap-3 bg-red-50 p-3 rounded-xl">
-                            <span className="text-3xl">♛</span>
-                            <div>
-                                <h3 className="font-bold text-lg text-red-800">{t('rules.queen')}</h3>
-                                <p className="text-xs text-slate-600">{t('rules.queenDesc')}</p>
-                            </div>
-                        </div>
-
-                        <div className="flex items-center gap-3 bg-yellow-50 p-3 rounded-xl">
-                            <span className="text-3xl">👑</span>
-                            <div>
-                                <h3 className="font-bold text-lg text-yellow-800">{t('rules.king')}</h3>
-                                <p className="text-xs text-slate-600">{t('rules.kingDesc')}</p>
-                            </div>
-                        </div>
+                        {RULE_ITEMS.map((item) => (
+                            <RuleItem key={item.titleKey} {...item} />
+                        ))}
                     </div>
 
                     <div className="mt-4 text-center">
