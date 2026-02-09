@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import { useTranslation } from 'react-i18next';
+import { BadgeQuestionMark, RefreshCcw } from 'lucide-react';
 import { useChessGame } from '../hooks/useChessGame'
 import { ChessBoard } from '../components/ChessBoard'
 import { GameInfo } from '../components/GameInfo'
@@ -83,15 +84,17 @@ export const PlayPage = () => {
                 <div className="flex gap-2 md:gap-4 mt-2 md:mt-4">
                     <button
                         onClick={resetGame}
-                        className="px-4 py-2 md:px-8 md:py-3 bg-green-500 hover:bg-green-600 text-white font-bold rounded-full shadow-lg transform transition active:scale-95 text-sm md:text-lg"
+                        className="px-4 py-2 md:px-6 md:py-2 bg-green-500 hover:bg-green-600 text-white font-bold rounded-lg shadow-lg transform transition active:scale-95 text-xs md:text-sm flex items-center gap-1"
                     >
-                        {t('app.newGame')} 🔄
+                        {t('app.newGame')}
+                        <RefreshCcw size={16} />
                     </button>
                     <button
                         onClick={() => setShowRules(true)}
-                        className="px-4 py-2 md:px-6 md:py-3 bg-blue-400 hover:bg-blue-500 text-white font-bold rounded-full shadow-lg transform transition active:scale-95 text-sm md:text-lg"
+                        className="px-4 py-2 md:px-6 md:py-2 bg-blue-400 hover:bg-blue-500 text-white font-bold rounded-lg shadow-lg transform transition active:scale-95 text-xs md:text-sm flex items-center gap-1"
                     >
-                        {t('app.help')} ❓
+                        {t('app.help')}
+                        <BadgeQuestionMark size={16} />
                     </button>
                 </div>
 
