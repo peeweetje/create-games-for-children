@@ -1,17 +1,24 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Layout } from './components/Layout';
-import { PlayPage } from './pages/PlayPage';
-import { LearnPage } from './pages/LearnPage';
-import { PuzzlesPage } from './pages/PuzzlesPage';
+import { getAllRouteEntries, pageComponents } from './routes';
 
 function App() {
+    const routeEntries = getAllRouteEntries();
+
     return (
         <BrowserRouter basename={import.meta.env.BASE_URL}>
             <Routes>
                 <Route path="/" element={<Layout />}>
-                    <Route index element={<PlayPage />} />
-                    <Route path="learn" element={<LearnPage />} />
-                    <Route path="puzzles" element={<PuzzlesPage />} />
+                    {routeEntries.map((entry) => {
+                        const Component = pageComponents[entry.key];
+                        return (
+                            <Route
+                                key={entry.path}
+                                path={entry.path}
+                                element={<Component />}
+                            />
+                        );
+                    })}
                 </Route>
             </Routes>
         </BrowserRouter>
