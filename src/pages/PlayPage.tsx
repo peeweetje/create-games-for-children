@@ -1,10 +1,10 @@
 import { useState, useRef, useEffect } from 'react'
-import { useTranslation } from 'react-i18next';
 import { BadgeQuestionMark, RefreshCcw } from 'lucide-react';
 import { useChessGame } from '../hooks/useChessGame'
 import { ChessBoard } from '../components/ChessBoard'
 import { GameInfo } from '../components/GameInfo'
 import { Header } from '../components/Header'
+import { GameButtons } from '../components/GameButtons'
 import { Mascot } from '../components/Mascot'
 import { RulesModal } from '../components/RulesModal'
 import Confetti from 'react-confetti'
@@ -15,7 +15,7 @@ export const PlayPage = () => {
     const [showRules, setShowRules] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
     const [windowSize, setWindowSize] = useState({ width: window.innerWidth, height: window.innerHeight });
-    const { t } = useTranslation();
+   
 
     // Computer Move Effect
     useEffect(() => {
@@ -76,22 +76,26 @@ export const PlayPage = () => {
                     />
                 </div>
 
-                <div className="flex gap-2 md:gap-4 mt-2 md:mt-4">
-                    <button
-                        onClick={resetGame}
-                        className="px-4 py-2 md:px-6 md:py-2 bg-green-500 hover:bg-green-600 text-white font-bold rounded-lg shadow-lg transform transition active:scale-95 text-xs md:text-sm flex items-center gap-1"
-                    >
-                        {t('app.newGame')}
-                        <RefreshCcw size={16} />
-                    </button>
-                    <button
-                        onClick={() => setShowRules(true)}
-                        className="px-4 py-2 md:px-6 md:py-2 bg-blue-400 hover:bg-blue-500 text-white font-bold rounded-lg shadow-lg transform transition active:scale-95 text-xs md:text-sm flex items-center gap-1"
-                    >
-                        {t('app.help')}
-                        <BadgeQuestionMark size={16} />
-                    </button>
-                </div>
+                <GameButtons 
+                    buttons={[
+                        {
+                            labelKey: 'app.newGame',
+                            icon: RefreshCcw,
+                            onClick: resetGame,
+                            color: 'bg-green-500',
+                            hoverColor: 'hover:bg-green-600',
+                            size: 18,
+                        },
+                        {
+                            labelKey: 'app.help',
+                            icon: BadgeQuestionMark,
+                            onClick: () => setShowRules(true),
+                            color: 'bg-blue-400',
+                            hoverColor: 'hover:bg-blue-500',
+                            size: 18,
+                        },
+                    ]}
+                />
 
                 <Mascot isCheckmate={isCheckmate} isCheck={isCheck} turn={turn} />
                 <RulesModal isOpen={showRules} onClose={() => setShowRules(false)} />
