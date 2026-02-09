@@ -47,7 +47,11 @@
         "chess": "Chess",
         "puzzles": "Puzzles",
         "learn": "Learn",
-        "play": "Play"
+        "play": "Play",
+        "routes": {
+            "puzzles": "puzzles",
+            "learn": "learn"
+        }
     },
     "puzzles": {
         "title": "Chess Puzzles",

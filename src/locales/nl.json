@@ -44,11 +44,15 @@
         "gotIt": "Begrepen! Laten we spelen!"
         
     },
-     "sidebar": {
+    "sidebar": {
         "chess": "Schaken",
         "puzzles": "Puzzels",
         "learn": "Leren",
-        "play": "Spelen"
+        "play": "Spelen",
+        "routes": {
+            "puzzles": "puzzels",
+            "learn": "leren"
+        }
     },
     "puzzles": {
         "title": "Schaakpuzzels",
