@@ -4,6 +4,7 @@ import { BadgeQuestionMark, RefreshCcw } from 'lucide-react';
 import { useChessGame } from '../hooks/useChessGame'
 import { ChessBoard } from '../components/ChessBoard'
 import { GameInfo } from '../components/GameInfo'
+import { Header } from '../components/Header'
 import { Mascot } from '../components/Mascot'
 import { RulesModal } from '../components/RulesModal'
 import Confetti from 'react-confetti'
@@ -56,13 +57,7 @@ export const PlayPage = () => {
 
     return (
         <div className="flex flex-col items-center justify-center w-full max-w-4xl mx-auto p-2 pb-24 md:pb-4 md:p-4">
-            <header className="mb-4 md:mb-6 text-center">
-                <h1 className="text-2xl md:text-5xl font-extrabold text-orange-500 mb-2 drop-shadow-sm tracking-wide">
-                    🦁 {t('app.title')} 🦄
-                </h1>
-                <p className="text-lg md:text-xl text-orange-400 font-medium">{t('app.subtitle')}</p>
-            </header>
-
+            <Header />
             <main ref={containerRef} className="w-full max-w-2xl flex flex-col items-center gap-4 md:gap-6">
                 <GameInfo
                     turn={turn}
