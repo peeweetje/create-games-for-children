@@ -1,9 +1,10 @@
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Languages } from 'lucide-react';
 import { navConfig, routeTranslations } from '../routes';
-import { detectCurrentRoute, useLanguageSwitch } from '../hooks/useNavigation';
+import { useLanguageSwitch } from '../hooks/useNavigation';
 import { useMemo } from 'react';
+import { LanguageSwitch } from './LanguageSwitch';
+import { Languages } from 'lucide-react';
 
 type NavItem = {
     path: string;
@@ -13,8 +14,7 @@ type NavItem = {
 
 export const MobileBottomNav = () => {
     const { t } = useTranslation();
-    const { switchLanguage, currentLanguage: lang } = useLanguageSwitch();
-    const isDutch = lang === 'nl';
+    const { currentLanguage: lang } = useLanguageSwitch();
 
     // Generate navigation items based on current language
     const navItems = useMemo<NavItem[]>(() => {
@@ -25,12 +25,6 @@ export const MobileBottomNav = () => {
             icon: config.icon,
         }));
     }, [lang]);
-
-    // Handle language change
-    const handleLanguageChange = (lng: string) => {
-        const currentKey = detectCurrentRoute(window.location.pathname);
-        switchLanguage(lng, currentKey);
-    };
 
     return (
         <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-gray-900 border-t border-gray-700 z-50 pb-safe">
@@ -51,13 +45,7 @@ export const MobileBottomNav = () => {
                     </li>
                 ))}
                 <li className="flex-1">
-                    <button
-                        onClick={() => handleLanguageChange(isDutch ? 'en' : 'nl')}
-                        className="flex flex-col items-center justify-center h-full w-full gap-1 text-xs font-medium text-orange-400"
-                    >
-                        <Languages size={24} />
-                        <span>{isDutch ? 'EN' : 'NL'}</span>
-                    </button>
+                    <LanguageSwitch variant="mobile" />
                 </li>
             </ul>
         </nav>

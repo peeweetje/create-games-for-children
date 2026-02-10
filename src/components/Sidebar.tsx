@@ -3,8 +3,9 @@ import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Gamepad2 } from 'lucide-react';
 import { navConfig, routeTranslations } from '../routes';
-import { detectCurrentRoute, useLanguageSwitch } from '../hooks/useNavigation';
+import { useLanguageSwitch } from '../hooks/useNavigation';
 import { MobileBottomNav } from './MobileBottomNav';
+import { LanguageSwitch } from './LanguageSwitch';
 
 type NavItem = {
     path: string;
@@ -14,14 +15,7 @@ type NavItem = {
 
 export const Sidebar = () => {
     const { t } = useTranslation();
-    const { switchLanguage, currentLanguage: lang } = useLanguageSwitch();
-   
-
-    // Handle language change
-    const handleLanguageChange = (lng: string) => {
-        const currentKey = detectCurrentRoute(window.location.pathname);
-        switchLanguage(lng, currentKey);
-    };
+    const { currentLanguage: lang } = useLanguageSwitch();
 
     // Generate navigation items based on current language
     const navItems = useMemo<NavItem[]>(() => {
@@ -66,22 +60,7 @@ export const Sidebar = () => {
                 </nav>
 
                 <div className="p-4 mt-auto border-t border-gray-700">
-                    <div className="flex justify-center gap-4">
-                        <button 
-                            onClick={() => handleLanguageChange('en')} 
-                            className={`text-2xl hover:scale-110 transition-transform ${lang === 'en' ? 'opacity-100' : 'opacity-50'}`}
-                            title="English"
-                        >
-                            en
-                        </button>
-                        <button 
-                            onClick={() => handleLanguageChange('nl')} 
-                            className={`text-2xl hover:scale-110 transition-transform ${lang === 'nl' ? 'opacity-100' : 'opacity-50'}`}
-                            title="Nederlands"
-                        >
-                            🇳🇱
-                        </button>
-                    </div>
+                    <LanguageSwitch />
                 </div>
             </aside>
 
