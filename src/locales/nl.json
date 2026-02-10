@@ -54,6 +54,11 @@
             "learn": "leren"
         }
     },
+   "language": {
+        "switch": "Switch Language",
+        "english": "en",
+        "dutch": "nl"
+    },
     "puzzles": {
         "title": "Schaakpuzzels",
          "puzzles":"Puzzel",

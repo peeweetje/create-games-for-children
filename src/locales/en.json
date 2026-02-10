@@ -53,6 +53,11 @@
             "learn": "learn"
         }
     },
+    "language": {
+        "switch": "Switch Language",
+        "english": "en",
+        "dutch": "nl"
+    },
     "puzzles": {
         "title": "Chess Puzzles",
         "puzzles":"Puzzle",
