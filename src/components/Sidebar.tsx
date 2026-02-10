@@ -1,8 +1,9 @@
-import { useState, useMemo, useCallback } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { useMemo } from 'react';
+import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Gamepad2, Languages } from 'lucide-react';
 import { navConfig, routeTranslations } from '../routes';
+import { detectCurrentRoute, useLanguageSwitch } from '../hooks/useNavigation';
 
 type NavItem = {
     path: string;
@@ -11,33 +12,8 @@ type NavItem = {
 };
 
 export const Sidebar = () => {
-    const { t, i18n } = useTranslation();
-    const navigate = useNavigate();
-    const [lang, setLang] = useState(i18n.language);
-
-    // Detect current route key from path
-    const detectCurrentRoute = useCallback((path: string): string => {
-        for (const config of navConfig) {
-            if (config.key === 'play') continue;
-            const variations = Object.values(routeTranslations).map(r => r[config.key]);
-            if (variations.some(v => path.includes(v))) {
-                return config.key;
-            }
-        }
-        return 'play';
-    }, []);
-
-    // Switch language and navigate to translated route
-    const changeLanguage = useCallback((lng: string) => {
-        const currentKey = detectCurrentRoute(window.location.pathname);
-        const newPath = currentKey === 'play' 
-            ? '/' 
-            : `/${routeTranslations[lng][currentKey]}`;
-        
-        i18n.changeLanguage(lng);
-        setLang(lng);
-        navigate(newPath);
-    }, [detectCurrentRoute, i18n, navigate]);
+    const { t } = useTranslation();
+    const { switchLanguage, currentLanguage: lang } = useLanguageSwitch();
 
     // Generate navigation items based on current language
     const navItems = useMemo<NavItem[]>(() => {
@@ -50,6 +26,12 @@ export const Sidebar = () => {
     }, [lang]);
 
     const isDutch = lang === 'nl';
+
+    // Handle language change
+    const handleLanguageChange = (lng: string) => {
+        const currentKey = detectCurrentRoute(window.location.pathname);
+        switchLanguage(lng, currentKey);
+    };
 
     return (
         <>
@@ -86,14 +68,14 @@ export const Sidebar = () => {
 <div className="p-4 mt-auto border-t border-gray-700">
                     <div className="flex justify-center gap-4">
                         <button 
-                            onClick={() => changeLanguage('en')} 
+                            onClick={() => handleLanguageChange('en')} 
                             className={`text-2xl hover:scale-110 transition-transform ${lang === 'en' ? 'opacity-100' : 'opacity-50'}`}
                             title="English"
                         >
                             en
                         </button>
                         <button 
-                            onClick={() => changeLanguage('nl')} 
+                            onClick={() => handleLanguageChange('nl')} 
                             className={`text-2xl hover:scale-110 transition-transform ${lang === 'nl' ? 'opacity-100' : 'opacity-50'}`}
                             title="Nederlands"
                         >
@@ -123,7 +105,7 @@ export const Sidebar = () => {
                     ))}
                     <li className="flex-1">
                         <button
-                            onClick={() => changeLanguage(isDutch ? 'en' : 'nl')}
+                            onClick={() => handleLanguageChange(isDutch ? 'en' : 'nl')}
                             className="flex flex-col items-center justify-center h-full w-full gap-1 text-xs font-medium text-orange-400"
                         >
                             <Languages size={24} />
