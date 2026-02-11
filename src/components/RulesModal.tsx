@@ -36,7 +36,7 @@ export function RulesModal({ isOpen, onClose }: RulesModalProps) {
                     initial={{ scale: 0.8, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     exit={{ scale: 0.8, opacity: 0 }}
-                    className="bg-white rounded-3xl p-4 md:p-6 max-w-lg w-full shadow-2xl border-4 border-orange-400 relative overflow-y-auto max-h-[85vh]"
+                    className="bg-white rounded-xl p-3 md:p-6 max-w-sm md:max-w-lg w-full shadow-2xl border-2 md:border-4 border-orange-400 relative overflow-y-auto max-h-[80vh] md:max-h-[85vh]"
                 >
                     <button
                         onClick={onClose}
