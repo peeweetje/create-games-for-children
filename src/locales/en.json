@@ -62,6 +62,10 @@
         "title": "Chess Puzzles",
         "puzzles": "Puzzle",
         "off": "of",
+        "buttons": {
+            "reset": "Reset",
+            "nextPuzzle": "Next Puzzle"
+        },
         "difficulty": {
             "easy": "Easy",
             "medium": "Medium",
