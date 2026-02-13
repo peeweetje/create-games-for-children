@@ -20,8 +20,9 @@ export const PuzzleButtons = ({
                 onClick={onReset}
                 className="flex items-center gap-2 px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded-lg font-semibold transition-colors cursor-pointer text-sm"
             >
+                 {t("puzzles.buttons.reset")}
                 <RefreshCw className="w-4 h-4" />
-                {t("puzzles.buttons.reset")}
+               
             </button>
 
             {showConfetti && (
