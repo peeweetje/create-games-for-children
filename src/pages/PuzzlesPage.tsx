@@ -4,9 +4,10 @@ import { ChessPuzzle } from '@react-chess-tools/react-chess-puzzle';
 import { ChessGame } from '@react-chess-tools/react-chess-game';
 
 import Confetti from 'react-confetti';
-import { Trophy, ArrowRight, RefreshCw, Settings } from 'lucide-react';
+import { Trophy, Settings } from 'lucide-react';
 import { SAMPLE_PUZZLES, getPuzzlesByDifficulty, type Difficulty } from '../components/ChessPuzzles';
 import { PuzzleSettingsModal } from '../components/PuzzleSettingsModal';
+import { PuzzleButtons } from '../components/PuzzleButtons';
 
 const getDifficultyColor = (difficulty: Difficulty): string => {
     switch (difficulty) {
@@ -111,25 +112,11 @@ export const PuzzlesPage = () => {
                         </ChessPuzzle.Root>
                     </div>
 
-                    <div className="mt-6 flex gap-4 justify-center">
-                        <button
-                            onClick={handleReset}
-                            className="flex items-center gap-2 px-6 py-3 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded-xl font-bold transition-colors cursor-pointer"
-                        >
-                            <RefreshCw className="w-5 h-5" />
-                            Reset
-                        </button>
-
-                        {showConfetti && (
-                            <button
-                                onClick={handleNextPuzzle}
-                                className="flex items-center gap-2 px-6 py-3 bg-green-500 hover:bg-green-600 text-white rounded-xl font-bold shadow-lg transform hover:scale-105 transition-all cursor-pointer animate-bounce"
-                            >
-                                Next Puzzle
-                                <ArrowRight className="w-5 h-5" />
-                            </button>
-                        )}
-                    </div>
+                    <PuzzleButtons
+                        showConfetti={showConfetti}
+                        onReset={handleReset}
+                        onNextPuzzle={handleNextPuzzle}
+                    />
                     {/* Hint Text Display */}
                     <div className="mt-4 text-center ">
                         <p className="text-sm text-gray-500 italic">Hint: {t(currentPuzzle.hintKey)}</p>
