@@ -15,7 +15,7 @@ export const PuzzleButtons = ({
     const { t } = useTranslation();
 
     return (
-        <div className="mt-6 flex gap-4 justify-center">
+        <div className="mt-2 flex gap-4 justify-center">
             <button
                 onClick={onReset}
                 className="flex items-center gap-2 px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded-lg font-semibold transition-colors cursor-pointer text-sm"
