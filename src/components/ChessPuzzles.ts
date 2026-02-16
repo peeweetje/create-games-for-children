@@ -571,8 +571,8 @@ export const getRandomPuzzleByDifficulty = (difficulty: Difficulty): Puzzle => {
 
 // Puzzle counts by difficulty
 export const PUZZLE_COUNTS = {
-    easy: 25,
-    medium: 25,
-    hard: 25,
-    total: 75
+    easy: 23,
+    medium: 23,
+    hard: 4,
+    total: 54
 } as const;

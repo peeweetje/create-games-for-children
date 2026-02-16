@@ -1,5 +1,5 @@
 import { Difficulty } from './ChessPuzzles';
-import { SAMPLE_PUZZLES } from './ChessPuzzles';
+import { PUZZLE_COUNTS } from './ChessPuzzles';
 import { useTranslation } from 'react-i18next';
 import {  X } from 'lucide-react';
 
@@ -62,28 +62,28 @@ export const PuzzleSettingsModal = ({
                         onClick={() => onDifficultyChange('all')}
                         className={getDifficultyButtonColor('all', selectedDifficulty === 'all')}
                     >
-                        {t("puzzles.settings.allPuzzles")} ({SAMPLE_PUZZLES.length})
+                        {t("puzzles.settings.allPuzzles")} ({PUZZLE_COUNTS.total})
                     </button>
                     
                     <button
                         onClick={() => onDifficultyChange('easy')}
                         className={getDifficultyButtonColor('easy', selectedDifficulty === 'easy')}
                     >
-                        {t("puzzles.difficulty.easy")} (25)
+                        {t("puzzles.difficulty.easy")} ({PUZZLE_COUNTS.easy})
                     </button>
                     
                     <button
                         onClick={() => onDifficultyChange('medium')}
                         className={getDifficultyButtonColor('medium', selectedDifficulty === 'medium')}
                     >
-                        {t("puzzles.difficulty.medium")} (25)
+                        {t("puzzles.difficulty.medium")} ({PUZZLE_COUNTS.medium})
                     </button>
                     
                     <button
                         onClick={() => onDifficultyChange('hard')}
                         className={getDifficultyButtonColor('hard', selectedDifficulty === 'hard')}
                     >
-                        {t("puzzles.difficulty.hard")} (25)
+                        {t("puzzles.difficulty.hard")} ({PUZZLE_COUNTS.hard})
                     </button>
                 </div>
             </div>
