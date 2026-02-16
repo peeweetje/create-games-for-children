@@ -47,7 +47,7 @@ export const PuzzlesPage = () => {
     };
 
     return (
-            <div className="flex flex-col items-center justify-center p-8 bg-orange-50 min-h-full">
+            <div className="flex flex-col items-center justify-center w-full max-w-4xl mx-auto p-2 pb-24 md:pb-4 md:p-4">
                 {showConfetti && <Confetti recycle={false} numberOfPieces={200} />}
 
                 <PuzzleSettingsModal
@@ -57,7 +57,7 @@ export const PuzzlesPage = () => {
                     onDifficultyChange={handleDifficultyChange}
                 />
 
-                <div className="max-w-4xl w-full flex flex-col items-center gap-8">
+                <div className="max-w-4xl w-full flex flex-col items-center gap-2">
                     <PuzzleHeader
                         currentPuzzleIndex={currentPuzzleIndex}
                         filteredPuzzlesLength={filteredPuzzles.length}
@@ -68,22 +68,25 @@ export const PuzzlesPage = () => {
                         isAllPuzzles={selectedDifficulty === 'all'}
                     />
 
-                    <div className="bg-orange-100 p-4 rounded-xl shadow-inner w-full max-w-xl">
-                    <div className="aspect-square w-full bg-white border-4 md:border-8 border-white rounded-xl md:rounded-2xl shadow-xl md:shadow-2xl">
-                        <ChessPuzzle.Root
-                            key={key}
-                            puzzle={currentPuzzle}
-                            onSolve={() => setShowConfetti(true)}
-                        >
-                            <ChessGame.Sounds />
-                            <ChessPuzzle.Board
-                                options={{
-                                    darkSquareStyle: { backgroundColor: "#FFB067" },
-                                    lightSquareStyle: { backgroundColor: "#FFF4E0" }
-                                }}
-                            />
-                            {/* Hidden hints component if needed, or custom UI below */}
-                        </ChessPuzzle.Root>
+                    
+
+                    <div className="border-4 md:border-8 border-white rounded-xl md:rounded-2xl shadow-xl md:shadow-2xl relative">
+                        <div className="p-4 bg-orange-100 rounded-xl shadow-inner border-4 border-orange-300 w-full max-w-xl ">
+                            <ChessPuzzle.Root
+                                key={key}
+                                puzzle={currentPuzzle}
+                                onSolve={() => setShowConfetti(true)}
+                            >
+                                <ChessGame.Sounds />
+                                <ChessPuzzle.Board
+                                    options={{
+                                        darkSquareStyle: { backgroundColor: "#FFB067" },
+                                        lightSquareStyle: { backgroundColor: "#FFF4E0" }
+                                    }}
+                                />
+                                {/* Hidden hints component if needed, or custom UI below */}
+                            </ChessPuzzle.Root>
+                        </div>
                     </div>
 
                     <PuzzleButtons
@@ -97,6 +100,5 @@ export const PuzzlesPage = () => {
                     </div>
                 </div>
             </div>
-        </div>
     );
 };
