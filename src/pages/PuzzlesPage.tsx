@@ -65,6 +65,7 @@ export const PuzzlesPage = () => {
                         currentPuzzleDescriptionKey={currentPuzzle.descriptionKey}
                         showSettings={showSettings}
                         onSettingsToggle={() => setShowSettings(true)}
+                        isAllPuzzles={selectedDifficulty === 'all'}
                     />
 
                     <div className="bg-orange-100 p-4 rounded-xl shadow-inner w-full max-w-xl">

@@ -1,6 +1,6 @@
 import { Trophy, Settings } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { type Difficulty } from './ChessPuzzles';
+import { type Difficulty, PUZZLE_COUNTS } from './ChessPuzzles';
 
 interface PuzzleHeaderProps {
     currentPuzzleIndex: number;
@@ -9,6 +9,7 @@ interface PuzzleHeaderProps {
     currentPuzzleDescriptionKey: string;
     showSettings: boolean;
     onSettingsToggle: () => void;
+    isAllPuzzles: boolean;
 }
 
 const getDifficultyColor = (difficulty: Difficulty): string => {
@@ -29,7 +30,8 @@ export const PuzzleHeader = ({
     filteredPuzzlesLength,
     currentPuzzleDifficulty,
     currentPuzzleDescriptionKey,
-    onSettingsToggle
+    onSettingsToggle,
+    isAllPuzzles
 }: PuzzleHeaderProps) => {
     const { t } = useTranslation();
 
@@ -49,7 +51,7 @@ export const PuzzleHeader = ({
                 </button>
             </div>
             <p className="text-xl text-gray-700 font-medium">
-                {t("puzzles.puzzles")} {currentPuzzleIndex + 1} {t("puzzles.off")} {filteredPuzzlesLength}
+                {t("puzzles.puzzles")} {currentPuzzleIndex + 1} {t("puzzles.off")} {isAllPuzzles ? PUZZLE_COUNTS.total : filteredPuzzlesLength}
             </p>
             <span className={`inline-block px-3 py-1 rounded-full text-sm font-semibold border ${getDifficultyColor(currentPuzzleDifficulty)}`}>
                 {t(`puzzles.difficulty.${currentPuzzleDifficulty}`)}
