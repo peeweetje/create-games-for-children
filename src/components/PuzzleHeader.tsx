@@ -38,8 +38,8 @@ export const PuzzleHeader = ({
     return (
         <div className="text-center space-y-2">
             <div className="flex items-center justify-center gap-3">
-                <h1 className="text-4xl font-bold text-orange-600 flex items-center gap-3">
-                    <Trophy className="w-10 h-10" />
+                <h1 className="text-2xl md:text-3xl font-extrabold text-orange-600 flex items-center gap-3 drop-shadow-sm tracking-wide">
+                    <Trophy className="w-8 h-8" />
                     {t("puzzles.title")}
                 </h1>
                 <button
