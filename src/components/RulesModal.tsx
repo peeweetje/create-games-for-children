@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { X } from 'lucide-react';
 import { RuleItem } from './RuleItem';
 
 interface RulesModalProps {
@@ -40,9 +41,9 @@ export function RulesModal({ isOpen, onClose }: RulesModalProps) {
                 >
                     <button
                         onClick={onClose}
-                        className="absolute top-2 right-2 text-2xl hover:scale-110 transition-transform"
+                        className="absolute top-2 right-2 p-1 hover:scale-110 transition-transform text-orange-500 hover:text-orange-600"
                     >
-                        ❌
+                        <X size={28} strokeWidth={3} />
                     </button>
 
                     <h2 className="text-2xl font-extrabold text-orange-600 mb-4 text-center">{t('rules.title')} 🤔</h2>
