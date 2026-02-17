@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { X } from 'lucide-react';
 import { RuleItem } from './RuleItem';
-import { CloseButton } from './CloseButton';
+import { CloseButton } from './buttons/CloseButton';
 
 interface RulesModalProps {
     isOpen: boolean;

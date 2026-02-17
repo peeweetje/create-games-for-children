@@ -6,7 +6,7 @@ import { ChessGame } from '@react-chess-tools/react-chess-game';
 import Confetti from 'react-confetti';
 import { SAMPLE_PUZZLES, getPuzzlesByDifficulty, type Difficulty } from '../components/ChessPuzzles';
 import { PuzzleSettingsModal } from '../components/PuzzleSettingsModal';
-import { PuzzleButtons } from '../components/PuzzleButtons';
+import { PuzzleButtons } from '../components/buttons/PuzzleButtons';
 import { PuzzleHeader } from '../components/PuzzleHeader';
 
 export const PuzzlesPage = () => {
