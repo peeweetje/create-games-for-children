@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { X } from 'lucide-react';
 import { RuleItem } from './RuleItem';
+import { CloseButton } from './CloseButton';
 
 interface RulesModalProps {
     isOpen: boolean;
@@ -39,12 +40,13 @@ export function RulesModal({ isOpen, onClose }: RulesModalProps) {
                     exit={{ scale: 0.8, opacity: 0 }}
                     className="bg-white rounded-xl p-3 md:p-6 max-w-sm md:max-w-lg w-full shadow-2xl border-2 md:border-4 border-orange-400 relative overflow-y-auto max-h-[80vh] md:max-h-[85vh]"
                 >
-                    <button
-                        onClick={onClose}
-                        className="absolute top-2 right-2 p-1 hover:scale-110 transition-transform text-orange-500 hover:text-orange-600"
-                    >
-                        <X size={28} strokeWidth={3} />
-                    </button>
+                    <CloseButton 
+                        onClick={onClose} 
+                        icon={X}
+                        size={28}
+                        strokeWidth={3}
+                        className="absolute top-2 right-2 p-1 hover:scale-110 transition-transform text-orange-500 hover:text-orange-600" 
+                    />
 
                     <h2 className="text-2xl font-extrabold text-orange-600 mb-4 text-center">{t('rules.title')} 🤔</h2>
 
@@ -54,13 +56,14 @@ export function RulesModal({ isOpen, onClose }: RulesModalProps) {
                         ))}
                     </div>
 
-                    <div className="mt-4 text-center">
-                        <button
+                    <div className="text-center">
+                        <CloseButton
                             onClick={onClose}
-                            className="bg-orange-500 text-white font-bold py-2 px-6 rounded-full shadow-lg text-base hover:bg-orange-600 transition-colors"
+                            showIcon={false}
+                            className="mt-4 bg-orange-500 text-white font-bold py-2 px-6 rounded-full shadow-lg text-base hover:bg-orange-600 transition-colors"
                         >
                             {t('rules.gotIt')} 🚀
-                        </button>
+                        </CloseButton>
                     </div>
                 </motion.div>
             </div>
