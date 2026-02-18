@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ChessPuzzle } from '@react-chess-tools/react-chess-puzzle';
 import { ChessGame } from '@react-chess-tools/react-chess-game';
@@ -16,6 +16,20 @@ export const PuzzlesPage = () => {
     const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(0);
     const [showConfetti, setShowConfetti] = useState(false);
     const [key, setKey] = useState(0);
+    
+    const getConfettiDimensions = () => {
+        const isLg = window.innerWidth >= 1024;
+        const isMd = window.innerWidth >= 768;
+        const sidebarWidth = isLg ? 256 : isMd ? 192 : 0;
+        return { width: window.innerWidth - sidebarWidth, height: window.innerHeight };
+    };
+    const [confettiSize, setConfettiSize] = useState(getConfettiDimensions);
+
+    useEffect(() => {
+        const handleResize = () => setConfettiSize(getConfettiDimensions());
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     const filteredPuzzles = useMemo(() => { 
         if (selectedDifficulty === 'all') {
@@ -47,9 +61,7 @@ export const PuzzlesPage = () => {
     };
 
     return (
-            <div className="flex flex-col items-center justify-center w-full max-w-4xl mx-auto p-2 pb-24 md:pb-4 md:p-4">
-                {showConfetti && <Confetti recycle={false} numberOfPieces={200} />}
-
+            <div className="flex flex-col items-center justify-center w-full max-w-4xl mx-auto p-2 pb-24 md:pb-4 md:p-4 overflow-x-clip">
                 <PuzzleSettingsModal
                     isOpen={showSettings}
                     onClose={() => setShowSettings(false)}
@@ -69,6 +81,17 @@ export const PuzzlesPage = () => {
                     />
 
                     
+
+                    {showConfetti && (
+                        <div className="fixed top-0 left-0 right-0 bottom-0 md:left-48 lg:left-64 overflow-hidden pointer-events-none z-50">
+                            <Confetti
+                                recycle={false}
+                                numberOfPieces={200}
+                                width={confettiSize.width}
+                                height={confettiSize.height}
+                            />
+                        </div>
+                    )}
 
                     <div className="border-4 md:border-8 border-white rounded-xl md:rounded-2xl shadow-xl md:shadow-2xl relative">
                         <div className="p-4 bg-orange-100 rounded-xl shadow-inner border-4 border-orange-300 w-full max-w-xl ">
