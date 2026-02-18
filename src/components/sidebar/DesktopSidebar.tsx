@@ -29,7 +29,7 @@ export const DesktopSidebar = () => {
     return (
         <aside className="hidden md:flex flex-col w-48 lg:w-64 bg-gray-900 min-h-screen text-gray-100 fixed left-0 top-0 z-50">
             <div className="p-4 mb-4">
-                <h1 className="text-2xl font-extrabold text-orange-300 tracking-wide">
+                <h1 className="text-lg font-extrabold text-orange-300 tracking-wide leading-snug">
                     🦁 {t('sidebar.chess')} 🦄
                 </h1>
             </div>
@@ -48,8 +48,8 @@ export const DesktopSidebar = () => {
                                     }`
                                 }
                             >
-                                <item.icon size={24} className="text-orange-400" />
-                                <span>{t(item.label)}</span>
+                                <item.icon size={20} className="text-orange-400 shrink-0" />
+                                <span className="text-base truncate">{t(item.label)}</span>
                             </NavLink>
                         </li>
                     ))}
