@@ -1,9 +1,9 @@
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { navConfig, routeTranslations } from '../routes';
-import { useLanguageSwitch } from '../hooks/useNavigation';
+import { navConfig, routeTranslations } from '../../routes';
+import { useLanguageSwitch } from '../../hooks/useNavigation';
 import { useMemo } from 'react';
-import { LanguageSwitch } from './LanguageSwitch';
+import { LanguageSwitch } from '../sidebar/LanguageSwitch';
 import { Languages } from 'lucide-react';
 
 type NavItem = {

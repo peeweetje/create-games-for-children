@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { detectCurrentRoute, useLanguageSwitch } from '../hooks/useNavigation';
+import { detectCurrentRoute, useLanguageSwitch } from '../../hooks/useNavigation';
 import { Languages } from 'lucide-react';
 
 type LanguageSwitchProps = {
