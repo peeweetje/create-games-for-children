@@ -1,7 +1,7 @@
 {
     "app": {
-        "title": "Chess for Kids",
-        "subtitle": "Learn & Play!",
+        "title": "Learn & Play for Kids",
+        "subtitle": "Chess, Math & More!",
         "newGame": "New Game",
         "help": "Help"
     },
@@ -44,14 +44,39 @@
         "gotIt": "Got it! Let's Play!"
     },
     "sidebar": {
-        "chess": "Chess",
-        "puzzles": "Puzzles",
-        "learn": "Learn",
-        "play": "Play",
+        "chess": "Learn & Play",
+        "puzzles": "Chess Puzzles",
+        "learn": "Math & Learn",
+        "play": "Play Chess",
         "routes": {
             "puzzles": "puzzles",
             "learn": "learn"
         }
+    },
+    "learn": {
+        "title": "🔢 Math for Kids!",
+        "subtitle": "Pick an operation and answer the questions!",
+        "operations": {
+            "addition": "Addition",
+            "subtraction": "Subtraction",
+            "multiplication": "Multiplication",
+            "division": "Division"
+        },
+        "scoreboard": {
+            "score": "Score",
+            "total": "Total",
+            "accuracy": "Accuracy",
+            "streak": "Streak 🔥"
+        },
+        "question": {
+            "prompt": "What is..."
+        },
+        "feedback": {
+            "correct": "Correct!",
+            "wrong": "The answer was {{answer}}"
+        },
+        "skip": "Skip this question →",
+        "tip": "💡 Tip: Get 3 in a row to earn a ⭐ star! How many can you collect?"
     },
     "language": {
         "switch": "Switch Language",

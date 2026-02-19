@@ -1,7 +1,7 @@
 {
     "app": {
-        "title": "Schaken voor Kinderen",
-        "subtitle": "Leer & Speel!",
+        "title": "Leer & Speel voor Kinderen",
+        "subtitle": "Schaken, Rekenen & Meer!",
         "newGame": "Nieuw Spel",
         "help": "Help"
     },
@@ -45,14 +45,39 @@
         
     },
     "sidebar": {
-        "chess": "Schaken",
-        "puzzles": "Puzzels",
-        "learn": "Leren",
-        "play": "Spelen",
+        "chess": "Leer & Speel",
+        "puzzles": "Schaak puzzels",
+        "learn": "Rekenen & Leren",
+        "play": "Schaak Spelen",
         "routes": {
             "puzzles": "puzzels",
             "learn": "leren"
         }
+    },
+    "learn": {
+        "title": "🔢 Rekenen voor Kinderen!",
+        "subtitle": "Kies een bewerking en beantwoord de vragen!",
+        "operations": {
+            "addition": "Optellen",
+            "subtraction": "Aftrekken",
+            "multiplication": "Vermenigvuldigen",
+            "division": "Delen"
+        },
+        "scoreboard": {
+            "score": "Score",
+            "total": "Totaal",
+            "accuracy": "Nauwkeurigheid",
+            "streak": "Reeks 🔥"
+        },
+        "question": {
+            "prompt": "Wat is..."
+        },
+        "feedback": {
+            "correct": "Goed zo!",
+            "wrong": "Het antwoord was {{answer}}"
+        },
+        "skip": "Sla deze vraag over →",
+        "tip": "💡 Tip: Krijg 3 op een rij om een ⭐ ster te verdienen! Hoeveel kun jij er verzamelen?"
     },
    "language": {
         "switch": "Switch Language",
