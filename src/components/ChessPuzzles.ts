@@ -11,6 +11,24 @@ export interface Puzzle {
 export const SAMPLE_PUZZLES: Puzzle[] = [
     // ==================== EASY PUZZLES (1-25) ====================
     // Basic checkmates, simple captures, and straightforward tactics
+
+    // Queen checkmate - simple mate in 1
+    {
+        fen: "8/8/8/8/5N1k/5Q2/7K/8 w - - 0 1",
+        moves: ["f3g3"],
+        descriptionKey: "puzzles.descriptions.mate1White",
+        hintKey: "puzzles.hints.checkmateQueen",
+        difficulty: "easy"
+    },
+    
+    // Capture undefended rook
+    {
+        fen: "r1k5/8/8/8/8/8/6QK/8 w - - 0 1",
+        moves: ["g2a8"],
+        descriptionKey: "puzzles.descriptions.captureHanging",
+        hintKey: "puzzles.hints.trappedPiece",
+        difficulty: "easy"
+    },
     
     // Mate in 1 patterns - Easy
     {
@@ -186,6 +204,7 @@ export const SAMPLE_PUZZLES: Puzzle[] = [
         hintKey: "puzzles.hints.forceBishop",
         difficulty: "easy"
     },
+   
 
     // ==================== MEDIUM PUZZLES (26-50) ====================
     // Fun forks, pins, and tactics for kids
@@ -403,8 +422,8 @@ export const getRandomPuzzleByDifficulty = (difficulty: Difficulty): Puzzle => {
 
 // Puzzle counts by difficulty
 export const PUZZLE_COUNTS = {
-    easy: 23,
+    easy: 25,
     medium: 23,
     hard: 4,
-    total: 54
+    total: 56
 } as const;
