@@ -241,7 +241,10 @@
             "underpromotion": "Promoveer naar een paard voor een vork!",
             "rookCheck": "Schaak met de toren.",
             "rookMate": "Geef mat met de toren.",
-            "queenMate": "Geef mat met de koningin."
+            "queenMate": "Geef mat met de koningin.",
+            "unleashAttack": "Verplaats de loper om een krachtige aanval te ontketenen!",
+            "pinWin": "Pin het stuk om materiaal te winnen!",
+            "sacrificeExpose": "Offer op om de koning bloot te stellen!"
         }
     }
 }

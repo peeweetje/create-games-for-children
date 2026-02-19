@@ -241,7 +241,10 @@
             "underpromotion": "Promote to a knight for a fork!",
             "rookCheck": "Check with the rook.",
             "rookMate": "Deliver checkmate with the rook.",
-            "queenMate": "Deliver checkmate with the queen."
+            "queenMate": "Deliver checkmate with the queen.",
+            "unleashAttack": "Move the bishop to unleash a powerful attack!",
+            "pinWin": "Pin the piece to win material!",
+            "sacrificeExpose": "Sacrifice to expose the king!"
         }
     }
 }
