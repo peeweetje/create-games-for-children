@@ -8,7 +8,6 @@ import {
     Star,
     Lightbulb,
     SkipForward,
-    Calculator,
 } from "lucide-react";
 import {
     type Operation,
@@ -22,6 +21,7 @@ import {
     FEEDBACK_EMOJIS_CORRECT,
     FEEDBACK_EMOJIS_WRONG,
 } from "../helpers/mathHelper";
+import { LearnHeader } from "../components/LearnHeader";
 
 export const LearnPage = () => {
     const { t } = useTranslation();
@@ -87,14 +87,7 @@ export const LearnPage = () => {
 
     return (
         <div className="flex flex-col items-center min-h-full bg-gradient-to-b from-yellow-50 to-orange-50 p-4 pb-20 md:pb-4">
-            {/* Header */}
-            <div className="text-center mb-6">
-                <div className="flex items-center justify-center gap-2 mb-1">
-                    <Calculator size={36} className="text-orange-500" />
-                    <h1 className="text-4xl font-bold text-orange-600">{t("learn.title")}</h1>
-                </div>
-                <p className="text-gray-600 text-lg">{t("learn.subtitle")}</p>
-            </div>
+            <LearnHeader />
 
             {/* Stars */}
             {stars > 0 && (
