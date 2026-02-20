@@ -12,9 +12,6 @@ import {
     type Operation,
     type Question,
     operationSymbols,
-    operationColors,
-    operationActiveBorder,
-    operationIcons,
     generateQuestion,
     generateChoices,
     FEEDBACK_EMOJIS_CORRECT,
@@ -22,6 +19,7 @@ import {
 } from "../helpers/mathHelper";
 import { LearnHeader } from "../components/LearnHeader";
 import { LearnStars } from "../components/LearnStars";
+import { LearnOperationSelector } from "../components/LearnOperationSelector";
 
 export const LearnPage = () => {
     const { t } = useTranslation();
@@ -88,26 +86,11 @@ export const LearnPage = () => {
     return (
         <div className="flex flex-col items-center min-h-full bg-gradient-to-b from-yellow-50 to-orange-50 p-4 pb-20 md:pb-4">
             <LearnHeader />
-
             <LearnStars count={stars} />
-
-            {/* Operation Selector */}
-            <div className="flex flex-wrap gap-3 justify-center mb-6">
-                {(Object.keys(operationSymbols) as Operation[]).map((op) => (
-                    <button
-                        key={op}
-                        onClick={() => handleOperationChange(op)}
-                        className={`${operationColors[op]} text-white font-bold py-2 px-4 rounded-2xl text-lg shadow-md transition-all duration-200 border-4 flex items-center gap-2 ${
-                            selectedOp === op
-                                ? `${operationActiveBorder[op]} scale-110 shadow-lg`
-                                : "border-transparent"
-                        }`}
-                    >
-                        {operationIcons[op]}
-                        {t(`learn.operations.${op}`)}
-                    </button>
-                ))}
-            </div>
+            <LearnOperationSelector
+                selectedOperation={selectedOp}
+                onSelect={handleOperationChange}
+            />
 
             {/* Score Board */}
             <div className="flex gap-4 mb-6 bg-white rounded-2xl shadow-md px-5 py-3">
