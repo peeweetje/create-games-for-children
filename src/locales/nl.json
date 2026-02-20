@@ -142,6 +142,10 @@
             "exchangePieces": "Ruil stukken!",
             "scotchGame": "Schots Spel!",
             "discoveredCheck": "Ontdekt schaak!",
+            "discoveredAttack": "Ontdekte aanval!",
+            "smotheredMate": "Gedempt mat!",
+            "greekGift": "Grieks Geschenk offer!",
+            "doubleAttack": "Dubbele aanval!",
             "pin": "Pin en win!",
             "decoy": "Lok de tegenstander!"
         },
@@ -163,6 +167,7 @@
             "awayFromCorner": "Verplaats je koning weg van de hoek.",
             "gainSpace": "Druk je pion naar voren om ruimte te winnen.",
             "pinToQueen": "Verplaats je loper om het paard vast te pinnen aan de koningin.",
+            "pinToKing": "Pin het paard aan de koning met je loper!",
             "blockWithBishop": "Blokkeer de schaak met je loper.",
             "supportCenter": "Steun je centrum pion.",
             "attackKnight": "Val het paard aan met een pion.",
@@ -243,6 +248,10 @@
             "rookMate": "Geef mat met de toren.",
             "queenMate": "Geef mat met de koningin.",
             "unleashAttack": "Verplaats de loper om een krachtige aanval te ontketenen!",
+            "discoveredAttackBishop": "Verplaats de loper om een aanval te onthullen!",
+            "smotheredMate": "Het paard geeft schaakmat aan de ingesloten koning!",
+            "greekGift": "Offer de loper op f7 om de koning bloot te stellen!",
+            "doubleAttack": "De koningin valt twee stukken tegelijk aan!",
             "pinWin": "Pin het stuk om materiaal te winnen!",
             "sacrificeExpose": "Offer op om de koning bloot te stellen!"
         }

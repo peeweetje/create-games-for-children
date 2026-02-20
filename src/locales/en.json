@@ -141,6 +141,10 @@
             "exchangePieces": "Exchange pieces!",
             "scotchGame": "Scotch Game!",
             "discoveredCheck": "Discovered check tactic!",
+            "discoveredAttack": "Discovered attack!",
+            "smotheredMate": "Smothered mate!",
+            "greekGift": "Greek Gift sacrifice!",
+            "doubleAttack": "Double attack!",
             "pin": "Pin and win!",
             "decoy": "Decoy the opponent!"
         },
@@ -163,6 +167,7 @@
             "awayFromCorner": "Move your king away from the corner.",
             "gainSpace": "Push your pawn to gain space.",
             "pinToQueen": "Develop your bishop to pin the knight to the queen.",
+            "pinToKing": "Pin the knight to the king with your bishop!",
             "blockWithBishop": "Block the check with your bishop.",
             "supportCenter": "Support your center pawn.",
             "attackKnight": "Attack the knight with a pawn.",
@@ -243,6 +248,10 @@
             "rookMate": "Deliver checkmate with the rook.",
             "queenMate": "Deliver checkmate with the queen.",
             "unleashAttack": "Move the bishop to unleash a powerful attack!",
+            "discoveredAttackBishop": "Move the bishop to reveal an attack!",
+            "smotheredMate": "The knight delivers checkmate to the trapped king!",
+            "greekGift": "Sacrifice the bishop on f7 to expose the king!",
+            "doubleAttack": "The queen attacks two pieces at once!",
             "pinWin": "Pin the piece to win material!",
             "sacrificeExpose": "Sacrifice to expose the king!"
         }

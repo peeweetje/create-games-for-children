@@ -208,6 +208,23 @@ export const SAMPLE_PUZZLES: Puzzle[] = [
 
     // ==================== MEDIUM PUZZLES (26-50) ====================
     // Fun forks, pins, and tactics for kids
+
+    // Discovered attack - bishop moves to reveal attack on queen
+    {
+        fen: "r1bqk2r/pppp1ppp/2n2n2/4p3/1bB1P3/2N2N2/PPPP1PPP/R1BQK2R w KQkq - 0 1",
+        moves: ["c4f7"],
+        descriptionKey: "puzzles.descriptions.discoveredAttack",
+        hintKey: "puzzles.hints.discoveredAttackBishop",
+        difficulty: "medium"
+    },
+    // bishop pins knight to king
+    {
+        fen: "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 1",
+        moves: ["f1b5"],
+        descriptionKey: "puzzles.descriptions.pinKnight",
+        hintKey: "puzzles.hints.pinToKing",
+        difficulty: "medium"
+    },
     
     {
         fen: "r1bqkb1r/pppp1ppp/2n2n2/4p3/2B1P3/2N2N2/PPPP1PPP/R1BQK2R b KQkq - 0 1",
@@ -370,9 +387,19 @@ export const SAMPLE_PUZZLES: Puzzle[] = [
         hintKey: "puzzles.hints.scotchGame",
         difficulty: "medium"
     },
+ 
 
     // ==================== HARD PUZZLES (51-75) ====================
     // Advanced tactics and checkmates for kids!
+
+      // Smothered mate - knight delivers checkmate to trapped king
+    {
+        fen: "6rk/6pp/8/6N1/8/8/8/4K3 w - - 0 1",
+        moves: ["g5f7"],
+        descriptionKey: "puzzles.descriptions.smotheredMate",
+        hintKey: "puzzles.hints.smotheredMate",
+        difficulty: "hard"
+    },
     
     // Fork - knight attacks queen and rook
     {
@@ -407,6 +434,23 @@ export const SAMPLE_PUZZLES: Puzzle[] = [
         hintKey: "puzzles.hints.sacrificeExpose",
         difficulty: "hard"
     },
+    // Greek Gift - bishop sacrifice to expose the king
+    {
+        fen: "r1bq1rk1/pppp1ppp/2n2n2/2b1p3/2B1P3/3P1N2/PPP2PPP/R1BQ1RK1 w - - 0 1",
+        moves: ["c4f7"],
+        descriptionKey: "puzzles.descriptions.greekGift",
+        hintKey: "puzzles.hints.greekGift",
+        difficulty: "hard"
+    },
+    // Double attack - queen attacks two pieces at once
+    {
+        fen: "r4rk1/ppp2ppp/8/8/1n6/8/PPPQ1PPP/4R1K1 w - - 0 1",
+        moves: ["d2c3"],
+        descriptionKey: "puzzles.descriptions.doubleAttack",
+        hintKey: "puzzles.hints.doubleAttack",
+        difficulty: "hard"
+    },
+  
 ]
 
 // Helper function to get puzzles by difficulty
@@ -423,7 +467,7 @@ export const getRandomPuzzleByDifficulty = (difficulty: Difficulty): Puzzle => {
 // Puzzle counts by difficulty
 export const PUZZLE_COUNTS = {
     easy: 25,
-    medium: 23,
-    hard: 4,
-    total: 56
+    medium: 25,
+    hard: 7,
+    total: 57
 } as const;
