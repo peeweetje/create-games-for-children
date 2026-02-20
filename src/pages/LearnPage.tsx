@@ -5,7 +5,6 @@ import {
     Hash,
     Target,
     Flame,
-    Star,
     Lightbulb,
     SkipForward,
 } from "lucide-react";
@@ -22,6 +21,7 @@ import {
     FEEDBACK_EMOJIS_WRONG,
 } from "../helpers/mathHelper";
 import { LearnHeader } from "../components/LearnHeader";
+import { LearnStars } from "../components/LearnStars";
 
 export const LearnPage = () => {
     const { t } = useTranslation();
@@ -89,19 +89,7 @@ export const LearnPage = () => {
         <div className="flex flex-col items-center min-h-full bg-gradient-to-b from-yellow-50 to-orange-50 p-4 pb-20 md:pb-4">
             <LearnHeader />
 
-            {/* Stars */}
-            {stars > 0 && (
-                <div className="mb-4 flex gap-1">
-                    {Array.from({ length: stars }).map((_, i) => (
-                        <Star
-                            key={i}
-                            size={28}
-                            className="text-yellow-400 fill-yellow-400 animate-bounce"
-                            style={{ animationDelay: `${i * 80}ms` }}
-                        />
-                    ))}
-                </div>
-            )}
+            <LearnStars count={stars} />
 
             {/* Operation Selector */}
             <div className="flex flex-wrap gap-3 justify-center mb-6">
