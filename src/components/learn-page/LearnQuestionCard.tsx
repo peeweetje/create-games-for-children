@@ -15,10 +15,28 @@ export const LearnQuestionCard = ({
     const { t } = useTranslation();
 
     return (
-        <div className="bg-white rounded-3xl shadow-xl p-8 mb-6 w-full max-w-sm text-center border-4 border-yellow-300">
-            {feedback ? (
+        <div className="bg-white rounded-3xl shadow-xl p-8 mb-6 w-full max-w-sm text-center border-4 border-yellow-300 relative h-[180px] overflow-hidden">
+            {/* Question content - always rendered, visibility toggled */}
+            <div className={`w-full h-full absolute inset-0 flex flex-col items-center justify-center p-8 transition-opacity duration-200 ${feedback ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
+                <p className="text-gray-400 text-sm mb-2 font-semibold uppercase tracking-wide">
+                    {t("learn.question.prompt")}
+                </p>
+                <div className="text-6xl font-extrabold text-gray-800">
+                    {question.num1}{" "}
+                    <span className="text-orange-500">
+                        {operationSymbols[question.operation]}
+                    </span>{" "}
+                    {question.num2} = ?
+                </div>
+            </div>
+            
+            {/* Feedback content - always rendered, visibility toggled, same size as question */}
+            <div className={`w-full h-full absolute inset-0 flex flex-col items-center justify-center p-8 transition-opacity duration-200 ${feedback ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+                <p className="text-gray-400 text-sm mb-2 font-semibold uppercase tracking-wide">
+                    {feedback === "correct" ? "🎉" : "🤔"}
+                </p>
                 <div
-                    className={`text-5xl font-bold animate-bounce ${
+                    className={`text-4xl font-bold ${
                         feedback === "correct" ? "text-green-500" : "text-red-400"
                     }`}
                 >
@@ -27,20 +45,7 @@ export const LearnQuestionCard = ({
                         ? t("learn.feedback.correct")
                         : t("learn.feedback.wrong", { answer: question.answer })}
                 </div>
-            ) : (
-                <>
-                    <p className="text-gray-400 text-sm mb-2 font-semibold uppercase tracking-wide">
-                        {t("learn.question.prompt")}
-                    </p>
-                    <div className="text-6xl font-extrabold text-gray-800 mb-2">
-                        {question.num1}{" "}
-                        <span className="text-orange-500">
-                            {operationSymbols[question.operation]}
-                        </span>{" "}
-                        {question.num2} = ?
-                    </div>
-                </>
-            )}
+            </div>
         </div>
     );
 };

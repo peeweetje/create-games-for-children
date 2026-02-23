@@ -20,9 +20,9 @@ export const LearnAnswerChoices = ({
                     "py-5 text-3xl font-bold rounded-2xl shadow-md transition-all duration-200 border-4 ";
                 if (selected === null) {
                     btnClass +=
-                        "bg-white border-gray-200 hover:border-orange-400 hover:scale-105 hover:shadow-lg text-gray-800 cursor-pointer";
+                        "bg-white border-gray-200 hover:border-orange-400 hover:shadow-lg text-gray-800 cursor-pointer";
                 } else if (choice === correctAnswer) {
-                    btnClass += "bg-green-100 border-green-500 text-green-700 scale-105";
+                    btnClass += "bg-green-100 border-green-500 text-green-700";
                 } else if (choice === selected) {
                     btnClass += "bg-red-100 border-red-400 text-red-600";
                 } else {
