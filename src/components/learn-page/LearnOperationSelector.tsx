@@ -5,7 +5,7 @@ import {
     operationColors,
     operationActiveBorder,
     operationIcons,
-} from "../helpers/mathHelper";
+} from "../../helpers/mathHelper";
 
 interface LearnOperationSelectorProps {
     selectedOperation: Operation;

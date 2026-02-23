@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { type Question, operationSymbols } from "../helpers/mathHelper";
+import { type Question, operationSymbols } from "../../helpers/mathHelper";
 
 interface LearnQuestionCardProps {
     question: Question;

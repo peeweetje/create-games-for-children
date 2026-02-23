@@ -1,5 +1,4 @@
 import { useState, useEffect, useCallback } from "react";
-import { useTranslation } from "react-i18next";
 import {
     type Operation,
     type Question,
@@ -8,17 +7,16 @@ import {
     FEEDBACK_EMOJIS_CORRECT,
     FEEDBACK_EMOJIS_WRONG,
 } from "../helpers/mathHelper";
-import { LearnHeader } from "../components/LearnHeader";
-import { LearnStars } from "../components/LearnStars";
-import { LearnOperationSelector } from "../components/LearnOperationSelector";
-import { LearnScoreboard } from "../components/LearnScoreboard";
-import { LearnQuestionCard } from "../components/LearnQuestionCard";
-import { LearnAnswerChoices } from "../components/LearnAnswerChoices";
-import { LearnSkipButton } from "../components/LearnSkipButton";
-import { LearnTip } from "../components/LearnTip";
+import { LearnHeader } from "../components/learn-page/LearnHeader";
+import { LearnStars } from "../components/learn-page/LearnStars";
+import { LearnOperationSelector } from "../components/learn-page/LearnOperationSelector";
+import { LearnScoreboard } from "../components/learn-page/LearnScoreboard";
+import { LearnQuestionCard } from "../components/learn-page/LearnQuestionCard";
+import { LearnAnswerChoices } from "../components/learn-page/LearnAnswerChoices";
+import { LearnSkipButton } from "../components/learn-page/LearnSkipButton";
+import { LearnTip } from "../components/learn-page/LearnTip";
 
 export const LearnPage = () => {
-    const { t } = useTranslation();
     const [selectedOp, setSelectedOp] = useState<Operation>("addition");
     const [question, setQuestion] = useState<Question>(() => generateQuestion("addition"));
     const [choices, setChoices] = useState<number[]>([]);
