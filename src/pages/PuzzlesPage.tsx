@@ -94,7 +94,7 @@ export const PuzzlesPage = () => {
                     )}
 
                     <div className="border-4 md:border-8 border-white rounded-xl md:rounded-2xl shadow-xl md:shadow-2xl relative">
-                        <div className="p-4 bg-orange-100 rounded-xl shadow-inner border-4 border-orange-300 w-full max-w-xl ">
+                        <div className="p-4 bg-violet-50 rounded-xl shadow-inner border-4 border-violet-300 w-full max-w-xl ">
                             <ChessPuzzle.Root
                                 key={key}
                                 puzzle={currentPuzzle}
@@ -103,8 +103,8 @@ export const PuzzlesPage = () => {
                                 <ChessGame.Sounds />
                                 <ChessPuzzle.Board
                                     options={{
-                                        darkSquareStyle: { backgroundColor: "#FFB067" },
-                                        lightSquareStyle: { backgroundColor: "#FFF4E0" }
+                                        darkSquareStyle: { backgroundColor: "oklch(71.4% 0.203 305.504)" },
+                                        lightSquareStyle: { backgroundColor: "oklch(94.3% 0.029 294.588)" }
                                     }}
                                 />
                                 {/* Hidden hints component if needed, or custom UI below */}

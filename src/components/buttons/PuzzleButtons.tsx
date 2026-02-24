@@ -18,7 +18,7 @@ export const PuzzleButtons = ({
         <div className="mt-2 flex flex-wrap gap-4 justify-center">
             <button
                 onClick={onReset}
-                className="flex items-center gap-2 px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded-lg font-semibold transition-colors cursor-pointer text-sm"
+                className="flex items-center gap-2 px-4 py-2 bg-violet-200 hover:bg-violet-300 text-violet-800 rounded-lg font-semibold transition-colors cursor-pointer text-sm"
             >
                  {t("puzzles.buttons.reset")}
                 <RefreshCw className="w-4 h-4" />

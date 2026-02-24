@@ -38,16 +38,16 @@ export const PuzzleHeader = ({
     return (
         <div className="text-center space-y-2">
             <div className="flex items-center justify-center gap-3">
-                <h1 className="text-2xl md:text-3xl font-extrabold text-orange-600 flex items-center gap-3 drop-shadow-sm tracking-wide">
+                <h1 className="text-2xl md:text-3xl font-extrabold text-violet-600 flex items-center gap-3 drop-shadow-sm tracking-wide">
                     <Trophy className="w-8 h-8" />
                     {t("puzzles.title")}
                 </h1>
                 <button
                     onClick={onSettingsToggle}
-                    className="p-2 bg-orange-200 hover:bg-orange-300 rounded-full transition-colors"
+                    className="p-2 bg-violet-200 hover:bg-violet-300 rounded-full transition-colors"
                     title={t("puzzles.settings.title")}
                 >
-                    <Settings className="w-6 h-6 text-orange-700" />
+                    <Settings className="w-6 h-6 text-violet-700" />
                 </button>
             </div>
             <p className="text-xl text-gray-700 font-medium">
