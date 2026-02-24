@@ -29,7 +29,7 @@ export const DesktopSidebar = () => {
     return (
         <aside className="hidden md:flex flex-col w-48 lg:w-64 bg-gray-900 min-h-screen text-gray-100 fixed left-0 top-0 z-50">
             <div className="p-4 mb-4">
-                <h1 className="text-lg font-extrabold text-orange-300 tracking-wide leading-snug">
+                <h1 className="text-lg font-extrabold text-violet-300 tracking-wide leading-snug">
                     🦁 {t('sidebar.chess')} 🦄
                 </h1>
             </div>
@@ -43,12 +43,12 @@ export const DesktopSidebar = () => {
                                 className={({ isActive }) =>
                                     `flex items-center gap-3 px-4 py-3 rounded-md transition-all font-semibold ${
                                         isActive 
-                                            ? 'bg-orange-300 text-white border-l-4 border-orange-500' 
-                                            : 'hover:bg-orange-900 hover:text-white'
+                                            ? 'bg-violet-300 text-white border-l-4 border-violet-500' 
+                                            : 'hover:bg-violet-800 hover:text-white'
                                     }`
                                 }
                             >
-                                <item.icon size={20} className="text-orange-400 shrink-0" />
+                                <item.icon size={20} className="text-violet-400 shrink-0" />
                                 <span className="text-base truncate">{t(item.label)}</span>
                             </NavLink>
                         </li>

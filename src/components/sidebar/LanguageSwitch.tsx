@@ -24,7 +24,7 @@ export const LanguageSwitch = ({
         return (
             <button
                 onClick={() => handleLanguageChange(isDutch ? 'en' : 'nl')}
-                className={`flex flex-col items-center justify-center h-full w-full gap-1 text-xs font-medium text-orange-400 ${className}`}
+                className={`flex flex-col items-center justify-center h-full w-full gap-1 text-xs font-medium text-violet-400 ${className}`}
                 title={t('language.switch')}
             >
                 <Languages size={24} />

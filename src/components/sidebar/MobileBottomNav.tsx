@@ -35,11 +35,11 @@ export const MobileBottomNav = () => {
                             to={item.path}
                             className={({ isActive }) =>
                                 `flex flex-col items-center justify-center h-full w-full gap-1 text-xs font-medium transition-colors ${
-                                    isActive ? 'text-orange-400' : 'text-gray-400'
+                                    isActive ? 'text-violet-400' : 'text-gray-400'
                                 }`
                             }
                         >
-                            <item.icon size={24} className="text-orange-400" />
+                            <item.icon size={24} className="text-violet-400" />
                             <span>{t(item.label)}</span>
                         </NavLink>
                     </li>
