@@ -16,7 +16,7 @@ export const LearnQuestionCard = ({
     const { t } = useTranslation();
 
     return (
-        <div className="bg-white rounded-3xl shadow-xl p-8 mb-6 w-full max-w-sm text-center border-4 border-yellow-300 relative h-[180px] overflow-hidden">
+        <div className="bg-white rounded-3xl shadow-xl p-8 mb-6 w-full max-w-sm text-center border-4 border-violet-300 relative h-[180px] overflow-hidden">
             <AnimatePresence mode="wait">
                 {!feedback ? (
                     <motion.div
@@ -32,7 +32,7 @@ export const LearnQuestionCard = ({
                         </p>
                         <div className="text-6xl font-extrabold text-gray-800">
                             {question.num1}{" "}
-                            <span className="text-orange-500">
+                            <span className="text-violet-500">
                                 {operationSymbols[question.operation]}
                             </span>{" "}
                             {question.num2} = ?

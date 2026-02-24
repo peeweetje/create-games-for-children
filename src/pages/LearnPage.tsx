@@ -78,7 +78,7 @@ export const LearnPage = () => {
     const accuracy = total > 0 ? Math.round((score / total) * 100) : 0;
 
     return (
-        <div className="flex flex-col items-center min-h-full bg-gradient-to-b from-yellow-50 to-orange-50 p-4 pb-20 md:pb-4">
+        <div className="flex flex-col items-center min-h-full bg-gradient-to-b from-fuchsia-50 to-violet-100 p-4 pb-20 md:pb-4">
             <LearnHeader />
             <LearnStars count={stars} />
             <LearnOperationSelector

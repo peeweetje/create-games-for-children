@@ -26,17 +26,17 @@ export const operationSymbols: Record<Operation, string> = {
 };
 
 export const operationColors: Record<Operation, string> = {
-    addition: "bg-green-400 hover:bg-green-500",
-    subtraction: "bg-blue-400 hover:bg-blue-500",
+    addition: "bg-indigo-400 hover:bg-indigo-500",
+    subtraction: "bg-violet-400 hover:bg-violet-500",
     multiplication: "bg-purple-400 hover:bg-purple-500",
-    division: "bg-orange-400 hover:bg-orange-500",
+    division: "bg-fuchsia-400 hover:bg-fuchsia-500",
 };
 
 export const operationActiveBorder: Record<Operation, string> = {
-    addition: "border-green-600",
-    subtraction: "border-blue-600",
+    addition: "border-indigo-600",
+    subtraction: "border-violet-600",
     multiplication: "border-purple-600",
-    division: "border-orange-600",
+    division: "border-fuchsia-600",
 };
 
 
