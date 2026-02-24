@@ -26,7 +26,7 @@ export function ChessBoard({ game, onPieceDrop, boardWidth = 400, moveSquares, o
 
     return (
         <div
-            className="p-4 bg-orange-100 rounded-xl shadow-inner border-4 border-orange-300 overflow-hidden"
+            className="p-4 bg-violet-50 rounded-xl shadow-inner border-4 border-violet-300 overflow-hidden"
             style={{ width: boardWidth }}
         >
             <Chessboard
@@ -37,8 +37,8 @@ export function ChessBoard({ game, onPieceDrop, boardWidth = 400, moveSquares, o
                     onSquareClick: handleSquareClick,
                     onPieceDrag: handlePieceDragBegin,
                     squareStyles: moveSquares,
-                    darkSquareStyle: { backgroundColor: "#FFB067" },
-                    lightSquareStyle: { backgroundColor: "#FFF4E0" },
+                    darkSquareStyle: { backgroundColor: "oklch(71.4% 0.203 305.504)" },
+                    lightSquareStyle: { backgroundColor: "oklch(94.3% 0.029 294.588)" },
                     animationDurationInMs: 200,
                 }}
             />

@@ -10,7 +10,7 @@ interface GameInfoProps {
 
 export function GameInfo({ turn, isGameOver, isCheckmate, isDraw }: GameInfoProps) {
     return (
-        <div className="flex flex-col items-center justify-center p-4 bg-white rounded-xl shadow-lg border-2 border-orange-200">
+        <div className="flex flex-col items-center justify-center p-4 bg-white rounded-xl shadow-lg border-2 border-violet-200">
             {isGameOver ? (
                 <GameOverMessage 
                     turn={turn} 

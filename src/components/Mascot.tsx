@@ -46,7 +46,7 @@ export function Mascot({ isCheckmate, isCheck, turn }: MascotProps) {
                     initial={{ opacity: 0, y: 20, scale: 0.8 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.8 }}
-                    className="bg-white p-4 rounded-2xl rounded-br-none shadow-xl border-2 border-orange-300 mb-2 mr-2"
+                    className="bg-white p-4 rounded-2xl rounded-br-none shadow-xl border-2 border-violet-300 mb-2 mr-2"
                 >
                     <p className="text-sm font-comic font-medium text-slate-700 leading-snug">
                         {message}
