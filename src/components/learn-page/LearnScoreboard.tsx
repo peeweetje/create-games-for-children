@@ -1,4 +1,4 @@
-import { Trophy, Hash, Target, Flame } from "lucide-react";
+import { Trophy, Hash, Target } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 interface LearnScoreboardProps {
@@ -6,6 +6,7 @@ interface LearnScoreboardProps {
     total: number;
     accuracy: number;
     streak: number;
+    selectedOperation: string;
 }
 
 export const LearnScoreboard = ({
@@ -47,7 +48,6 @@ export const LearnScoreboard = ({
             </div>
             <div className="text-center">
                 <div className="flex items-center justify-center gap-1 mb-1">
-                    <Flame size={14} className="text-orange-500" />
                     <p className="text-xs text-gray-500 font-semibold uppercase">
                         {t("learn.scoreboard.streak")}
                     </p>
