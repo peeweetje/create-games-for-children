@@ -77,7 +77,30 @@
             "wrong": "Het antwoord was {{answer}}"
         },
         "skip": "Sla deze vraag over →",
-        "tip": "💡 Tip: Krijg 3 op een rij om een ⭐ ster te verdienen! Hoeveel kun jij er verzamelen?"
+        "tip": "💡 Tip: Krijg 3 op een rij om een ⭐ ster te verdienen! Hoeveel kun jij er verzamelen?",
+        "highScores": {
+            "view": "Bekijk High Scores",
+            "title": "🏆 High Scores",
+            "subtitle": "Je beste prestaties in alle bewerkingen",
+            "bestScore": "Beste Score",
+            "bestAccuracy": "Beste Accuraatheid",
+            "bestStreak": "Beste Streak",
+            "totalQuestions": "Totaal Vragen",
+            "lastPlayed": "Laatst Gespeeld",
+            "clearAll": "Wis Alle Scores",
+            "clearConfirmation": "Weet je zeker dat je alle high scores wilt wissen? Deze actie kan niet ongedaan worden gemaakt.",
+            "close": "Sluiten"
+        },
+        "sessionCompleted": {
+            "title": "Sessie Voltooid!",
+            "subtitle": "Je hebt {{count}} vragen voltooid voor {{operation}}",
+            "correct": "Correct",
+            "accuracy": "Accuraatheid",
+            "bestStreak": "Beste Streak",
+            "starsEarned": "Verdiende Sterren",
+            "tryAgain": "Opnieuw Proberen",
+            "viewHighScores": "Bekijk High Scores"
+        }
     },
    "language": {
         "switch": "Switch Language",

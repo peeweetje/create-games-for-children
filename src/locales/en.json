@@ -76,7 +76,30 @@
             "wrong": "The answer was {{answer}}"
         },
         "skip": "Skip this question →",
-        "tip": "💡 Tip: Get 3 in a row to earn a ⭐ star! How many can you collect?"
+        "tip": "💡 Tip: Get 3 in a row to earn a ⭐ star! How many can you collect?",
+        "highScores": {
+            "view": "View High Scores",
+            "title": "🏆 High Scores",
+            "subtitle": "Your best performances across all operations",
+            "bestScore": "Best Score",
+            "bestAccuracy": "Best Accuracy",
+            "bestStreak": "Best Streak",
+            "totalQuestions": "Total Questions",
+            "lastPlayed": "Last Played",
+            "clearAll": "Clear All Scores",
+            "clearConfirmation": "Are you sure you want to clear all high scores? This action cannot be undone.",
+            "close": "Close"
+        },
+        "sessionCompleted": {
+            "title": "Session Complete!",
+            "subtitle": "You completed {{count}} questions for {{operation}}",
+            "correct": "Correct",
+            "accuracy": "Accuracy",
+            "bestStreak": "Best Streak",
+            "starsEarned": "Stars Earned",
+            "tryAgain": "Try Again",
+            "viewHighScores": "View High Scores"
+        }
     },
     "language": {
         "switch": "Switch Language",
