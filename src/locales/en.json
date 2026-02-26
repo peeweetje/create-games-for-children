@@ -47,10 +47,12 @@
         "chess": "Learn & Play",
         "puzzles": "Chess Puzzles",
         "learn": "Math & Learn",
+        "reading": "Reading Adventure",
         "play": "Play Chess",
         "routes": {
             "puzzles": "puzzles",
-            "learn": "learn"
+            "learn": "learn",
+            "reading": "reading"
         }
     },
     "learn": {
@@ -61,6 +63,75 @@
             "subtraction": "Subtraction",
             "multiplication": "Multiplication",
             "division": "Division"
+        },
+        "reading": {
+            "title": "📚 Reading for Children!",
+            "subtitle": "Choose your reading level and theme to start learning!",
+            "levels": {
+                "letters": "🔤 Letters",
+                "words": "📖 Words",
+                "sentences": "💬 Sentences", 
+                "stories": "📚 Stories"
+            },
+            "themes": {
+                "animals": "🐾 Animals",
+                "colors": "🌈 Colors",
+                "numbers": "🔢 Numbers",
+                "family": "👨‍👩‍👧‍👦 Family",
+                "food": "🍎 Food",
+                "transportation": "🚗 Transportation"
+            },
+            "levelDescriptions": {
+                "letters": "Learn letter sounds and phonics",
+                "words": "Learn simple words and vocabulary",
+                "sentences": "Read and understand sentences",
+                "stories": "Listen to and read short stories"
+            },
+            "themeDescriptions": {
+                "animals": "Learn animal names and sounds",
+                "colors": "Discover colors and their names",
+                "numbers": "Count and learn number words",
+                "family": "Learn about family members",
+                "food": "Explore yummy food words",
+                "transportation": "Learn about vehicles and transport"
+            },
+            "questionCard": {
+                "readingQuestion": "Reading Question",
+                "answerBelow": "Answer the question below",
+                "listen": "Listen",
+                "correct": "Correct!",
+                "wrong": "The answer was {{answer}}"
+            },
+            "scoreboard": {
+                "readingProgress": "Reading Progress",
+                "correct": "Correct",
+                "total": "Total",
+                "accuracy": "Accuracy",
+                "streak": "Streak 🔥",
+                "starEarned": "Great! You've earned a star for {streak} correct answers in a row!"
+            },
+            "stars": {
+                "starsEarned": "Stars Earned",
+                "outOfFive": "out of 5"
+            },
+            "themeSelector": {
+                "selectTheme": "Select Theme",
+                "chooseTheme": "Choose a theme to start learning!",
+                "noThemeSelected": "No theme selected"
+            },
+            "tip": {
+                "readingTip": "Reading Tip",
+                "tipText": "Get 3 correct answers in a row to earn a ⭐ star! How many can you collect?",
+                "pointingTip": "📖 Point to each word as you read to improve tracking and focus.",
+                "readingAloudTip": "💬 Read sentences out loud to practice pronunciation and fluency.",
+                "retellTip": "📚 Listen carefully to stories and try to retell them in your own words.",
+                "starRewardTip": "🌟 Get 3 correct answers in a row to earn a star! How many can you collect?",
+                "soundingOutTip": "🎯 Take your time and sound out each word letter by letter.",
+                "audioTip": "👂 Use the audio buttons to hear how words should sound.",
+                "pictureTip": "👀 Look at the pictures to help you understand what you're reading.",
+                "celebrationTip": "✨ Celebrate every small victory - reading takes practice!",
+                "grownupTip": "📚 Read with a grown-up for extra help and encouragement!"
+            }
         },
         "scoreboard": {
             "score": "Score",
@@ -84,9 +155,10 @@
             "bestScore": "Best Score",
             "bestAccuracy": "Best Accuracy",
             "bestStreak": "Best Streak",
-            "totalQuestions": "Total Questions",
-            "lastPlayed": "Last Played",
-            "clearAll": "Clear All Scores",
+                "totalQuestions": "Total Questions",
+                "lastPlayed": "Last Played",
+                "never": "Never",
+                "clearAll": "Clear All Scores",
             "clearConfirmation": "Are you sure you want to clear all high scores? This action cannot be undone.",
             "close": "Close"
         },
