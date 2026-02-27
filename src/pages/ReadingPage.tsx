@@ -5,18 +5,18 @@ import {
     Theme, 
     useReadingProgress 
 } from "../helpers/readingHelper";
-import { ReadingHeader } from "../components/learn-page/ReadingHeader";
-import { ReadingStars } from "../components/learn-page/ReadingStars";
-import { ReadingLevelSelector } from "../components/learn-page/ReadingLevelSelector";
-import { ReadingThemeSelector } from "../components/learn-page/ReadingThemeSelector";
-import { ReadingScoreboard } from "../components/learn-page/ReadingScoreboard";
-import { ReadingQuestionCard } from "../components/learn-page/ReadingQuestionCard";
-import { ReadingAnswerChoices } from "../components/learn-page/ReadingAnswerChoices";
-import { ReadingSkipButton } from "../components/learn-page/ReadingSkipButton";
-import { ReadingTip } from "../components/learn-page/ReadingTip";
-import { ReadingHighScoresModal } from "../components/learn-page/ReadingHighScoresModal";
-import { ReadingSessionCompletedModal } from "../components/learn-page/ReadingSessionCompletedModal";
-import { ReadingViewHighScoresButton } from "../components/learn-page/ReadingViewHighScoresButton";
+import { ReadingHeader } from "../components/reading-page/ReadingHeader";
+import { ReadingStars } from "../components/reading-page/ReadingStars";
+import { ReadingLevelSelector } from "../components/reading-page/ReadingLevelSelector";
+import { ReadingThemeSelector } from "../components/reading-page/ReadingThemeSelector";
+import { ReadingScoreboard } from "../components/reading-page/ReadingScoreboard";
+import { ReadingQuestionCard } from "../components/reading-page/ReadingQuestionCard";
+import { ReadingAnswerChoices } from "../components/reading-page/ReadingAnswerChoices";
+import { ReadingSkipButton } from "../components/reading-page/ReadingSkipButton";
+import { ReadingTip } from "../components/reading-page/ReadingTip";
+import { ReadingHighScoresModal } from "../components/reading-page/ReadingHighScoresModal";
+import { ReadingSessionCompletedModal } from "../components/reading-page/ReadingSessionCompletedModal";
+import { ReadingViewHighScoresButton } from "../components/reading-page/ReadingViewHighScoresButton";
 
 export const ReadingPage = () => {
     const [selectedLevel, setSelectedLevel] = useState<ReadingLevel>("letters");
