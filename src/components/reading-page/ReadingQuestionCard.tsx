@@ -8,12 +8,14 @@ interface ReadingQuestionCardProps {
 }
 
 export const ReadingQuestionCard = ({ question, feedback, feedbackEmoji }: ReadingQuestionCardProps) => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
+    
+    // Extract the resolved language once at the component level
+    const currentLang = i18n.resolvedLanguage || i18n.language || 'en';
+    const isDutch = currentLang.startsWith('nl');
     
     // Helper function to get localized answer text
     const getLocalizedAnswer = () => {
-        const currentLang = localStorage.getItem('i18nextLng') || 'en';
-        const isDutch = currentLang.startsWith('nl');
         return isDutch && question.translation ? question.translation : question.answer;
     };
     
@@ -91,11 +93,7 @@ export const ReadingQuestionCard = ({ question, feedback, feedbackEmoji }: Readi
                                 onClick={() => {
                                     // Create a simple text-to-speech audio using the Web Speech API
                                     if ('speechSynthesis' in window) {
-                                        // Get current language from localStorage
-                                        const currentLang = localStorage.getItem('i18nextLng') || 'en';
-                                        const isDutch = currentLang.startsWith('nl');
-                                        
-                                        // Use Dutch translation if available and in Dutch mode, otherwise use English
+                                        // Use the same language detection logic as the rest of the component
                                         const textToSpeak = isDutch && question.translation ? question.translation : question.answer;
                                         
                                         const utterance = new SpeechSynthesisUtterance(textToSpeak);
