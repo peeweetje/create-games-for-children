@@ -6,6 +6,7 @@ interface ReadingSessionCompletedModalProps {
     isOpen: boolean;
     onClose: () => void;
     onTryAgain: () => void;
+    onViewHighScores: () => void;
     score: number;
     total: number;
     accuracy: number;
@@ -19,6 +20,7 @@ export const ReadingSessionCompletedModal = ({
     isOpen, 
     onClose, 
     onTryAgain,
+    onViewHighScores,
     score,
     total,
     accuracy,
@@ -42,8 +44,7 @@ export const ReadingSessionCompletedModal = ({
     const handleViewHighScores = () => {
         saveHighScore(level, score, total, streak);
         onClose();
-        // In a real implementation, you might want to navigate to the high scores modal
-        // For now, we'll just close and let the parent handle navigation
+        onViewHighScores();
     };
 
     return (

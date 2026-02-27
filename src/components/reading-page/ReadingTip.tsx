@@ -1,9 +1,11 @@
 import { useTranslation } from "react-i18next";
+import { useMemo } from "react";
+
 
 export const ReadingTip = () => {
     const { t } = useTranslation();
     
-    const tips = [
+    const tips = useMemo(() => [
         t("learn.reading.tip.tipText"),
         t("learn.reading.tip.pointingTip"),
         t("learn.reading.tip.readingAloudTip"),
@@ -14,7 +16,7 @@ export const ReadingTip = () => {
         t("learn.reading.tip.pictureTip"),
         t("learn.reading.tip.celebrationTip"),
         t("learn.reading.tip.grownupTip")
-    ];
+    ], [t]);
 
     const randomTip = tips[Math.floor(Math.random() * tips.length)];
 

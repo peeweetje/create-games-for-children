@@ -366,10 +366,35 @@ function generateReadingChoices(correctAnswer: string, allOptions: string[], cou
     }
     
     // Fill remaining slots if needed
-    while (choices.length < count) {
-        const randomOption = wrongOptions[Math.floor(Math.random() * wrongOptions.length)];
-        if (!choices.includes(randomOption)) {
-            choices.push(randomOption);
+    // Prevent infinite loop by checking if we have enough unique options
+    const availableWrongOptions = wrongOptions.length;
+    const neededWrongOptions = count - 1;
+    
+    if (availableWrongOptions >= neededWrongOptions) {
+        // We have enough wrong options, use them all
+        for (let i = 0; i < neededWrongOptions && i < shuffled.length; i++) {
+            choices.push(shuffled[i]);
+        }
+    } else {
+        // Not enough wrong options, use all available and fill with duplicates if necessary
+        // But first add all available wrong options
+        for (let i = 0; i < shuffled.length; i++) {
+            choices.push(shuffled[i]);
+        }
+        
+        // If still need more choices and we have at least one wrong option, duplicate some
+        if (choices.length < count && wrongOptions.length > 0) {
+            while (choices.length < count) {
+                const randomOption = wrongOptions[Math.floor(Math.random() * wrongOptions.length)];
+                if (!choices.includes(randomOption)) {
+                    choices.push(randomOption);
+                } else {
+                    // If all wrong options are already included, just add any wrong option
+                    // This prevents infinite loop when wrongOptions.length < count - 1
+                    choices.push(wrongOptions[0]);
+                    break;
+                }
+            }
         }
     }
     
@@ -427,12 +452,23 @@ export function generateReadingQuestion(level: ReadingLevel, theme?: Theme): Rea
             const storyTheme = theme || (Object.keys(STORIES) as Theme[])[Math.floor(Math.random() * Object.keys(STORIES).length)];
             const story = STORIES[storyTheme][Math.floor(Math.random() * STORIES[storyTheme].length)];
             
+            // Get all story titles except the correct one
+            const allStoryTitles = Object.values(STORIES).flat().map(s => s.title);
+            const wrongTitles = allStoryTitles.filter(t => t !== story.title);
+            
+            // Shuffle wrong titles and take first 3 (or all if less than 3 available)
+            const shuffledWrongTitles = wrongTitles.sort(() => Math.random() - 0.5);
+            const distractorTitles = shuffledWrongTitles.slice(0, 3);
+            
+            // Create choices array with correct answer and random distractors
+            const storyChoices = [story.title, ...distractorTitles].sort(() => Math.random() - 0.5);
+            
             return {
                 type: "story",
                 prompt: `Listen to the story: "${story.title}"`,
                 answer: story.title,
-                translation: story.title, // Use the title as translation for now
-                choices: [story.title, ...Object.values(STORIES).flat().map(s => s.title).filter(t => t !== story.title).slice(0, 3)],
+                translation: story.titleTranslation ?? story.title,
+                choices: storyChoices,
                 theme: storyTheme,
                 image: story.image,
                 audio: story.audio

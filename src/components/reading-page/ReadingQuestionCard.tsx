@@ -20,7 +20,7 @@ export const ReadingQuestionCard = ({ question, feedback, feedbackEmoji }: Readi
                 return (
                     <div className="text-center">
                         <div className="text-6xl font-bold text-fuchsia-600 mb-2">
-                            {isDutch ? question.answer : question.answer}
+                             {isDutch && question.translation ? question.translation : question.answer}
                         </div>
                         <p className="text-lg text-gray-600">{t("learn.reading.levels.letters")}</p>
                     </div>
@@ -29,7 +29,7 @@ export const ReadingQuestionCard = ({ question, feedback, feedbackEmoji }: Readi
                 return (
                     <div className="text-center">
                         <div className="text-4xl font-bold text-fuchsia-600 mb-2">
-                            {isDutch ? question.answer : question.answer}
+                            {isDutch && question.translation ? question.translation : question.answer}
                         </div>
                         <p className="text-lg text-gray-600">{t("learn.reading.levels.words")}</p>
                     </div>

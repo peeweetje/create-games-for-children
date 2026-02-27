@@ -55,6 +55,9 @@
             "reading": "reading"
         }
     },
+    "reading": {
+        "backToSettings": "← Back to Settings"
+    },
     "learn": {
         "title": "🔢 Math for Kids!",
         "subtitle": "Pick an operation and answer the questions!",
@@ -164,7 +167,8 @@
                 "never": "Never",
                 "clearAll": "Clear All Scores",
             "clearConfirmation": "Are you sure you want to clear all high scores? This action cannot be undone.",
-            "close": "Close"
+            "close": "Close",
+            "keepReading": "Keep reading to improve your scores!"
         },
         "sessionCompleted": {
             "title": "Session Complete!",
@@ -174,7 +178,8 @@
             "bestStreak": "Best Streak",
             "starsEarned": "Stars Earned",
             "tryAgain": "Try Again",
-            "viewHighScores": "View High Scores"
+            "viewHighScores": "View High Scores",
+            "keepPracticing": "Keep practicing to get even better!"
         }
     },
     "language": {

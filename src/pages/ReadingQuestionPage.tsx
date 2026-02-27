@@ -14,6 +14,7 @@ import { ReadingTip } from "../components/reading-page/ReadingTip";
 import { ReadingHighScoresModal } from "../components/reading-page/ReadingHighScoresModal";
 import { ReadingSessionCompletedModal } from "../components/reading-page/ReadingSessionCompletedModal";
 import { ReadingViewHighScoresButton } from "../components/reading-page/ReadingViewHighScoresButton";
+import { useTranslation } from "react-i18next";
 
 interface ReadingQuestionPageProps {
     selectedLevel: ReadingLevel;
@@ -26,6 +27,7 @@ export const ReadingQuestionPage = ({
     selectedTheme, 
     onBackToSettings 
 }: ReadingQuestionPageProps) => {
+    const { t } = useTranslation();
     const [question, setQuestion] = useState(() => generateReadingQuestion(selectedLevel, selectedTheme));
     const [choices, setChoices] = useState<string[]>([]);
     const [selected, setSelected] = useState<string | null>(null);
@@ -67,42 +69,79 @@ export const ReadingQuestionPage = ({
     const handleAnswer = (choice: string) => {
         if (selected !== null) return;
         setSelected(choice);
-        setTotal((t) => t + 1);
-        incrementTotal();
-        setSessionQuestions((q) => q + 1);
-        incrementSessionQuestions();
-
-        if (choice === question.answer) {
-            setFeedback("correct");
-            setScore((s) => s + 1);
-            incrementScore();
-            const newStreak = streak + 1;
-            setStreak(newStreak);
-            incrementStreak();
-            if (newStreak % 3 === 0) {
-                setStars((s) => s + 1);
-                incrementStars();
-            }
-            setFeedbackEmoji("🎉");
+        
+        // Update local state
+        setTotal((prevTotal) => {
+            const newTotal = prevTotal + 1;
             
-            // Save progress after each correct answer
-            saveHighScore(selectedLevel, score + 1, total + 1, newStreak);
-        } else {
-            setFeedback("wrong");
-            setStreak(0);
-            resetStreak();
-            setFeedbackEmoji("😢");
-        }
-
-        // Check if session is completed
-        if (sessionQuestions + 1 >= QUESTIONS_PER_SESSION) {
-            setSessionCompleted(true);
-            saveHighScore(selectedLevel, score, total, streak);
-        } else {
-            setTimeout(() => {
-                newQuestion();
-            }, 1500);
-        }
+            // Update session questions
+            setSessionQuestions((prevSessionQuestions) => {
+                const newSessionQuestions = prevSessionQuestions + 1;
+                
+                if (choice === question.answer) {
+                    setFeedback("correct");
+                    setScore((prevScore) => {
+                        const newScore = prevScore + 1;
+                        
+                        setStreak((prevStreak) => {
+                            const newStreak = prevStreak + 1;
+                            
+                            if (newStreak % 3 === 0) {
+                                setStars((prevStars) => prevStars + 1);
+                                incrementStars();
+                            }
+                            
+                            setFeedbackEmoji("🎉");
+                            
+                            // Save progress after each correct answer with current values
+                            saveHighScore(selectedLevel, newScore, newTotal, newStreak);
+                            
+                            // Check if session is completed
+                            if (newSessionQuestions >= QUESTIONS_PER_SESSION) {
+                                setSessionCompleted(true);
+                            } else {
+                                setTimeout(() => {
+                                    newQuestion();
+                                }, 1500);
+                            }
+                            
+                            incrementStreak();
+                            return newStreak;
+                        });
+                        
+                        incrementScore();
+                        return newScore;
+                    });
+                    
+                    incrementTotal();
+                    incrementSessionQuestions();
+                } else {
+                    setFeedback("wrong");
+                    setStreak(0);
+                    resetStreak();
+                    setFeedbackEmoji("😢");
+                    
+                    // Save progress for incorrect answer with current values
+                    saveHighScore(selectedLevel, score, newTotal, 0);
+                    
+                    // Check if session is completed
+                    if (newSessionQuestions >= QUESTIONS_PER_SESSION) {
+                        setSessionCompleted(true);
+                    } else {
+                        setTimeout(() => {
+                            newQuestion();
+                        }, 1500);
+                    }
+                    
+                    incrementTotal();
+                    incrementSessionQuestions();
+                }
+                
+                return newSessionQuestions;
+            });
+            
+            return newTotal;
+        });
     };
 
     const sessionAccuracy = total > 0 ? Math.round((score / total) * 100) : 0;
@@ -116,7 +155,7 @@ export const ReadingQuestionPage = ({
                         onClick={onBackToSettings}
                         className="px-4 py-2 bg-gradient-to-r from-purple-500 to-fuchsia-500 text-white rounded-lg hover:from-purple-600 hover:to-fuchsia-600 transition-all duration-200 font-semibold shadow-lg"
                     >
-                        ← Back to Settings
+                        {t("reading.backToSettings")}
                     </button>
                     <ReadingStars count={stars} />
                 </div>
@@ -177,7 +216,6 @@ export const ReadingQuestionPage = ({
                     setStreak(0);
                     setStars(0);
                     resetSession();
-                    setShowHighScores(true);
                 }}
                 onTryAgain={() => {
                     setSessionCompleted(false);
@@ -189,6 +227,7 @@ export const ReadingQuestionPage = ({
                     resetSession();
                     newQuestion();
                 }}
+                onViewHighScores={() => setShowHighScores(true)}
                 score={score}
                 total={total}
                 accuracy={sessionAccuracy}

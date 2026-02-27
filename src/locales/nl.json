@@ -56,6 +56,9 @@
             "reading": "reading"
         }
     },
+    "reading": {
+        "backToSettings": "← Terug naar Instellingen"
+    },
     "learn": {
         "title": "🔢 Rekenen voor Kinderen!",
         "subtitle": "Kies een bewerking en beantwoord de vragen!",
@@ -139,17 +142,17 @@
             }
         },
         "scoreboard": {
-            "score": "Score",
-            "total": "Totaal",
-            "accuracy": "Nauwkeurigheid",
-            "streak": "Reeks 🔥"
+            "score":"Score",
+            "total":"Totaal",
+            "accuracy":"Nauwkeurigheid",
+            "streak":"Reeks 🔥"
         },
         "question": {
-            "prompt": "Wat is..."
+            "prompt":"Wat is..."
         },
         "feedback": {
             "correct": "Goed zo!",
-            "wrong": "Het antwoord was {{answer}}"
+            "wrong":"Het antwoord was {{answer}}"
         },
         "skip": "Sla deze vraag over →",
         "tip": "💡 Tip: Krijg 3 op een rij om een ⭐ ster te verdienen! Hoeveel kun jij er verzamelen?",
@@ -160,12 +163,13 @@
             "bestScore": "Beste Score",
             "bestAccuracy": "Beste Accuraatheid",
             "bestStreak": "Beste Streak",
-                "totalQuestions": "Totaal Vragen",
-                "lastPlayed": "Laatst Gespeeld",
-                "never": "Nooit",
-                "clearAll": "Wis Alle Scores",
+                "totalQuestions":"Totaal Vragen",
+                "lastPlayed":"Laatst Gespeeld",
+                "never":"Nooit",
+                "clearAll":"Wis Alle Scores",
             "clearConfirmation": "Weet je zeker dat je alle high scores wilt wissen? Deze actie kan niet ongedaan worden gemaakt.",
-            "close": "Sluiten"
+            "close": "Sluiten",
+            "keepReading": "Blijf lezen om je scores te verbeteren!"
         },
         "sessionCompleted": {
             "title": "Sessie Voltooid!",
@@ -175,7 +179,8 @@
             "bestStreak": "Beste Streak",
             "starsEarned": "Verdiende Sterren",
             "tryAgain": "Opnieuw Proberen",
-            "viewHighScores": "Bekijk High Scores"
+            "viewHighScores": "Bekijk High Scores",
+            "keepPracticing": "Blijf oefenen om nog beter te worden!"
         }
     },
    "language": {
