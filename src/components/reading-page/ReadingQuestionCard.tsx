@@ -9,10 +9,7 @@ interface ReadingQuestionCardProps {
 
 export const ReadingQuestionCard = ({ question, feedback, feedbackEmoji }: ReadingQuestionCardProps) => {
     const { t, i18n } = useTranslation();
-    
-    // Extract the resolved language once at the component level
-    const currentLang = i18n.resolvedLanguage || i18n.language || 'en';
-    const isDutch = currentLang.startsWith('nl');
+    const isDutch = (i18n.resolvedLanguage ?? i18n.language ?? "en").startsWith("nl");
     
     // Helper function to get localized answer text
     const getLocalizedAnswer = () => {
@@ -74,7 +71,7 @@ export const ReadingQuestionCard = ({ question, feedback, feedbackEmoji }: Readi
                         <div className="flex justify-center mb-4">
                             <img 
                                 src={`/assets/images/${question.image}`} 
-                                alt={question.answer}
+                               alt={getLocalizedAnswer()}
                                 className="w-32 h-32 object-cover rounded-lg shadow-md"
                                 onError={(e) => {
                                     // Fallback for missing images
