@@ -67,6 +67,10 @@
         "reading": {
             "title": "📚 Reading for Children!",
             "subtitle": "Choose your reading level and theme to start learning!",
+            "settings": {
+                "title": "Reading Adventure Settings"
+            },
+            "startButton": "Start Reading Adventure!",
             "levels": {
                 "letters": "🔤 Letters",
                 "words": "📖 Words",

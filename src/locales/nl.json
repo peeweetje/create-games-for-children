@@ -68,6 +68,10 @@
         "reading": {
             "title": "📚 Lezen voor Kinderen!",
             "subtitle": "Kies je leesniveau en thema om te beginnen met leren!",
+            "settings": {
+                "title": "Lees Avontuur Instellingen"
+            },
+            "startButton": "Start Lees Avontuur!",
             "levels": {
                 "letters": "🔤 Letters",
                 "words": "📖 Woorden",
