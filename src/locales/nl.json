@@ -48,11 +48,16 @@
         "chess": "Leer & Speel",
         "puzzles": "Schaak puzzels",
         "learn": "Rekenen & Leren",
+        "reading": "Lees Avontuur",
         "play": "Schaak Spelen",
         "routes": {
             "puzzles": "puzzels",
-            "learn": "leren"
+            "learn": "leren",
+            "reading": "reading"
         }
+    },
+    "reading": {
+        "backToSettings": "← Terug naar Instellingen"
     },
     "learn": {
         "title": "🔢 Rekenen voor Kinderen!",
@@ -63,18 +68,91 @@
             "multiplication": "Vermenigvuldigen",
             "division": "Delen"
         },
+        "reading": {
+            "title": "📚 Lezen voor Kinderen!",
+            "subtitle": "Kies je leesniveau en thema om te beginnen met leren!",
+            "settings": {
+                "title": "Lees Avontuur Instellingen"
+            },
+            "startButton": "Start Lees Avontuur!",
+            "levels": {
+                "letters": "🔤 Letters",
+                "words": "📖 Woorden",
+                "sentences": "💬 Zinnen", 
+                "stories": "📚 Verhalen"
+            },
+            "themes": {
+                "animals": "🐾 Dieren",
+                "colors": "🌈 Kleuren",
+                "numbers": "🔢 Getallen",
+                "family": "👨‍👩‍👧‍👦 Familie",
+                "food": "🍎 Eten",
+                "transportation": "🚗 Vervoer"
+            },
+            "levelDescriptions": {
+                "letters": "Leer lettergeluiden en fonetiek",
+                "words": "Leer eenvoudige woorden en woordenschat",
+                "sentences": "Lees en begrijp zinnen",
+                "stories": "Luister naar en lees korte verhalen"
+            },
+            "themeDescriptions": {
+                "animals": "Leer dierennamen en geluiden",
+                "colors": "Ontdek kleuren en hun namen",
+                "numbers": "Tel en leer getalwoorden",
+                "family": "Leer over familieleden",
+                "food": "Verken lekkere etenswoorden",
+                "transportation": "Leer over voertuigen en transport"
+            },
+            "questionCard": {
+                "readingQuestion": "Leesvraag",
+                "answerBelow": "Beantwoord de vraag hieronder",
+                "listen": "Luister",
+                "correct": "Goed zo!",
+                "wrong": "Het antwoord was {{answer}}"
+            },
+            "scoreboard": {
+                "readingProgress": "Leesvoortgang",
+                "correct": "Correct",
+                "total": "Totaal",
+                "accuracy": "Nauwkeurigheid",
+                "streak": "Reeks 🔥",
+                "starEarned": "Geweldig! Je hebt een ster verdiend voor {{streak}} correcte antwoorden op een rij!"
+            },
+            "stars": {
+                "starsEarned": "Verdiende Sterren",
+                "outOfFive": "van de 5"
+            },
+            "themeSelector": {
+                "selectTheme": "Selecteer Thema",
+                "chooseTheme": "Kies een thema om te beginnen met leren!",
+                "noThemeSelected": "Geen thema geselecteerd"
+            },
+            "tip": {
+                "readingTip": "Leestip",
+                "tipText": "Krijg 3 correcte antwoorden op een rij om een ⭐ ster te verdienen! Hoeveel kun jij er verzamelen?",
+                "pointingTip": "📖 Wijs bij elk woord terwijl je leest om je concentratie en focus te verbeteren.",
+                "readingAloudTip": "💬 Lees zinnen hardop om je uitspraak en vloeiendheid te oefenen.",
+                "retellTip": "📚 Luister goed naar verhalen en probeer ze in je eigen woorden te hervertellen.",
+                "starRewardTip": "🌟 Krijg 3 correcte antwoorden op een rij om een ster te verdienen! Hoeveel kun jij er verzamelen?",
+                "soundingOutTip": "🎯 Neem de tijd en klink elk woord letter voor letter uit.",
+                "audioTip": "👂 Gebruik de audioknoppen om te horen hoe woorden moeten klinken.",
+                "pictureTip": "👀 Kijk naar de plaatjes om je te helpen begrijpen wat je leest.",
+                "celebrationTip": "✨ Vier elke kleine overwinning - lezen kost oefening!",
+                "grownupTip": "📚 Lees met een volwassene voor extra hulp en aanmoediging!"
+            }
+        },
         "scoreboard": {
-            "score": "Score",
-            "total": "Totaal",
-            "accuracy": "Nauwkeurigheid",
-            "streak": "Reeks 🔥"
+            "score":"Score",
+            "total":"Totaal",
+            "accuracy":"Nauwkeurigheid",
+            "streak":"Reeks 🔥"
         },
         "question": {
-            "prompt": "Wat is..."
+            "prompt":"Wat is..."
         },
         "feedback": {
             "correct": "Goed zo!",
-            "wrong": "Het antwoord was {{answer}}"
+            "wrong":"Het antwoord was {{answer}}"
         },
         "skip": "Sla deze vraag over →",
         "tip": "💡 Tip: Krijg 3 op een rij om een ⭐ ster te verdienen! Hoeveel kun jij er verzamelen?",
@@ -85,11 +163,13 @@
             "bestScore": "Beste Score",
             "bestAccuracy": "Beste Accuraatheid",
             "bestStreak": "Beste Streak",
-            "totalQuestions": "Totaal Vragen",
-            "lastPlayed": "Laatst Gespeeld",
-            "clearAll": "Wis Alle Scores",
+                "totalQuestions":"Totaal Vragen",
+                "lastPlayed":"Laatst Gespeeld",
+                "never":"Nooit",
+                "clearAll":"Wis Alle Scores",
             "clearConfirmation": "Weet je zeker dat je alle high scores wilt wissen? Deze actie kan niet ongedaan worden gemaakt.",
-            "close": "Sluiten"
+            "close": "Sluiten",
+            "keepReading": "Blijf lezen om je scores te verbeteren!"
         },
         "sessionCompleted": {
             "title": "Sessie Voltooid!",
@@ -99,7 +179,8 @@
             "bestStreak": "Beste Streak",
             "starsEarned": "Verdiende Sterren",
             "tryAgain": "Opnieuw Proberen",
-            "viewHighScores": "Bekijk High Scores"
+            "viewHighScores": "Bekijk High Scores",
+            "keepPracticing": "Blijf oefenen om nog beter te worden!"
         }
     },
    "language": {
