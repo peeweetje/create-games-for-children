@@ -109,7 +109,7 @@
                 "total": "Totaal",
                 "accuracy": "Nauwkeurigheid",
                 "streak": "Reeks 🔥",
-                "starEarned": "Geweldig! Je hebt een ster verdiend voor {streak} correcte antwoorden op een rij!"
+                "starEarned": "Geweldig! Je hebt een ster verdiend voor {{streak}} correcte antwoorden op een rij!"
             },
             "stars": {
                 "starsEarned": "Verdiende Sterren",

@@ -108,7 +108,7 @@
                 "total": "Total",
                 "accuracy": "Accuracy",
                 "streak": "Streak 🔥",
-                "starEarned": "Great! You've earned a star for {streak} correct answers in a row!"
+                "starEarned": "Great! You've earned a star for {{streak}} correct answers in a row!"
             },
             "stars": {
                 "starsEarned": "Stars Earned",
