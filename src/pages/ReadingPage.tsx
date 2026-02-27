@@ -1,196 +1,87 @@
-import { useState, useEffect, useCallback } from "react";
-import { 
-    generateReadingQuestion, 
-    ReadingLevel, 
-    Theme, 
-    useReadingProgress 
-} from "../helpers/readingHelper";
+import { useState } from "react";
+import { ReadingLevel, Theme } from "../helpers/readingHelper";
 import { ReadingHeader } from "../components/reading-page/ReadingHeader";
-import { ReadingStars } from "../components/reading-page/ReadingStars";
 import { ReadingLevelSelector } from "../components/reading-page/ReadingLevelSelector";
 import { ReadingThemeSelector } from "../components/reading-page/ReadingThemeSelector";
-import { ReadingScoreboard } from "../components/reading-page/ReadingScoreboard";
-import { ReadingQuestionCard } from "../components/reading-page/ReadingQuestionCard";
-import { ReadingAnswerChoices } from "../components/reading-page/ReadingAnswerChoices";
-import { ReadingSkipButton } from "../components/reading-page/ReadingSkipButton";
-import { ReadingTip } from "../components/reading-page/ReadingTip";
 import { ReadingHighScoresModal } from "../components/reading-page/ReadingHighScoresModal";
-import { ReadingSessionCompletedModal } from "../components/reading-page/ReadingSessionCompletedModal";
 import { ReadingViewHighScoresButton } from "../components/reading-page/ReadingViewHighScoresButton";
+import { ReadingQuestionPage } from "./ReadingQuestionPage";
+import { useTranslation } from "react-i18next";
 
 export const ReadingPage = () => {
     const [selectedLevel, setSelectedLevel] = useState<ReadingLevel>("letters");
     const [selectedTheme, setSelectedTheme] = useState<Theme>("animals");
-    const [question, setQuestion] = useState(() => generateReadingQuestion("letters", "animals"));
-    const [choices, setChoices] = useState<string[]>([]);
-    const [selected, setSelected] = useState<string | null>(null);
-    const [score, setScore] = useState(0);
-    const [total, setTotal] = useState(0);
-    const [feedback, setFeedback] = useState<"correct" | "wrong" | null>(null);
-    const [feedbackEmoji, setFeedbackEmoji] = useState("");
-    const [streak, setStreak] = useState(0);
-    const [stars, setStars] = useState(0);
     const [showHighScores, setShowHighScores] = useState(false);
-    const [sessionCompleted, setSessionCompleted] = useState(false);
-    const [sessionQuestions, setSessionQuestions] = useState(0);
-    const QUESTIONS_PER_SESSION = 25;
+    const [showQuestionPage, setShowQuestionPage] = useState(false);
+    const { t } = useTranslation();
 
-    // Use Zustand store for reading progress
-    const {
-        incrementScore,
-        incrementTotal,
-        incrementStreak,
-        resetStreak,
-        incrementStars,
-        incrementSessionQuestions,
-        resetSession,
-        saveHighScore
-    } = useReadingProgress();
-
-    const newQuestion = useCallback((level: ReadingLevel, theme: Theme) => {
-        const q = generateReadingQuestion(level, theme);
-        setQuestion(q);
-        setChoices(q.choices);
-        setSelected(null);
-        setFeedback(null);
-    }, []);
-
-    useEffect(() => {
-        newQuestion(selectedLevel, selectedTheme);
-    }, [selectedLevel, selectedTheme, newQuestion]);
-
-    const handleLevelChange = (level: ReadingLevel) => {
-        // Save current level's high score before switching
-        saveHighScore(selectedLevel, score, total, streak);
-        
-        setSelectedLevel(level);
-        setScore(0);
-        setTotal(0);
-        setStreak(0);
-        setStars(0);
-        resetSession();
+    const handleStartReading = () => {
+        setShowQuestionPage(true);
     };
 
-    const handleThemeChange = (theme: Theme) => {
-        setSelectedTheme(theme);
-        newQuestion(selectedLevel, theme);
+    const handleBackToSettings = () => {
+        setShowQuestionPage(false);
     };
 
-    const handleAnswer = (choice: string) => {
-        if (selected !== null) return;
-        setSelected(choice);
-        setTotal((t) => t + 1);
-        incrementTotal();
-        setSessionQuestions((q) => q + 1);
-        incrementSessionQuestions();
-
-        if (choice === question.answer) {
-            setFeedback("correct");
-            setScore((s) => s + 1);
-            incrementScore();
-            const newStreak = streak + 1;
-            setStreak(newStreak);
-            incrementStreak();
-            if (newStreak % 3 === 0) {
-                setStars((s) => s + 1);
-                incrementStars();
-            }
-            setFeedbackEmoji("🎉");
-            
-            // Save progress after each correct answer
-            saveHighScore(selectedLevel, score + 1, total + 1, newStreak);
-        } else {
-            setFeedback("wrong");
-            setStreak(0);
-            resetStreak();
-            setFeedbackEmoji("😢");
-        }
-
-        // Check if session is completed
-        if (sessionQuestions + 1 >= QUESTIONS_PER_SESSION) {
-            setSessionCompleted(true);
-            saveHighScore(selectedLevel, score, total, streak);
-        } else {
-            setTimeout(() => {
-                newQuestion(selectedLevel, selectedTheme);
-            }, 1500);
-        }
-    };
-
-    const sessionAccuracy = total > 0 ? Math.round((score / total) * 100) : 0;
+    if (showQuestionPage) {
+        return (
+            <ReadingQuestionPage
+                selectedLevel={selectedLevel}
+                selectedTheme={selectedTheme}
+                onBackToSettings={handleBackToSettings}
+            />
+        );
+    }
 
     return (
-        <div className="flex flex-col items-center min-h-full bg-gradient-to-b from-fuchsia-50 to-purple-100 p-4 pb-20 md:pb-4">
+        <div className="flex flex-col items-center min-h-full bg-gradient-to-b from-fuchsia-50 to-purple-100 p-6 pb-24">
             <ReadingHeader />
-            <ReadingStars count={stars} />
-            <ReadingLevelSelector
-                selectedLevel={selectedLevel}
-                onSelect={handleLevelChange}
-            />
-            <ReadingThemeSelector
-                selectedTheme={selectedTheme}
-                onSelect={handleThemeChange}
-            />
-            <ReadingScoreboard
-                score={score}
-                total={total}
-                accuracy={sessionAccuracy}
-                streak={streak}
-                selectedLevel={selectedLevel}
-            />
-            <ReadingQuestionCard
-                question={question}
-                feedback={feedback}
-                feedbackEmoji={feedbackEmoji}
-            />
-
-            <ReadingAnswerChoices
-                choices={question.choices}
-                selected={selected}
-                correctAnswer={question.answer}
-                question={question}
-                onSelect={handleAnswer}
-                disabled={!!feedback}
-            />
-            <ReadingSkipButton onClick={() => newQuestion(selectedLevel, selectedTheme)} />
-            <ReadingTip />
             
-            <ReadingViewHighScoresButton onClick={() => setShowHighScores(true)} />
+            <div className="w-full max-w-4xl space-y-8">
+                {/* Settings Section */}
+                <div className="bg-white rounded-2xl shadow-xl p-8 border border-fuchsia-200">
+                    <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
+                        📚 {t("learn.reading.settings.title")}
+                    </h2>
+                    
+                    <div className="grid md:grid-cols-1 gap-8">
+                        <div className="bg-gradient-to-br from-fuchsia-50 to-purple-50 rounded-2xl p-12 border border-fuchsia-200 shadow-xl">
+                            <ReadingLevelSelector
+                                selectedLevel={selectedLevel}
+                                onSelect={setSelectedLevel}
+                            />
+                        </div>
+                        
+                        <div className="bg-gradient-to-br from-purple-50 to-fuchsia-50 rounded-2xl p-12 border border-purple-200 shadow-xl">
+                            <ReadingThemeSelector
+                                selectedTheme={selectedTheme}
+                                onSelect={setSelectedTheme}
+                            />
+                        </div>
+                    </div>
+
+                    {/* Start Button */}
+                    <div className="mt-8 flex justify-center">
+                        <button
+                            onClick={handleStartReading}
+                            className="px-8 py-4 bg-gradient-to-r from-purple-500 to-fuchsia-500 text-white text-lg font-bold rounded-xl hover:from-purple-600 hover:to-fuchsia-600 transition-all duration-300 transform hover:scale-105 shadow-2xl"
+                        >
+                            🚀 {t("learn.reading.startButton")}
+                        </button>
+                    </div>
+                </div>
+
+                {/* High Scores Section */}
+                <div className="bg-white rounded-2xl shadow-xl p-6 border border-purple-200">
+                    <div className="flex justify-center">
+                        <ReadingViewHighScoresButton onClick={() => setShowHighScores(true)} />
+                    </div>
+                </div>
+            </div>
             
             <ReadingHighScoresModal
                 isOpen={showHighScores}
                 onClose={() => setShowHighScores(false)}
-            />
-            
-            <ReadingSessionCompletedModal
-                isOpen={sessionCompleted}
-                onClose={() => {
-                    setSessionCompleted(false);
-                    setSessionQuestions(0);
-                    setScore(0);
-                    setTotal(0);
-                    setStreak(0);
-                    setStars(0);
-                    resetSession();
-                    setShowHighScores(true);
-                }}
-                onTryAgain={() => {
-                    setSessionCompleted(false);
-                    setSessionQuestions(0);
-                    setScore(0);
-                    setTotal(0);
-                    setStreak(0);
-                    setStars(0);
-                    resetSession();
-                    newQuestion(selectedLevel, selectedTheme);
-                }}
-                score={score}
-                total={total}
-                accuracy={sessionAccuracy}
-                streak={streak}
-                stars={stars}
-                level={selectedLevel}
-                questionsPerSession={QUESTIONS_PER_SESSION}
             />
         </div>
     );
