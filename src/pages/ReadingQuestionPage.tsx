@@ -29,7 +29,6 @@ export const ReadingQuestionPage = ({
 }: ReadingQuestionPageProps) => {
     const { t } = useTranslation();
     const [question, setQuestion] = useState(() => generateReadingQuestion(selectedLevel, selectedTheme));
-    const [choices, setChoices] = useState<string[]>([]);
     const [selected, setSelected] = useState<string | null>(null);
     const [score, setScore] = useState(0);
     const [total, setTotal] = useState(0);
@@ -39,7 +38,6 @@ export const ReadingQuestionPage = ({
     const [stars, setStars] = useState(0);
     const [showHighScores, setShowHighScores] = useState(false);
     const [sessionCompleted, setSessionCompleted] = useState(false);
-    const [sessionQuestions, setSessionQuestions] = useState(0);
     const QUESTIONS_PER_SESSION = 25;
 
     // Use Zustand store for reading progress
@@ -57,7 +55,6 @@ export const ReadingQuestionPage = ({
     const newQuestion = useCallback(() => {
         const q = generateReadingQuestion(selectedLevel, selectedTheme);
         setQuestion(q);
-        setChoices(q.choices);
         setSelected(null);
         setFeedback(null);
     }, [selectedLevel, selectedTheme]);
@@ -74,71 +71,65 @@ export const ReadingQuestionPage = ({
         setTotal((prevTotal) => {
             const newTotal = prevTotal + 1;
             
-            // Update session questions
-            setSessionQuestions((prevSessionQuestions) => {
-                const newSessionQuestions = prevSessionQuestions + 1;
-                
-                if (choice === question.answer) {
-                    setFeedback("correct");
-                    setScore((prevScore) => {
-                        const newScore = prevScore + 1;
+            // Update session questions using Zustand store
+            incrementSessionQuestions();
+            
+            if (choice === question.answer) {
+                setFeedback("correct");
+                setScore((prevScore) => {
+                    const newScore = prevScore + 1;
+                    
+                    setStreak((prevStreak) => {
+                        const newStreak = prevStreak + 1;
                         
-                        setStreak((prevStreak) => {
-                            const newStreak = prevStreak + 1;
-                            
-                            if (newStreak % 3 === 0) {
-                                setStars((prevStars) => prevStars + 1);
-                                incrementStars();
-                            }
-                            
-                            setFeedbackEmoji("🎉");
-                            
-                            // Save progress after each correct answer with current values
-                            saveHighScore(selectedLevel, newScore, newTotal, newStreak);
-                            
-                            // Check if session is completed
-                            if (newSessionQuestions >= QUESTIONS_PER_SESSION) {
-                                setSessionCompleted(true);
-                            } else {
-                                setTimeout(() => {
-                                    newQuestion();
-                                }, 1500);
-                            }
-                            
-                            incrementStreak();
-                            return newStreak;
-                        });
+                        if (newStreak % 3 === 0) {
+                            setStars((prevStars) => prevStars + 1);
+                            incrementStars();
+                        }
                         
-                        incrementScore();
-                        return newScore;
+                        setFeedbackEmoji("🎉");
+                        
+                        // Save progress after each correct answer with current values
+                        saveHighScore(selectedLevel, newScore, newTotal, newStreak);
+                        
+                        // Check if session is completed
+                        if (newTotal >= QUESTIONS_PER_SESSION) {
+                            setSessionCompleted(true);
+                        } else {
+                            setTimeout(() => {
+                                newQuestion();
+                            }, 1500);
+                        }
+                        
+                        incrementStreak();
+                        return newStreak;
                     });
                     
-                    incrementTotal();
-                    incrementSessionQuestions();
+                    incrementScore();
+                    return newScore;
+                });
+                
+                incrementTotal();
+            } else {
+                setFeedback("wrong");
+                setStreak(0);
+                resetStreak();
+                setFeedbackEmoji("😢");
+                
+                // Save progress for incorrect answer with current values
+                saveHighScore(selectedLevel, score, newTotal, 0);
+                
+                // Check if session is completed
+                if (newTotal >= QUESTIONS_PER_SESSION) {
+                    setSessionCompleted(true);
                 } else {
-                    setFeedback("wrong");
-                    setStreak(0);
-                    resetStreak();
-                    setFeedbackEmoji("😢");
-                    
-                    // Save progress for incorrect answer with current values
-                    saveHighScore(selectedLevel, score, newTotal, 0);
-                    
-                    // Check if session is completed
-                    if (newSessionQuestions >= QUESTIONS_PER_SESSION) {
-                        setSessionCompleted(true);
-                    } else {
-                        setTimeout(() => {
-                            newQuestion();
-                        }, 1500);
-                    }
-                    
-                    incrementTotal();
-                    incrementSessionQuestions();
+                    setTimeout(() => {
+                        newQuestion();
+                    }, 1500);
                 }
                 
-                return newSessionQuestions;
-            });
+                incrementTotal();
+            }
             
             return newTotal;
         });
@@ -210,7 +201,6 @@ export const ReadingQuestionPage = ({
                 isOpen={sessionCompleted}
                 onClose={() => {
                     setSessionCompleted(false);
-                    setSessionQuestions(0);
                     setScore(0);
                     setTotal(0);
                     setStreak(0);
@@ -219,7 +209,6 @@ export const ReadingQuestionPage = ({
                 }}
                 onTryAgain={() => {
                     setSessionCompleted(false);
-                    setSessionQuestions(0);
                     setScore(0);
                     setTotal(0);
                     setStreak(0);

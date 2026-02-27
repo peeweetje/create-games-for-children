@@ -357,27 +357,21 @@ const STORIES: Record<Theme, Story[]> = {
 function generateReadingChoices(correctAnswer: string, allOptions: string[], count: number = 4): string[] {
     const choices = [correctAnswer];
     
-    // Add random wrong choices
+    // Get all wrong options and shuffle them
     const wrongOptions = allOptions.filter(option => option !== correctAnswer);
     const shuffled = wrongOptions.sort(() => Math.random() - 0.5);
     
-    for (let i = 0; i < count - 1 && i < shuffled.length; i++) {
-        choices.push(shuffled[i]);
-    }
-    
-    // Fill remaining slots if needed
-    // Prevent infinite loop by checking if we have enough unique options
-    const availableWrongOptions = wrongOptions.length;
+    // Calculate how many wrong options we need
     const neededWrongOptions = count - 1;
+    const availableWrongOptions = wrongOptions.length;
     
     if (availableWrongOptions >= neededWrongOptions) {
-        // We have enough wrong options, use them all
-        for (let i = 0; i < neededWrongOptions && i < shuffled.length; i++) {
+        // We have enough wrong options, use the first 'neededWrongOptions' from shuffled array
+        for (let i = 0; i < neededWrongOptions; i++) {
             choices.push(shuffled[i]);
         }
     } else {
-        // Not enough wrong options, use all available and fill with duplicates if necessary
-        // But first add all available wrong options
+        // Not enough wrong options, use all available
         for (let i = 0; i < shuffled.length; i++) {
             choices.push(shuffled[i]);
         }

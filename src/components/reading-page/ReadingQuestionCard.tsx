@@ -10,17 +10,20 @@ interface ReadingQuestionCardProps {
 export const ReadingQuestionCard = ({ question, feedback, feedbackEmoji }: ReadingQuestionCardProps) => {
     const { t } = useTranslation();
     
-    const getQuestionContent = () => {
-        // Get current language from localStorage
+    // Helper function to get localized answer text
+    const getLocalizedAnswer = () => {
         const currentLang = localStorage.getItem('i18nextLng') || 'en';
         const isDutch = currentLang.startsWith('nl');
-        
+        return isDutch && question.translation ? question.translation : question.answer;
+    };
+    
+    const getQuestionContent = () => {
         switch (question.type) {
             case "letter":
                 return (
                     <div className="text-center">
                         <div className="text-6xl font-bold text-fuchsia-600 mb-2">
-                             {isDutch && question.translation ? question.translation : question.answer}
+                             {getLocalizedAnswer()}
                         </div>
                         <p className="text-lg text-gray-600">{t("learn.reading.levels.letters")}</p>
                     </div>
@@ -29,7 +32,7 @@ export const ReadingQuestionCard = ({ question, feedback, feedbackEmoji }: Readi
                 return (
                     <div className="text-center">
                         <div className="text-4xl font-bold text-fuchsia-600 mb-2">
-                            {isDutch && question.translation ? question.translation : question.answer}
+                            {getLocalizedAnswer()}
                         </div>
                         <p className="text-lg text-gray-600">{t("learn.reading.levels.words")}</p>
                     </div>
@@ -38,7 +41,7 @@ export const ReadingQuestionCard = ({ question, feedback, feedbackEmoji }: Readi
                 return (
                     <div className="text-center">
                         <div className="text-xl font-semibold text-fuchsia-600 mb-2">
-                            {isDutch && question.translation ? question.translation : question.answer}
+                            {getLocalizedAnswer()}
                         </div>
                         <p className="text-lg text-gray-600">{t("learn.reading.levels.sentences")}</p>
                     </div>
@@ -47,7 +50,7 @@ export const ReadingQuestionCard = ({ question, feedback, feedbackEmoji }: Readi
                 return (
                     <div className="text-center">
                         <div className="text-2xl font-bold text-fuchsia-600 mb-2">
-                            {isDutch && question.translation ? question.translation : question.answer}
+                            {getLocalizedAnswer()}
                         </div>
                         <p className="text-lg text-gray-600">{t("learn.reading.levels.stories")}</p>
                     </div>
@@ -123,7 +126,7 @@ export const ReadingQuestionCard = ({ question, feedback, feedbackEmoji }: Readi
                     }`}>
                         <div className="text-2xl mb-2">{feedbackEmoji}</div>
                         <p className="font-semibold">
-                            {feedback === "correct" ? t("learn.reading.questionCard.correct") : t("learn.reading.questionCard.wrong", { answer: question.answer })}
+                            {feedback === "correct" ? t("learn.reading.questionCard.correct") : t("learn.reading.questionCard.wrong", { answer: getLocalizedAnswer() })}
                         </p>
                     </div>
                 )}
