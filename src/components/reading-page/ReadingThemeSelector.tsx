@@ -19,31 +19,31 @@ export const ReadingThemeSelector = ({ selectedTheme, onSelect }: ReadingThemeSe
     ];
 
     return (
-        <div className="w-full max-w-4xl mx-auto">
+        <div className="w-full">
             <div className="text-center mb-6">
                 <h2 className="text-2xl font-bold text-gray-800 mb-2">{t("learn.reading.themeSelector.selectTheme")}</h2>
                 <p className="text-gray-600">{t("learn.reading.themeSelector.chooseTheme")}</p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
                 {themes.map((theme) => (
                     <button
                         key={theme.value}
                         onClick={() => onSelect(theme.value)}
-                        className={`p-6 rounded-xl border-2 transition-all duration-200 text-left ${
+                        className={`p-8 rounded-2xl border-2 transition-all duration-300 text-left ${
                             selectedTheme === theme.value
-                                ? "border-fuchsia-500 bg-fuchsia-50 shadow-lg scale-105"
-                                : "border-gray-200 bg-white hover:border-fuchsia-300 hover:shadow-md"
+                                ? "border-fuchsia-500 bg-gradient-to-br from-fuchsia-50 to-purple-50 shadow-xl scale-105"
+                                : "border-gray-200 bg-white hover:border-fuchsia-300 hover:shadow-lg hover:scale-105"
                         }`}
                     >
-                        <div className="flex items-center justify-between mb-3">
+                        <div className="flex items-center justify-between mb-4">
                             {selectedTheme === theme.value && (
-                                <div className="w-3 h-3 bg-fuchsia-500 rounded-full"></div>
+                                <div className="w-4 h-4 bg-fuchsia-500 rounded-full shadow-sm"></div>
                             )}
                         </div>
                         <div>
-                            <h3 className="font-semibold text-gray-800 mb-1">{theme.label}</h3>
-                            <p className="text-sm text-gray-600">{theme.description}</p>
+                            <h3 className="text-xl font-bold text-gray-800 mb-2">{theme.label}</h3>
+                            <p className="text-gray-600 leading-relaxed">{theme.description}</p>
                         </div>
                     </button>
                 ))}
