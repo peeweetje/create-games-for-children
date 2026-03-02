@@ -42,7 +42,6 @@
         "king": "Koning",
         "kingDesc": "Belangrijkste stuk! Eén stap in elke richting. Verlies hem niet!",
         "gotIt": "Begrepen! Laten we spelen!"
-        
     },
     "sidebar": {
         "chess": "Leer & Speel",
@@ -53,7 +52,7 @@
         "routes": {
             "puzzles": "puzzels",
             "learn": "leren",
-            "reading": "reading"
+            "reading": "lezen"
         }
     },
     "reading": {
@@ -69,16 +68,16 @@
             "division": "Delen"
         },
         "reading": {
-            "title": "📚 Lezen voor Kinderen!",
+            "title": "📚 Leer Lezen!",
             "subtitle": "Kies je leesniveau en thema om te beginnen met leren!",
             "settings": {
-                "title": "Lees Avontuur Instellingen"
+                "title": "Instellingen voor Leesavontuur"
             },
             "startButton": "Start Lees Avontuur!",
             "levels": {
                 "letters": "🔤 Letters",
                 "words": "📖 Woorden",
-                "sentences": "💬 Zinnen", 
+                "sentences": "💬 Zinnen",
                 "stories": "📚 Verhalen"
             },
             "themes": {
@@ -104,36 +103,36 @@
                 "transportation": "Leer over voertuigen en transport"
             },
             "questionCard": {
-                "readingQuestion": "Leesvraag",
+                "readingQuestion": "Vraag",
                 "answerBelow": "Beantwoord de vraag hieronder",
                 "listen": "Luister",
-                "correct": "Goed zo!",
+                "correct": "Goed!",
                 "wrong": "Het antwoord was {{answer}}"
             },
             "scoreboard": {
                 "readingProgress": "Leesvoortgang",
-                "correct": "Correct",
+                "correct": "Goed",
                 "total": "Totaal",
                 "accuracy": "Nauwkeurigheid",
                 "streak": "Reeks 🔥",
-                "starEarned": "Geweldig! Je hebt een ster verdiend voor {{streak}} correcte antwoorden op een rij!"
+                "starEarned": "Geweldig! Je hebt een ster verdiend voor {{streak}} goede antwoorden op een rij!"
             },
             "stars": {
                 "starsEarned": "Verdiende Sterren",
                 "outOfFive": "van de 5"
             },
             "themeSelector": {
-                "selectTheme": "Selecteer Thema",
+                "selectTheme": "Kies een onderwerp",
                 "chooseTheme": "Kies een thema om te beginnen met leren!",
                 "noThemeSelected": "Geen thema geselecteerd"
             },
             "tip": {
                 "readingTip": "Leestip",
-                "tipText": "Krijg 3 correcte antwoorden op een rij om een ⭐ ster te verdienen! Hoeveel kun jij er verzamelen?",
+                "tipText": "Krijg 3 goede antwoorden op een rij om een ⭐ ster te verdienen! Hoeveel kun jij er verzamelen?",
                 "pointingTip": "📖 Wijs bij elk woord terwijl je leest om je concentratie en focus te verbeteren.",
                 "readingAloudTip": "💬 Lees zinnen hardop om je uitspraak en vloeiendheid te oefenen.",
                 "retellTip": "📚 Luister goed naar verhalen en probeer ze in je eigen woorden te hervertellen.",
-                "starRewardTip": "🌟 Krijg 3 correcte antwoorden op een rij om een ster te verdienen! Hoeveel kun jij er verzamelen?",
+                "starRewardTip": "🌟 Krijg 3 goede antwoorden op een rij om een ster te verdienen! Hoeveel kun jij er verzamelen?",
                 "soundingOutTip": "🎯 Neem de tijd en klink elk woord letter voor letter uit.",
                 "audioTip": "👂 Gebruik de audioknoppen om te horen hoe woorden moeten klinken.",
                 "pictureTip": "👀 Kijk naar de plaatjes om je te helpen begrijpen wat je leest.",
@@ -142,49 +141,49 @@
             }
         },
         "scoreboard": {
-            "score":"Score",
-            "total":"Totaal",
-            "accuracy":"Nauwkeurigheid",
-            "streak":"Reeks 🔥"
+            "score": "Score",
+            "total": "Totaal",
+            "accuracy": "Nauwkeurigheid",
+            "streak": "Reeks 🔥"
         },
         "question": {
-            "prompt":"Wat is..."
+            "prompt": "Wat is..."
         },
         "feedback": {
-            "correct": "Goed zo!",
-            "wrong":"Het antwoord was {{answer}}"
+            "correct": "Goed!",
+            "wrong": "Het antwoord was {{answer}}"
         },
         "skip": "Sla deze vraag over →",
         "tip": "💡 Tip: Krijg 3 op een rij om een ⭐ ster te verdienen! Hoeveel kun jij er verzamelen?",
         "highScores": {
-            "view": "Bekijk High Scores",
-            "title": "🏆 High Scores",
+            "view": "Bekijk Topscores",
+            "title": "🏆 Topscores",
             "subtitle": "Je beste prestaties in alle bewerkingen",
             "bestScore": "Beste Score",
-            "bestAccuracy": "Beste Accuraatheid",
-            "bestStreak": "Beste Streak",
-                "totalQuestions":"Totaal Vragen",
-                "lastPlayed":"Laatst Gespeeld",
-                "never":"Nooit",
-                "clearAll":"Wis Alle Scores",
-            "clearConfirmation": "Weet je zeker dat je alle high scores wilt wissen? Deze actie kan niet ongedaan worden gemaakt.",
+            "bestAccuracy": "Beste Nauwkeurigheid",
+            "bestStreak": "Beste Reeks",
+            "totalQuestions": "Totaal Vragen",
+            "lastPlayed": "Laatst Gespeeld",
+            "never": "Nooit",
+            "clearAll": "Wis Alle Scores",
+            "clearConfirmation": "Weet je zeker dat je alle scores wilt wissen? Deze actie kan niet ongedaan worden gemaakt.",
             "close": "Sluiten",
             "keepReading": "Blijf lezen om je scores te verbeteren!"
         },
         "sessionCompleted": {
-            "title": "Sessie Voltooid!",
-            "subtitle": "Je hebt {{count}} vragen voltooid voor {{operation}}",
-            "correct": "Correct",
-            "accuracy": "Accuraatheid",
-            "bestStreak": "Beste Streak",
+            "title": "Klaar met Oefenen!",
+            "subtitle": "Je hebt {{count}} vragen beantwoord voor {{operation}}",
+            "correct": "Goed",
+            "accuracy": "Nauwkeurigheid",
+            "bestStreak": "Beste Reeks",
             "starsEarned": "Verdiende Sterren",
             "tryAgain": "Opnieuw Proberen",
-            "viewHighScores": "Bekijk High Scores",
+            "viewHighScores": "Bekijk Topscores",
             "keepPracticing": "Blijf oefenen om nog beter te worden!"
         }
     },
-   "language": {
-        "switch": "Switch Language",
+    "language": {
+        "switch": "Wissel Taal",
         "english": "en",
         "dutch": "nl"
     },
@@ -242,7 +241,7 @@
             "giuocoPianissimo": "Giuoco Pianissimo!",
             "hungarianDefense": "Hongaarse Verdediging!",
             "evansGambit": "Evans Gambiet!",
-            "captureBishop": "Vang de pion!",
+            "captureBishop": "Vang de loper!",
             "exchangePieces": "Ruil stukken!",
             "scotchGame": "Schots Spel!",
             "discoveredCheck": "Ontdekt schaak!",
