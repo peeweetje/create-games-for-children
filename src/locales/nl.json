@@ -45,10 +45,10 @@
     },
     "sidebar": {
         "chess": "Leer & Speel",
-        "puzzles": "Schaak puzzels",
-        "learn": "Rekenen & Leren",
-        "reading": "Lees Avontuur",
-        "play": "Schaak Spelen",
+        "puzzles": "Puzzels",
+        "learn": "Rekenen",
+        "reading": "Lezen",
+        "play": "Schaken",
         "routes": {
             "puzzles": "puzzels",
             "learn": "leren",

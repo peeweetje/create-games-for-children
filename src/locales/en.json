@@ -45,10 +45,10 @@
     },
     "sidebar": {
         "chess": "Learn & Play",
-        "puzzles": "Chess Puzzles",
-        "learn": "Math & Learn",
-        "reading": "Reading Adventure",
-        "play": "Play Chess",
+        "puzzles": "Puzzles",
+        "learn": "Math",
+        "reading": "Reading",
+        "play": "Chess",
         "routes": {
             "puzzles": "puzzles",
             "learn": "learn",
