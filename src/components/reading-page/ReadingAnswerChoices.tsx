@@ -1,5 +1,5 @@
 
-import { SENTENCES, STORIES } from "../../helpers/readingHelper";
+import { SENTENCES, STORIES, WORDS } from "../../helpers/readingHelper";
 
 interface ReadingAnswerChoicesProps {
     choices: string[];
@@ -10,46 +10,58 @@ interface ReadingAnswerChoicesProps {
     disabled: boolean;
 }
 
-export const ReadingAnswerChoices = ({ 
-    choices, 
-    selected, 
-    correctAnswer, 
+export const ReadingAnswerChoices = ({
+    choices,
+    selected,
+    correctAnswer,
     question,
-    onSelect, 
-    disabled 
+    onSelect,
+    disabled
 }: ReadingAnswerChoicesProps) => {
-    
+
     const getChoiceText = (choice: string) => {
         // Get current language from localStorage
         const currentLang = localStorage.getItem('i18nextLng') || 'en';
         const isDutch = currentLang.startsWith('nl');
-        
+
         // For sentences, we need to find the matching translation
         if (question.type === "sentence" && isDutch) {
             // Find the sentence that matches this choice
             const matchingSentence = Object.values(SENTENCES).flat()
                 .find(s => s.sentence === choice);
-            
+
             if (matchingSentence && matchingSentence.translation) {
                 return matchingSentence.translation;
             }
         }
-        
+
         // For stories, we need to find the matching translation
         if (question.type === "story" && isDutch) {
             // Find the story that matches this choice
             const matchingStory = Object.values(STORIES).flat()
                 .find(s => s.title === choice);
-            
+
             if (matchingStory && matchingStory.titleTranslation) {
                 return matchingStory.titleTranslation;
             }
         }
-        
+
+        // For words, we need to find the matching translation
+        if (question.type === "word" && isDutch) {
+            // Find the word that matches this choice
+            const matchingWord = Object.values(WORDS).flat()
+                .find(w => w.word === choice);
+
+            if (matchingWord && matchingWord.translation) {
+                return matchingWord.translation;
+            }
+        }
+
+
         return choice;
     };
-    
-    
+
+
     return (
         <div className="w-full max-w-2xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -57,9 +69,9 @@ export const ReadingAnswerChoices = ({
                     const isSelected = selected === choice;
                     const isCorrect = choice === correctAnswer;
                     const isWrong = selected === choice && !isCorrect;
-                    
+
                     let buttonClass = "p-6 rounded-xl border-2 text-center transition-all duration-300 font-semibold text-lg";
-                    
+
                     if (disabled && isCorrect) {
                         buttonClass += " border-green-500 bg-green-50 text-green-800 shadow-lg scale-105";
                     } else if (disabled && isWrong) {
