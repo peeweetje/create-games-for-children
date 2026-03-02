@@ -817,7 +817,7 @@ const STORIES: Record<Theme, Story[]> = {
                 "Ons vliegtuig is groot en wit.",
                 "We gaan in onze stoelen zitten.",
                 "Het vliegtuig gaat de lucht in.",
-                "Ik kijk uit naar de wolken beneden.",
+                "Ik kijk naar de wolken beneden.",
             ],
             theme: "transportation",
             image: "flying-plane.png",
