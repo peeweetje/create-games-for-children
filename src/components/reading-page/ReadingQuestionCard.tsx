@@ -10,19 +10,19 @@ interface ReadingQuestionCardProps {
 export const ReadingQuestionCard = ({ question, feedback, feedbackEmoji }: ReadingQuestionCardProps) => {
     const { t, i18n } = useTranslation();
     const isDutch = (i18n.resolvedLanguage ?? i18n.language ?? "en").startsWith("nl");
-    
+
     // Helper function to get localized answer text
     const getLocalizedAnswer = () => {
         return isDutch && question.translation ? question.translation : question.answer;
     };
-    
+
     const getQuestionContent = () => {
         switch (question.type) {
             case "letter":
                 return (
                     <div className="text-center">
                         <div className="text-6xl font-bold text-fuchsia-600 mb-2">
-                             {getLocalizedAnswer()}
+                            {getLocalizedAnswer()}
                         </div>
                         <p className="text-lg text-gray-600">{t("learn.reading.levels.letters")}</p>
                     </div>
@@ -46,12 +46,22 @@ export const ReadingQuestionCard = ({ question, feedback, feedbackEmoji }: Readi
                     </div>
                 );
             case "story":
+                const lines = isDutch && question.storyTranslation?.length
+                    ? question.storyTranslation
+                    : question.storyContent ?? [];
                 return (
                     <div className="text-center">
-                        <div className="text-2xl font-bold text-fuchsia-600 mb-2">
+                        <div className="text-xl font-bold text-fuchsia-600 mb-4">
                             {getLocalizedAnswer()}
                         </div>
-                        <p className="text-lg text-gray-600">{t("learn.reading.levels.stories")}</p>
+                        <div className="text-left space-y-2">
+                            {lines.map((line, i) => (
+                                <p key={i} className="text-lg text-gray-700 leading-relaxed">
+                                    {line}
+                                </p>
+                            ))}
+                        </div>
+                        <p className="text-sm text-gray-400 mt-4">{t("learn.reading.levels.stories")}</p>
                     </div>
                 );
         }
@@ -65,13 +75,13 @@ export const ReadingQuestionCard = ({ question, feedback, feedbackEmoji }: Readi
                     <h2 className="text-2xl font-bold text-gray-800 mb-2">{t("learn.reading.questionCard.readingQuestion")}</h2>
                     <p className="text-gray-600">{t("learn.reading.questionCard.answerBelow")}</p>
                 </div>
-                
+
                 <div className="bg-gradient-to-br from-fuchsia-50 to-purple-50 rounded-xl p-8 border-2 border-fuchsia-200">
                     {question.image && (
                         <div className="flex justify-center mb-4">
-                            <img 
-                                src={`/assets/images/${question.image}`} 
-                               alt={getLocalizedAnswer()}
+                            <img
+                                src={`/assets/images/${question.image}`}
+                                alt={getLocalizedAnswer()}
                                 className="w-32 h-32 object-cover rounded-lg shadow-md"
                                 onError={(e) => {
                                     // Fallback for missing images
@@ -80,24 +90,31 @@ export const ReadingQuestionCard = ({ question, feedback, feedbackEmoji }: Readi
                             />
                         </div>
                     )}
-                    
+
                     {getQuestionContent()}
-                    
+
                     {question.audio && (
                         <div className="mt-4 flex justify-center">
-                            <button 
+                            <button
                                 className="bg-fuchsia-500 text-white px-4 py-2 rounded-lg hover:bg-fuchsia-600 transition-colors"
                                 onClick={() => {
                                     // Create a simple text-to-speech audio using the Web Speech API
                                     if ('speechSynthesis' in window) {
-                                        // Use the same language detection logic as the rest of the component
-                                        const textToSpeak = isDutch && question.translation ? question.translation : question.answer;
-                                        
+                                        let textToSpeak: string;
+                                        if (question.type === "story") {
+                                            const storyLines = isDutch && question.storyTranslation?.length
+                                                ? question.storyTranslation
+                                                : question.storyContent ?? [];
+                                            textToSpeak = storyLines.join(' ');
+                                        } else {
+                                            textToSpeak = isDutch && question.translation ? question.translation : question.answer;
+                                        }
+
                                         const utterance = new SpeechSynthesisUtterance(textToSpeak);
-                                        
+
                                         // Set appropriate language
                                         const langCode = isDutch ? 'nl-NL' : 'en-US';
-                                        
+
                                         utterance.lang = langCode;
                                         utterance.rate = 0.9;
                                         utterance.pitch = 1;
@@ -114,11 +131,10 @@ export const ReadingQuestionCard = ({ question, feedback, feedbackEmoji }: Readi
                 </div>
 
                 {feedback && (
-                    <div className={`mt-6 text-center p-4 rounded-lg ${
-                        feedback === "correct" 
-                            ? "bg-green-100 border-green-200 text-green-800" 
-                            : "bg-red-100 border-red-200 text-red-800"
-                    }`}>
+                    <div className={`mt-6 text-center p-4 rounded-lg ${feedback === "correct"
+                        ? "bg-green-100 border-green-200 text-green-800"
+                        : "bg-red-100 border-red-200 text-red-800"
+                        }`}>
                         <div className="text-2xl mb-2">{feedbackEmoji}</div>
                         <p className="font-semibold">
                             {feedback === "correct" ? t("learn.reading.questionCard.correct") : t("learn.reading.questionCard.wrong", { answer: getLocalizedAnswer() })}
