@@ -454,7 +454,7 @@ const STORIES: Record<Theme, Story[]> = {
                 "Één kikker springt in het water.",
                 "Nu zijn er vier kikkers.",
                 "Ze plonsen en spelen de hele dag.",
-                "s'Nachts slapen alle vijf de kikkers.",
+                "'s Nachts slapen alle vijf de kikkers.",
             ],
             theme: "numbers",
             image: "five-frogs.png",
