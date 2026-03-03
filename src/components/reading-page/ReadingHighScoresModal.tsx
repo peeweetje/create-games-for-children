@@ -45,7 +45,7 @@ export const ReadingHighScoresModal = ({ isOpen, onClose }: ReadingHighScoresMod
                 <div className="p-6 border-b border-gray-200">
                     <div className="flex items-center justify-between">
                         <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 bg-gradient-to-r from-fuchsia-500 to-purple-600 rounded-full flex items-center justify-center">
+                            <div className="w-10 h-10 bg-gradient-to-r from-violet-500 to-purple-600 rounded-full flex items-center justify-center">
                                 <span className="text-white text-lg">🏆</span>
                             </div>
                             <div>
@@ -65,32 +65,32 @@ export const ReadingHighScoresModal = ({ isOpen, onClose }: ReadingHighScoresMod
                 <div className="p-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {Object.entries(highScores).map(([level, scores]) => (
-                            <div key={level} className="bg-gradient-to-br from-fuchsia-50 to-purple-50 rounded-xl p-6 border border-fuchsia-200">
+                            <div key={level} className="bg-gradient-to-br from-violet-50 to-purple-50 rounded-xl p-4 md:p-6 border border-violet-200">
                                 <div className="flex items-center justify-between mb-4">
                                     <h3 className="text-lg font-semibold text-gray-800">{levelLabels[level as ReadingLevel]}</h3>
                                     <div className="flex gap-2">
-                                        <span className="px-2 py-1 bg-fuchsia-200 text-fuchsia-800 rounded-full text-sm font-medium">
+                                        <span className="px-2 py-1 bg-violet-200 text-violet-800 rounded-full text-sm font-medium">
                                             {scores.bestStreak} 🔥
                                         </span>
                                     </div>
                                 </div>
                                 
-                                <div className="grid grid-cols-2 gap-4 text-center">
-                                    <div className="bg-white rounded-lg p-4 shadow-sm">
-                                        <div className="text-2xl font-bold text-fuchsia-600">{scores.score}</div>
-                                        <div className="text-sm text-gray-600">{t("learn.highScores.bestScore")}</div>
+                                <div className="grid grid-cols-2 gap-3 md:gap-4 text-center">
+                                    <div className="bg-white rounded-lg p-3 md:p-4 shadow-sm">
+                                        <div className="text-xl md:text-2xl font-bold text-violet-600">{scores.score}</div>
+                                        <div className="text-xs md:text-sm text-gray-600">{t("learn.highScores.bestScore")}</div>
                                     </div>
-                                    <div className="bg-white rounded-lg p-4 shadow-sm">
-                                        <div className="text-2xl font-bold text-purple-600">{scores.accuracy}%</div>
-                                        <div className="text-sm text-gray-600">{t("learn.highScores.bestAccuracy")}</div>
+                                    <div className="bg-white rounded-lg p-3 md:p-4 shadow-sm">
+                                        <div className="text-xl md:text-2xl font-bold text-purple-600">{scores.accuracy}%</div>
+                                        <div className="text-xs md:text-sm text-gray-600">{t("learn.highScores.bestAccuracy")}</div>
                                     </div>
-                                    <div className="bg-white rounded-lg p-4 shadow-sm">
-                                        <div className="text-2xl font-bold text-pink-600">{scores.total}</div>
-                                        <div className="text-sm text-gray-600">{t("learn.highScores.totalQuestions")}</div>
+                                    <div className="bg-white rounded-lg p-3 md:p-4 shadow-sm">
+                                        <div className="text-xl md:text-2xl font-bold text-pink-600">{scores.total}</div>
+                                        <div className="text-xs md:text-sm text-gray-600">{t("learn.highScores.totalQuestions")}</div>
                                     </div>
-                                    <div className="bg-white rounded-lg p-4 shadow-sm">
-                                        <div className="text-2xl font-bold text-indigo-600">{formatDate(scores.lastPlayed)}</div>
-                                        <div className="text-sm text-gray-600">{t("learn.highScores.lastPlayed")}</div>
+                                    <div className="bg-white rounded-lg p-3 md:p-4 shadow-sm">
+                                        <div className="text-xl md:text-2xl font-bold text-indigo-600">{formatDate(scores.lastPlayed)}</div>
+                                        <div className="text-xs md:text-sm text-gray-600">{t("learn.highScores.lastPlayed")}</div>
                                     </div>
                                 </div>
                             </div>
@@ -112,7 +112,7 @@ export const ReadingHighScoresModal = ({ isOpen, onClose }: ReadingHighScoresMod
                             </button>
                             <button
                                 onClick={onClose}
-                                className="px-6 py-2 bg-fuchsia-500 text-white rounded-lg hover:bg-fuchsia-600 transition-colors"
+                                className="px-6 py-2 bg-violet-500 text-white rounded-lg hover:bg-violet-600 transition-colors"
                             >
                                 {t("learn.highScores.close")}
                             </button>
