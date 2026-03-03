@@ -42,8 +42,8 @@ export const DesktopSidebar = () => {
                                 to={item.path}
                                 className={({ isActive }) =>
                                     `flex items-center gap-3 px-4 py-3 rounded-md transition-all font-semibold ${
-                                        isActive 
-                                            ? 'bg-violet-300 text-white border-l-4 border-violet-500' 
+                                        isActive
+                                            ? 'bg-violet-300 text-white border-l-4 border-violet-500'
                                             : 'hover:bg-violet-800 hover:text-white'
                                     }`
                                 }
@@ -53,12 +53,13 @@ export const DesktopSidebar = () => {
                             </NavLink>
                         </li>
                     ))}
+                    <li className="mt-auto">
+                        <div className="p-4 border-t border-gray-700 bg-gray-800">
+                            <LanguageSwitch />
+                        </div>
+                    </li>
                 </ul>
             </nav>
-
-            <div className="p-4 mt-auto border-t border-gray-700">
-                <LanguageSwitch />
-            </div>
         </aside>
     );
 };
