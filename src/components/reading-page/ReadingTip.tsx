@@ -22,9 +22,9 @@ export const ReadingTip = () => {
 
     return (
         <div className="w-full max-w-2xl mx-auto">
-            <div className="bg-gradient-to-r from-fuchsia-100 to-purple-100 rounded-xl p-6 border border-fuchsia-200">
+            <div className="bg-gradient-to-r from-purple-300 to-violet-100 rounded-xl p-6 border border-violet-200">
                 <div className="flex items-start gap-3">
-                    <div className="w-12 h-12 bg-fuchsia-500 rounded-full flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 bg-violet-600 rounded-full flex items-center justify-center flex-shrink-0">
                         <span className="text-white text-lg">💡</span>
                     </div>
                     <div className="flex-1">

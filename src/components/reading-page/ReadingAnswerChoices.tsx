@@ -77,9 +77,9 @@ export const ReadingAnswerChoices = ({
                     } else if (disabled && isWrong) {
                         buttonClass += " border-red-500 bg-red-50 text-red-800 shadow-lg";
                     } else if (isSelected && !disabled) {
-                        buttonClass += " border-fuchsia-500 bg-fuchsia-50 text-fuchsia-800 shadow-md";
+                        buttonClass += " border-violet-500 bg-violet-50 text-violet-800 shadow-md";
                     } else {
-                        buttonClass += " border-gray-200 bg-white text-gray-700 hover:border-fuchsia-300 hover:bg-fuchsia-50";
+                        buttonClass += " border-gray-200 bg-white text-gray-700 hover:border-violet-300 hover:bg-violet-50";
                     }
 
                     return (

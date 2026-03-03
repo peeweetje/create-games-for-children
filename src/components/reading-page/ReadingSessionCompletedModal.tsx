@@ -78,8 +78,8 @@ export const ReadingSessionCompletedModal = ({
                         </div>
                     </div>
 
-                    <div className="bg-gradient-to-r from-fuchsia-100 to-purple-100 rounded-lg p-4 border border-fuchsia-200">
-                            <div className="flex items-center justify-center gap-2 text-fuchsia-800 font-semibold">
+                    <div className="bg-gradient-to-r from-violet-100 to-purple-100 rounded-lg p-4 border border-violet-200">
+                            <div className="flex items-center justify-center gap-2 text-violet-800 font-semibold">
                                 <span>⭐</span>
                                 <span>{t("learn.sessionCompleted.keepPracticing")}</span>
                             </div>
@@ -90,13 +90,13 @@ export const ReadingSessionCompletedModal = ({
                     <div className="flex flex-col sm:flex-row gap-3 justify-center">
                         <button
                             onClick={onTryAgain}
-                            className="px-6 py-3 bg-fuchsia-500 text-white rounded-lg hover:bg-fuchsia-600 transition-colors font-semibold"
+                            className="px-6 py-3 bg-violet-500 text-white rounded-lg hover:bg-violet-600 transition-colors font-semibold"
                         >
                             {t("learn.sessionCompleted.tryAgain")}
                         </button>
                         <button
                             onClick={handleViewHighScores}
-                            className="px-6 py-3 bg-gradient-to-r from-purple-500 to-fuchsia-500 text-white rounded-lg hover:from-purple-600 hover:to-fuchsia-600 transition-colors font-semibold"
+                            className="px-6 py-3 bg-gradient-to-r from-purple-500 to-violet-500 text-white rounded-lg hover:from-purple-600 hover:to-violet-600 transition-colors font-semibold"
                         >
                             {t("learn.sessionCompleted.viewHighScores")}
                         </button>

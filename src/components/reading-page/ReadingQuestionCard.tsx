@@ -21,7 +21,7 @@ export const ReadingQuestionCard = ({ question, feedback, feedbackEmoji }: Readi
             case "letter":
                 return (
                     <div className="text-center">
-                        <div className="text-6xl font-bold text-fuchsia-600 mb-2">
+                        <div className="text-6xl font-bold text-violet-600 mb-2">
                             {getLocalizedAnswer()}
                         </div>
                         <p className="text-lg text-gray-600">{t("learn.reading.levels.letters")}</p>
@@ -30,7 +30,7 @@ export const ReadingQuestionCard = ({ question, feedback, feedbackEmoji }: Readi
             case "word":
                 return (
                     <div className="text-center">
-                        <div className="text-4xl font-bold text-fuchsia-600 mb-2">
+                        <div className="text-4xl font-bold text-violet-600 mb-2">
                             {getLocalizedAnswer()}
                         </div>
                         <p className="text-lg text-gray-600">{t("learn.reading.levels.words")}</p>
@@ -39,7 +39,7 @@ export const ReadingQuestionCard = ({ question, feedback, feedbackEmoji }: Readi
             case "sentence":
                 return (
                     <div className="text-center">
-                        <div className="text-xl font-semibold text-fuchsia-600 mb-2">
+                        <div className="text-xl font-semibold text-violet-600 mb-2">
                             {getLocalizedAnswer()}
                         </div>
                         <p className="text-lg text-gray-600">{t("learn.reading.levels.sentences")}</p>
@@ -51,7 +51,7 @@ export const ReadingQuestionCard = ({ question, feedback, feedbackEmoji }: Readi
                     : question.storyContent ?? [];
                 return (
                     <div className="text-center">
-                        <div className="text-xl font-bold text-fuchsia-600 mb-4">
+                        <div className="text-xl font-bold text-violet-600 mb-4">
                             {getLocalizedAnswer()}
                         </div>
                         <div className="text-left space-y-2">
@@ -70,13 +70,13 @@ export const ReadingQuestionCard = ({ question, feedback, feedbackEmoji }: Readi
 
     return (
         <div className="w-full max-w-2xl mx-auto">
-            <div className="bg-white rounded-2xl shadow-lg p-8 border-2 border-fuchsia-100">
+            <div className="bg-white rounded-2xl shadow-lg p-8 border-2 border-violet-100">
                 <div className="text-center mb-6">
                     <h2 className="text-2xl font-bold text-gray-800 mb-2">{t("learn.reading.questionCard.readingQuestion")}</h2>
                     <p className="text-gray-600">{t("learn.reading.questionCard.answerBelow")}</p>
                 </div>
 
-                <div className="bg-gradient-to-br from-fuchsia-50 to-purple-50 rounded-xl p-8 border-2 border-fuchsia-200">
+                <div className="bg-gradient-to-br from-violet-50 to-purple-50 rounded-xl p-8 border-2 border-violet-200">
                     {question.image && (
                         <div className="flex justify-center mb-4">
                             <img
@@ -96,7 +96,7 @@ export const ReadingQuestionCard = ({ question, feedback, feedbackEmoji }: Readi
                     {question.audio && (
                         <div className="mt-4 flex justify-center">
                             <button
-                                className="bg-fuchsia-500 text-white px-4 py-2 rounded-lg hover:bg-fuchsia-600 transition-colors"
+                                className="bg-violet-500 text-white px-4 py-2 rounded-lg hover:bg-violet-600 transition-colors"
                                 onClick={() => {
                                     // Create a simple text-to-speech audio using the Web Speech API
                                     if ('speechSynthesis' in window) {
