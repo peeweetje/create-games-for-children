@@ -1026,22 +1026,25 @@ export const useReadingProgress = create<ReadingProgress>((set, get) => ({
         sessionQuestions: 0
     }),
 
-    saveHighScore: (level, score, total, streak) => {
-        if (total === 0) return;
+    saveHighScore: (level, scoreDelta, totalDelta, streak) => {
+        if (totalDelta === 0) return;
 
-        const sessionAccuracy = total > 0 ? Math.round((score / total) * 100) : 0;
         const currentBestStreak = Math.max(get().highScores[level]?.bestStreak || 0, streak);
 
         const existingScore = get().highScores[level]?.score || 0;
         const existingTotal = get().highScores[level]?.total || 0;
-        const existingAccuracy = get().highScores[level]?.accuracy || 0;
+
+        // Calculate new accuracy based on cumulative totals
+        const newTotalQuestions = existingTotal + totalDelta;
+        const newTotalScore = existingScore + scoreDelta;
+        const newAccuracy = newTotalQuestions > 0 ? Math.round((newTotalScore / newTotalQuestions) * 100) : 0;
 
         const updatedHighScores = {
             ...get().highScores,
             [level]: {
-                score: Math.max(existingScore, score),
-                total: existingTotal + total,
-                accuracy: Math.max(existingAccuracy, sessionAccuracy),
+                score: newTotalScore,
+                total: newTotalQuestions,
+                accuracy: newAccuracy,
                 bestStreak: currentBestStreak,
                 lastPlayed: new Date().toISOString()
             }
