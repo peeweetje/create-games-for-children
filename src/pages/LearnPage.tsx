@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import {
     type Operation,
     type Question,
@@ -26,6 +26,8 @@ export const LearnPage = () => {
     const [selected, setSelected] = useState<number | null>(null);
     const [score, setScore] = useState(0);
     const [total, setTotal] = useState(0);
+    const scoreRef = useRef(0);
+    const totalRef = useRef(0);
     const [feedback, setFeedback] = useState<"correct" | "wrong" | null>(null);
     const [feedbackEmoji, setFeedbackEmoji] = useState("");
     const [streak, setStreak] = useState(0);
@@ -33,11 +35,22 @@ export const LearnPage = () => {
     const [showHighScores, setShowHighScores] = useState(false);
     const [sessionCompleted, setSessionCompleted] = useState(false);
     const [sessionQuestions, setSessionQuestions] = useState(0);
+
+    // values to display in completed modal (avoid stale state)
+    // no need for separate final values; use live state directly
+
+    // guard to prevent double-answer processing
+    const answeredRef = useRef(false);
+
     const QUESTIONS_PER_SESSION = 25;
 
-    const saveHighScore = (operation: Operation, currentScore: number, currentTotal: number, currentStreak: number) => {
-        // Only save if there's actual progress (non-zero total)
-        if (currentTotal === 0) return;
+    // refs to remember what we've already saved for this session
+    const lastSavedScoreRef = useRef(0);
+    const lastSavedTotalRef = useRef(0);
+
+    // now accepts deltas instead of full totals
+    const saveHighScore = (operation: Operation, scoreDelta: number, totalDelta: number, currentStreak: number) => {
+        if (totalDelta === 0) return;
 
         const savedScores = localStorage.getItem("learn-high-scores");
         let highScores: Record<Operation, any> = {
@@ -55,19 +68,16 @@ export const LearnPage = () => {
             }
         }
 
-        // Calculate accuracy for this session only
-        const sessionAccuracy = currentTotal > 0 ? Math.round((currentScore / currentTotal) * 100) : 0;
-        const currentBestStreak = Math.max(highScores[operation]?.bestStreak || 0, currentStreak);
-        
-        // Update high scores - only update if this session's performance is better
-        const existingScore = highScores[operation]?.score || 0;
-        const existingTotal = highScores[operation]?.total || 0;
-        const existingAccuracy = highScores[operation]?.accuracy || 0;
-        
+        const existing = highScores[operation] || { score: 0, total: 0, accuracy: 0, bestStreak: 0 };
+        const newTotal = existing.total + totalDelta;
+        const newScore = existing.score + scoreDelta;
+        const newAccuracy = newTotal > 0 ? Math.round((newScore / newTotal) * 100) : 0;
+        const currentBestStreak = Math.max(existing.bestStreak || 0, currentStreak);
+
         highScores[operation] = {
-            score: Math.max(existingScore, currentScore),
-            total: existingTotal + currentTotal,
-            accuracy: Math.max(existingAccuracy, sessionAccuracy),
+            score: newScore,
+            total: newTotal,
+            accuracy: Math.max(existing.accuracy || 0, newAccuracy),
             bestStreak: currentBestStreak,
             lastPlayed: new Date().toISOString()
         };
@@ -80,6 +90,7 @@ export const LearnPage = () => {
     };
 
     const newQuestion = useCallback((op: Operation) => {
+        answeredRef.current = false;
         const q = generateQuestion(op);
         setQuestion(q);
         setChoices(generateChoices(q.answer));
@@ -92,34 +103,49 @@ export const LearnPage = () => {
     }, [selectedOp, newQuestion]);
 
     const handleOperationChange = (op: Operation) => {
-        // Save current operation's high score before switching
-        saveHighScore(selectedOp, score, total, streak);
+        // Save deltas of current progress
+        const scoreDelta = score - lastSavedScoreRef.current;
+        const totalDelta = total - lastSavedTotalRef.current;
+        saveHighScore(selectedOp, scoreDelta, totalDelta, streak);
         
         setSelectedOp(op);
         setScore(0);
         setTotal(0);
+        scoreRef.current = 0;
+        totalRef.current = 0;
         setStreak(0);
         setStars(0);
+        lastSavedScoreRef.current = 0;
+        lastSavedTotalRef.current = 0;
+        setSessionQuestions(0);
+        answeredRef.current = false;
     };
 
     const handleAnswer = (choice: number) => {
+        if (answeredRef.current) return;
+        answeredRef.current = true;
         if (selected !== null) return;
         setSelected(choice);
-        setTotal((t) => t + 1);
+
+        // update ref counters first
+        totalRef.current += 1;
+        if (choice === question.answer) scoreRef.current += 1;
+
+        const updatedTotal = totalRef.current;
+        const updatedScore = scoreRef.current;
+        const updatedStreak = choice === question.answer ? streak + 1 : 0;
+
+        setTotal(updatedTotal);
         setSessionQuestions((q) => q + 1);
 
         if (choice === question.answer) {
             setFeedback("correct");
-            setScore((s) => s + 1);
-            const newStreak = streak + 1;
-            setStreak(newStreak);
-            if (newStreak % 3 === 0) setStars((s) => s + 1);
+            setScore(updatedScore);
+            setStreak(updatedStreak);
+            if (updatedStreak % 3 === 0) setStars((s) => s + 1);
             setFeedbackEmoji(
                 FEEDBACK_EMOJIS_CORRECT[Math.floor(Math.random() * FEEDBACK_EMOJIS_CORRECT.length)]
             );
-            
-            // Save progress after each correct answer to ensure it's stored
-            saveHighScore(selectedOp, score + 1, total, newStreak);
         } else {
             setFeedback("wrong");
             setStreak(0);
@@ -128,10 +154,17 @@ export const LearnPage = () => {
             );
         }
 
+        // calculate deltas and persist
+        const scoreDelta = updatedScore - lastSavedScoreRef.current;
+        const totalDelta = updatedTotal - lastSavedTotalRef.current;
+        saveHighScore(selectedOp, scoreDelta, totalDelta, updatedStreak);
+        lastSavedScoreRef.current = updatedScore;
+        lastSavedTotalRef.current = updatedTotal;
+
         // Check if session is completed
         if (sessionQuestions + 1 >= QUESTIONS_PER_SESSION) {
+            console.log("SESSION END - scoreRef:", scoreRef.current, "totalRef:", totalRef.current);
             setSessionCompleted(true);
-            saveHighScore(selectedOp, score, total, streak);
         } else {
             setTimeout(() => {
                 newQuestion(selectedOp);
@@ -140,6 +173,7 @@ export const LearnPage = () => {
     };
 
     const sessionAccuracy = total > 0 ? Math.round((score / total) * 100) : 0;
+
 
     return (
         <div className="flex flex-col items-center min-h-full bg-gradient-to-b from-violet-50 to-purple-100 p-4 pb-20 md:pb-4">
@@ -186,17 +220,27 @@ export const LearnPage = () => {
                     setSessionQuestions(0);
                     setScore(0);
                     setTotal(0);
+                    scoreRef.current = 0;
+                    totalRef.current = 0;
                     setStreak(0);
                     setStars(0);
                     setShowHighScores(true);
+                    lastSavedScoreRef.current = 0;
+                    lastSavedTotalRef.current = 0;
+                    answeredRef.current = false;
                 }}
                 onTryAgain={() => {
                     setSessionCompleted(false);
                     setSessionQuestions(0);
                     setScore(0);
                     setTotal(0);
+                    scoreRef.current = 0;
+                    totalRef.current = 0;
                     setStreak(0);
                     setStars(0);
+                    lastSavedScoreRef.current = 0;
+                    lastSavedTotalRef.current = 0;
+                    answeredRef.current = false;
                     newQuestion(selectedOp);
                 }}
                 score={score}

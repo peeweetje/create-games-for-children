@@ -20,6 +20,7 @@ export const LearnSessionCompletedModal = ({
     onClose,
     onTryAgain,
     score,
+    total,
     accuracy,
     streak,
     stars,
@@ -54,7 +55,13 @@ export const LearnSessionCompletedModal = ({
                         </div>
                     </div>
                     <div>
-                        <div className="text-2xl font-bold text-blue-600">{accuracy}%</div>
+                        <div className="text-2xl font-bold text-blue-600">{total}</div>
+                        <div className="text-sm text-gray-600">
+                            {t("learn.sessionCompleted.total")}
+                        </div>
+                    </div>
+                    <div>
+                        <div className="text-2xl font-bold text-purple-600">{accuracy}%</div>
                         <div className="text-sm text-gray-600">
                             {t("learn.sessionCompleted.accuracy")}
                         </div>
