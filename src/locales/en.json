@@ -48,6 +48,7 @@
         "puzzles": "Puzzles",
         "learn": "Math",
         "reading": "Reading",
+        "memory": "Memory",
         "play": "Chess",
         "routes": {
             "puzzles": "puzzles",
@@ -186,6 +187,21 @@
         "switch": "Switch Language",
         "english": "en",
         "dutch": "nl"
+    },
+    "memory": {
+        "title": "Memory Game",
+        "description": "Find matching pairs!",
+        "moves": "Moves",
+        "matches": "Matches",
+        "congratulations": "Congratulations!",
+        "completedIn": "Completed in {{moves}} moves!",
+        "playAgain": "Play Again",
+        "themes": {
+            "animals": "Animals",
+            "fruits": "Fruits",
+            "food": "Food",
+            "sports": "Sports"
+        }
     },
     "puzzles": {
         "title": "Chess Puzzles",

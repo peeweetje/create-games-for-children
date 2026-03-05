@@ -48,6 +48,7 @@
         "puzzles": "Puzzels",
         "learn": "Rekenen",
         "reading": "Lezen",
+        "memory": "Geheugen",
         "play": "Schaken",
         "routes": {
             "puzzles": "puzzels",
@@ -187,6 +188,21 @@
         "switch": "Wissel Taal",
         "english": "en",
         "dutch": "nl"
+    },
+    "memory": {
+        "title": "Geheugenspel",
+        "description": "Vind overeenkomende paren!",
+        "moves": "Zetten",
+        "matches": "Overeenkomsten",
+        "congratulations": "Gefeliciteerd!",
+        "completedIn": "Voltooid in {{moves}} zetten!",
+        "playAgain": "Opnieuw Spelen",
+        "themes": {
+            "animals": "Dieren",
+            "fruits": "Fruit",
+            "food": "Eten",
+            "sports": "Sport"
+        }
     },
     "puzzles": {
         "title": "Schaakpuzzels",
