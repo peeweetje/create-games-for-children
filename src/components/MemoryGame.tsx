@@ -156,18 +156,19 @@ export const MemoryGame = () => {
                 </div>
                 
                 {/* Theme Selector */}
-                <div className="flex gap-2">
+                <div className="flex flex-wrap gap-2">
                     {Object.keys(THEMES).map((themeKey) => (
                         <button
                             key={themeKey}
                             onClick={() => setTheme(themeKey as ThemeType)}
-                            className={`px-3 py-1 rounded-full text-sm font-medium transition-all ${
+                            className={`px-2.5 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-base font-medium transition-all min-w-[80px] ${
                                 theme === themeKey 
                                     ? 'bg-violet-500 text-white shadow-lg' 
                                     : 'bg-white text-gray-700 hover:bg-violet-200'
                             }`}
                         >
-                            {THEMES[themeKey as ThemeType][0]} {t(`memory.themes.${themeKey}`)}
+                            <span className="hidden md:inline mr-1">{THEMES[themeKey as ThemeType][0]}</span>
+                            {t(`memory.themes.${themeKey}`)}
                         </button>
                     ))}
                 </div>
