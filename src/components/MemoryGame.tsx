@@ -161,33 +161,25 @@ export const MemoryGame = () => {
                                 : 'bg-gradient-to-br from-purple-200 to-violet-200'
                         }`}
                         whileHover={{ scale: card.isFlipped || card.isMatched ? 1 : 1.05 }}
-                        animate={{ rotateY: card.isFlipped || card.isMatched ? 0 : 180 }}
+                        animate={{ rotateY: card.isFlipped || card.isMatched ? 180 : 0 }}
                         transition={{ duration: 0.6, ease: "easeInOut" }}
                         style={{ transformStyle: 'preserve-3d' }}
                     >
-                        {/* Back of card - always visible when card is face down */}
-                        <motion.div
-                            className="w-full h-full bg-gradient-to-br from-purple-500 to-violet-600 rounded-xl md:rounded-2xl flex items-center justify-center shadow-inner"
+                        {/* Back of card - always visible when face down */}
+                        <div
+                            className="absolute inset-0 w-full h-full bg-gradient-to-br from-purple-500 to-violet-600 rounded-xl md:rounded-2xl flex items-center justify-center shadow-inner"
                             style={{ backfaceVisibility: 'hidden' }}
-                            initial={{ rotateY: 180 }}
-                            animate={{ rotateY: card.isFlipped || card.isMatched ? 180 : 0 }}
-                            transition={{ duration: 0.6, ease: "easeInOut" }}
                         >
                             <div className="w-4 h-4 md:w-6 md:h-6 bg-white rounded-full opacity-50"></div>
-                        </motion.div>
+                        </div>
                         
-                        {/* Front of card - visible when card is face up */}
-                        {(card.isFlipped || card.isMatched) && (
-                            <motion.div
-                                className="absolute inset-0 w-full h-full rounded-xl md:rounded-2xl flex items-center justify-center text-2xl md:text-4xl font-bold"
-                                style={{ backfaceVisibility: 'hidden' }}
-                                initial={{ rotateY: 180 }}
-                                animate={{ rotateY: 0 }}
-                                transition={{ duration: 0.6, ease: "easeInOut" }}
-                            >
-                                <span>{card.value}</span>
-                            </motion.div>
-                        )}
+                        {/* Front of card - always visible when face up */}
+                        <div
+                            className="absolute inset-0 w-full h-full rounded-xl md:rounded-2xl flex items-center justify-center text-2xl md:text-4xl font-bold"
+                            style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
+                        >
+                            <span>{card.value}</span>
+                        </div>
                     </motion.div>
                 ))}
             </div>
