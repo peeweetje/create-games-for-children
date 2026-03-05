@@ -3,7 +3,7 @@ import { detectCurrentRoute, useLanguageSwitch } from '../../hooks/useNavigation
 import { Languages } from 'lucide-react';
 
 type LanguageSwitchProps = {
-    variant?: 'desktop' | 'mobile';
+    variant?: 'desktop' | 'mobile' | 'dropdown';
     className?: string;
 };
 
@@ -30,6 +30,27 @@ export const LanguageSwitch = ({
                 <Languages size={24} />
                 <span>{isDutch ? t('language.english') : t('language.dutch')}</span>
             </button>
+        );
+    }
+
+    if (variant === 'dropdown') {
+        return (
+            <div className="flex items-center gap-2 px-2 py-1">
+                <Languages size={16} className="text-gray-400" />
+                <button 
+                    onClick={() => handleLanguageChange('en')} 
+                    className={`text-sm font-medium hover:text-white transition-colors ${lang === 'en' ? 'text-white' : 'text-gray-300'}`}
+                >
+                    {t('language.english')}
+                </button>
+                <span className="text-gray-500">|</span>
+                <button 
+                    onClick={() => handleLanguageChange('nl')} 
+                    className={`text-sm font-medium hover:text-white transition-colors ${lang === 'nl' ? 'text-white' : 'text-gray-300'}`}
+                >
+                    {t('language.dutch')}
+                </button>
+            </div>
         );
     }
 
