@@ -50,6 +50,7 @@
         "reading": "Reading",
         "memory": "Memory",
         "play": "Chess",
+        "more": "More",
         "routes": {
             "puzzles": "puzzles",
             "learn": "learn",

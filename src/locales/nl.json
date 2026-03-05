@@ -50,6 +50,7 @@
         "reading": "Lezen",
         "memory": "Geheugen",
         "play": "Schaken",
+        "more": "Meer",
         "routes": {
             "puzzles": "puzzels",
             "learn": "leren",
