@@ -1,9 +1,10 @@
-import { Gamepad2, BookOpen, Puzzle, BookText } from 'lucide-react';
+import { Gamepad2, BookOpen, Puzzle, BookText, MemoryStick } from 'lucide-react';
 import { ComponentType } from 'react';
 import { PlayPage } from './pages/PlayPage';
 import { PuzzlesPage } from './pages/PuzzlesPage';
 import { LearnPage } from './pages/LearnPage';
 import { ReadingPage } from './pages/ReadingPage';
+import { MemoryPage } from './pages/MemoryPage';
 
 // Navigation configuration - easy to extend with new routes
 export const navConfig = [
@@ -11,12 +12,13 @@ export const navConfig = [
     { key: 'puzzles', path: '/puzzles', icon: Puzzle },
     { key: 'learn', path: '/learn', icon: BookOpen },
     { key: 'reading', path: '/reading', icon: BookText },
+    { key: 'memory', path: '/memory', icon: MemoryStick },
 ];
 
 // Route mappings for all supported languages
 export const routeTranslations: Record<string, Record<string, string>> = {
-    en: { puzzles: 'puzzles', learn: 'learn', reading: 'reading' },
-    nl: { puzzles: 'puzzels', learn: 'leren', reading: 'lezen' },
+    en: { puzzles: 'puzzles', learn: 'learn', reading: 'reading', memory: 'memory' },
+    nl: { puzzles: 'puzzels', learn: 'leren', reading: 'lezen', memory: 'geheugen' },
 };
 
 // Helper to get all route variations (merges all language routes)
@@ -31,6 +33,7 @@ export const pageComponents: Record<string, ComponentType> = {
     puzzles: PuzzlesPage,
     learn: LearnPage,
     reading: ReadingPage,
+    memory: MemoryPage,
 };
 
 // Generate all route paths for a given route key (all language variations)
