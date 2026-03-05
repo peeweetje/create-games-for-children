@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { motion } from 'framer-motion'
 import Confetti from 'react-confetti'
@@ -30,9 +30,23 @@ export const MemoryGame = () => {
     const [matches, setMatches] = useState(0)
     const [isGameOver, setIsGameOver] = useState(false)
     const [windowSize, setWindowSize] = useState({ width: window.innerWidth, height: window.innerHeight })
+    
+    // Refs for timeout management
+    const matchTimeoutRef = useRef<number | null>(null)
+
+    // Clear any existing timeout
+    const clearExistingTimeout = () => {
+        if (matchTimeoutRef.current !== null) {
+            clearTimeout(matchTimeoutRef.current)
+            matchTimeoutRef.current = null
+        }
+    }
 
     // Initialize game
     const initializeGame = () => {
+        // Clear any existing timeout before resetting the game
+        clearExistingTimeout()
+        
         const selectedTheme = THEMES[theme]
         const pairs = selectedTheme.slice(0, 6) // Use 6 pairs = 12 cards
         const deck = [...pairs, ...pairs]
@@ -69,36 +83,39 @@ export const MemoryGame = () => {
 
     // Check for matches
     useEffect(() => {
-        if (flippedCards.length === 2) {
-            const [firstId, secondId] = flippedCards
-            const firstCard = cards.find(c => c.id === firstId)
-            const secondCard = cards.find(c => c.id === secondId)
-            
-            setMoves(prev => prev + 1)
+        if (flippedCards.length !== 2) return
 
-            if (firstCard && secondCard && firstCard.value === secondCard.value) {
-                // Match found
-                setTimeout(() => {
-                    setCards(prev => prev.map(c => 
-                        c.id === firstId || c.id === secondId 
-                            ? { ...c, isMatched: true }
-                            : c
-                    ))
-                    setFlippedCards([])
-                    setMatches(prev => prev + 1)
-                }, 500)
+        const [firstId, secondId] = flippedCards
+        const firstCard = cards.find(c => c.id === firstId)
+        const secondCard = cards.find(c => c.id === secondId)
+        const isMatch = !!firstCard && !!secondCard && firstCard.value === secondCard.value
+        
+        setMoves(prev => prev + 1)
+
+        // Clear any existing timeout before setting a new one
+        clearExistingTimeout()
+
+        const timeoutId = window.setTimeout(() => {
+            if (isMatch) {
+                setCards(prev => prev.map(c =>
+                    c.id === firstId || c.id === secondId
+                        ? { ...c, isMatched: true }
+                        : c
+                ))
+                setMatches(prev => prev + 1)
             } else {
-                // No match
-                setTimeout(() => {
-                    setCards(prev => prev.map(c => 
-                        c.id === firstId || c.id === secondId 
-                            ? { ...c, isFlipped: false }
-                            : c
-                    ))
-                    setFlippedCards([])
-                }, 1000)
+                setCards(prev => prev.map(c =>
+                    c.id === firstId || c.id === secondId
+                        ? { ...c, isFlipped: false }
+                        : c
+                ))
             }
-        }
+            setFlippedCards([])
+        }, isMatch ? 500 : 1000)
+
+        // Store the timeout ID and return cleanup function
+        matchTimeoutRef.current = timeoutId
+        return () => window.clearTimeout(timeoutId)
     }, [flippedCards, cards])
 
     // Check if game is over
@@ -121,6 +138,13 @@ export const MemoryGame = () => {
     useEffect(() => {
         initializeGame()
     }, [theme])
+
+    // Cleanup on component unmount
+    useEffect(() => {
+        return () => {
+            clearExistingTimeout()
+        }
+    }, [])
 
     return (
         <div className="w-full">
@@ -152,7 +176,7 @@ export const MemoryGame = () => {
             {/* Game Board */}
             <div className="grid grid-cols-3 md:grid-cols-4 gap-2 md:gap-3">
                 {cards.map((card) => (
-                    <motion.div
+                    <motion.button
                         key={card.id}
                         onClick={() => handleCardClick(card.id)}
                         className={`aspect-square cursor-pointer rounded-xl md:rounded-2xl shadow-lg ${
@@ -180,7 +204,7 @@ export const MemoryGame = () => {
                         >
                             <span>{card.value}</span>
                         </div>
-                    </motion.div>
+                    </motion.button>
                 ))}
             </div>
 
