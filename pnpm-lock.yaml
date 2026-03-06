@@ -9,11 +9,11 @@ importers:
   .:
     dependencies:
       '@react-chess-tools/react-chess-game':
-        specifier: ^1.0.1
-        version: 1.0.1(@types/react@19.2.9)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+        specifier: ^1.0.3
+        version: 1.0.3(@types/react@19.2.9)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@react-chess-tools/react-chess-puzzle':
-        specifier: ^1.0.2
-        version: 1.0.2(@types/react@19.2.9)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+        specifier: ^1.0.4
+        version: 1.0.4(@types/react@19.2.9)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       chess.js:
         specifier: ^1.4.0
         version: 1.4.0
@@ -384,14 +384,19 @@ packages:
       '@types/react':
         optional: true
 
-  '@react-chess-tools/react-chess-game@1.0.1':
-    resolution: {integrity: sha512-PUA3qG9xPq56jB8lXZvwxsMK7zeAk9gw4z63Lba/meOK8lVT6ebYpLYGtNuHEKXbdeI98y3fDOTR6Ik0mGCarQ==}
+  '@react-chess-tools/react-chess-clock@1.0.2':
+    resolution: {integrity: sha512-bKeDqeTYk1yJCtujtY8wGXvU8Z3t19ZXmhNZG3qXPzZpb1QBUswHQwQnNDA0eHqd1mIi4yTgFXKziY+f/raxLQ==}
+    peerDependencies:
+      react: '>=16.14.0'
+
+  '@react-chess-tools/react-chess-game@1.0.3':
+    resolution: {integrity: sha512-2rtQnuEAU7B0vCdBH5MS6T7f0rEyl5n+DBJrW8Uk85Gi5zCV//XzfiDf2ZUjhWslavPsTQZnEIC5FfjC8rVARQ==}
     peerDependencies:
       react: '>=16.14.0'
       react-dom: '>=16.14.0'
 
-  '@react-chess-tools/react-chess-puzzle@1.0.2':
-    resolution: {integrity: sha512-jo+BTIVSg+viBNhVufvCZAXYFizfTmnrxqDwtEr05fLuH+CONmCjDZK7AI2di4djX2b9ox0rhAnUOzTf4VxRmw==}
+  '@react-chess-tools/react-chess-puzzle@1.0.4':
+    resolution: {integrity: sha512-XRKubNkmIGLzCp+/QKMhXtR1iGKy2EjYYj4kttGA5YwikQaAmaOwWz1c6u/0ldxjIegaMO8j29c2zMM5p2GZiQ==}
     peerDependencies:
       react: '>=16.14.0'
       react-dom: '>=16.14.0'
@@ -1298,9 +1303,17 @@ snapshots:
     optionalDependencies:
       '@types/react': 19.2.9
 
-  '@react-chess-tools/react-chess-game@1.0.1(@types/react@19.2.9)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)':
+  '@react-chess-tools/react-chess-clock@1.0.2(@types/react@19.2.9)(react@19.2.3)':
     dependencies:
       '@radix-ui/react-slot': 1.2.4(@types/react@19.2.9)(react@19.2.3)
+      react: 19.2.3
+    transitivePeerDependencies:
+      - '@types/react'
+
+  '@react-chess-tools/react-chess-game@1.0.3(@types/react@19.2.9)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)':
+    dependencies:
+      '@radix-ui/react-slot': 1.2.4(@types/react@19.2.9)(react@19.2.3)
+      '@react-chess-tools/react-chess-clock': 1.0.2(@types/react@19.2.9)(react@19.2.3)
       chess.js: 1.4.0
       lodash: 4.17.23
       react: 19.2.3
@@ -1309,10 +1322,10 @@ snapshots:
     transitivePeerDependencies:
       - '@types/react'
 
-  '@react-chess-tools/react-chess-puzzle@1.0.2(@types/react@19.2.9)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)':
+  '@react-chess-tools/react-chess-puzzle@1.0.4(@types/react@19.2.9)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)':
     dependencies:
       '@radix-ui/react-slot': 1.2.4(@types/react@19.2.9)(react@19.2.3)
-      '@react-chess-tools/react-chess-game': 1.0.1(@types/react@19.2.9)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+      '@react-chess-tools/react-chess-game': 1.0.3(@types/react@19.2.9)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       chess.js: 1.4.0
       lodash: 4.17.23
       react: 19.2.3
