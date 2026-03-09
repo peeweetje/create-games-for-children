@@ -170,7 +170,8 @@
                 "clearAll": "Clear All Scores",
             "clearConfirmation": "Are you sure you want to clear all high scores? This action cannot be undone.",
             "close": "Close",
-            "keepReading": "Keep reading to improve your scores!"
+            "keepReading": "Keep reading to improve your scores!",
+            "keepPracticing": "Keep practicing to improve your scores!"
         },
         "sessionCompleted": {
             "title": "Session Complete!",

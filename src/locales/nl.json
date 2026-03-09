@@ -170,7 +170,8 @@
             "clearAll": "Wis Alle Scores",
             "clearConfirmation": "Weet je zeker dat je alle scores wilt wissen? Deze actie kan niet ongedaan worden gemaakt.",
             "close": "Sluiten",
-            "keepReading": "Blijf lezen om je scores te verbeteren!"
+            "keepReading": "Blijf lezen om je scores te verbeteren!",
+            "keepPracticing": "Blijf oefenen om nog beter te worden!"
         },
         "sessionCompleted": {
             "title": "Klaar met Oefenen!",
