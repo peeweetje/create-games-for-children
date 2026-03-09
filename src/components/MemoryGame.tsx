@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { motion } from 'framer-motion'
-import Confetti from 'react-confetti'
 
 // Card types for the memory game
 interface Card {
@@ -211,31 +210,23 @@ export const MemoryGame = () => {
 
             {/* Game Over Modal */}
             {isGameOver && (
-                <>
-                    <Confetti 
-                        width={windowSize.width} 
-                        height={windowSize.height} 
-                        recycle={false} 
-                        numberOfPieces={500}
-                    />
-                    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-                        <div className="bg-white rounded-2xl p-6 md:p-8 shadow-2xl text-center max-w-sm w-full mx-4">
-                            <div className="text-6xl mb-4">🎉</div>
-                            <h2 className="text-2xl md:text-3xl font-bold text-violet-800 mb-2">
-                                {t('memory.congratulations')}
-                            </h2>
-                            <p className="text-gray-600 mb-4">
-                                {t('memory.completedIn', { moves })}
-                            </p>
-                            <button
-                                onClick={initializeGame}
-                                className="bg-violet-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-violet-600 transition-colors shadow-lg"
-                            >
-                                {t('memory.playAgain')}
-                            </button>
-                        </div>
+                <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+                    <div className="bg-white rounded-2xl p-6 md:p-8 shadow-2xl text-center max-w-sm w-full mx-4">
+                        <div className="text-6xl mb-4">🎉</div>
+                        <h2 className="text-2xl md:text-3xl font-bold text-violet-800 mb-2">
+                            {t('memory.congratulations')}
+                        </h2>
+                        <p className="text-gray-600 mb-4">
+                            {t('memory.completedIn', { moves })}
+                        </p>
+                        <button
+                            onClick={initializeGame}
+                            className="bg-violet-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-violet-600 transition-colors shadow-lg"
+                        >
+                            {t('memory.playAgain')}
+                        </button>
                     </div>
-                </>
+                </div>
             )}
         </div>
     )
