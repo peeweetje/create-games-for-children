@@ -28,7 +28,6 @@ export const MemoryGame = () => {
     const [moves, setMoves] = useState(0)
     const [matches, setMatches] = useState(0)
     const [isGameOver, setIsGameOver] = useState(false)
-    const [windowSize, setWindowSize] = useState({ width: window.innerWidth, height: window.innerHeight })
     
     // Refs for timeout management
     const matchTimeoutRef = useRef<number | null>(null)
@@ -123,15 +122,6 @@ export const MemoryGame = () => {
             setIsGameOver(true)
         }
     }, [matches])
-
-    // Handle window resize for confetti
-    useEffect(() => {
-        const handleResize = () => {
-            setWindowSize({ width: window.innerWidth, height: window.innerHeight })
-        }
-        window.addEventListener('resize', handleResize)
-        return () => window.removeEventListener('resize', handleResize)
-    }, [])
 
     // Initialize game on mount and theme change
     useEffect(() => {
