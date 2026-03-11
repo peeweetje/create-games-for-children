@@ -49,12 +49,14 @@
         "learn": "Math",
         "reading": "Reading",
         "memory": "Memory",
+        "coloring": "Coloring",
         "play": "Chess",
         "more": "More",
         "routes": {
             "puzzles": "puzzles",
             "learn": "learn",
-            "reading": "reading"
+            "reading": "reading",
+            "coloring": "coloring"
         }
     },
     "reading": {
@@ -204,6 +206,21 @@
             "food": "Food",
             "sports": "Sports"
         }
+    },
+    "coloring": {
+        "title": "Coloring Page",
+        "subtitle": "Color the picture and download your masterpiece!",
+        "tools": "Tools",
+        "colors": "Colors",
+        "lineWidth": "Line Width",
+        "pen": "Pen",
+        "eraser": "Eraser",
+        "clear": "Clear Canvas",
+        "download": "Download Image",
+        "canvas": "Coloring Canvas",
+        "currentColor": "Current Color:",
+        "eraserMode": "Eraser Mode",
+        "instructions": "Click and drag to color. Use the eraser to fix mistakes!"
     },
     "puzzles": {
         "title": "Chess Puzzles",

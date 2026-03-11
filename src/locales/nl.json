@@ -49,12 +49,14 @@
         "learn": "Rekenen",
         "reading": "Lezen",
         "memory": "Geheugen",
+        "coloring": "Kleurplaten",
         "play": "Schaken",
         "more": "Meer",
         "routes": {
             "puzzles": "puzzels",
             "learn": "leren",
-            "reading": "lezen"
+            "reading": "lezen",
+            "coloring": "kleurplaten"
         }
     },
     "reading": {
@@ -205,6 +207,21 @@
             "food": "Eten",
             "sports": "Sport"
         }
+    },
+    "coloring": {
+        "title": "Kleurplaat",
+        "subtitle": "Kleur het plaatje en download je meesterwerk!",
+        "tools": "Gereedschappen",
+        "colors": "Kleuren",
+        "lineWidth": "Lijndikte",
+        "pen": "Pen",
+        "eraser": "Gum",
+        "clear": "Canvas Leegmaken",
+        "download": "Download Afbeelding",
+        "canvas": "Kleurplaat",
+        "currentColor": "Huidige Kleur:",
+        "eraserMode": "Gum Modus",
+        "instructions": "Klik en sleep om te kleuren. Gebruik de gum om fouten te herstellen!"
     },
     "puzzles": {
         "title": "Schaakpuzzels",
