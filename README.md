@@ -16,6 +16,12 @@ A kid-friendly games application built with React, Vite, and Chess.js.
 
 ## Games
 
+### Memory Game
+A colorful memory matching game featuring:
+- **Multiple Themes**: Animals, Fruits, and Vehicles themes with vibrant card designs
+- **Visual Feedback**: Animated card flips
+- **Accessibility**: Keyboard navigation support and screen reader compatibility
+
 ### Chess
 Classic chess game with a friendly AI opponent, designed for children to learn and enjoy the game.
 
@@ -24,6 +30,14 @@ Interactive math learning game featuring:
 - Addition, subtraction, multiplication, and division operations
 - Progressive difficulty with star-based advancement
 - Multiple choice answers with skip functionality
+- High scores tracking and session completion rewards
+- Educational tips and hints
+
+### Reading Comprehension
+Interactive reading comprehension game featuring:
+- Multiple reading levels with age-appropriate content
+- Reading comprehension questions with multiple choice answers
+- Progressive difficulty with star-based advancement
 - High scores tracking and session completion rewards
 - Educational tips and hints
 
@@ -36,8 +50,20 @@ Interactive math learning game featuring:
 - **Animations**: Framer Motion
 - **Translations**: Dutch and English
 - **Math Operations**: Custom math helper utilities
+- **Memory Game**: Custom memory matching logic with theme management
+- **State Management**: Zustand for global state management
 
 ## Changelog
+
+### 10-03-2026
+- **New Feature**: Added comprehensive memory matching game with multiple themes
+- **Memory Game Features**: 
+  - Three vibrant themes (Animals, Fruits, Vehicles) with custom card designs
+  - Progressive scoring system with level progression
+  - Animated card flips for visual feedback
+  - Keyboard navigation support and accessibility features
+- **UI Components**: Created complete memory game interface with theme selector, game stats, and game over modal
+- **State Management**: Implemented Zustand store for memory game state management
 
 ### 25-02-2026
 - **New Feature**: Added comprehensive math learning page with interactive educational games
