@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import flipSoundUrl from '../../assets/sounds/capture.mp3'
 
 export interface Card {
     id: number
@@ -13,10 +14,20 @@ interface MemoryCardProps {
 }
 
 export const MemoryCard = ({ card, onClick }: MemoryCardProps) => {
+    const handleCardClick = (id: number) => {
+        // Play flip sound when card is flipped
+        const audio = new Audio(flipSoundUrl)
+        audio.volume = 0.3
+        audio.play().catch(() => {
+            // Ignore autoplay errors
+        })
+        onClick(id)
+    }
+
     return (
         <motion.button
             key={card.id}
-            onClick={() => onClick(card.id)}
+            onClick={() => handleCardClick(card.id)}
             className={`aspect-square cursor-pointer rounded-xl md:rounded-2xl shadow-lg ${
                 card.isMatched
                     ? 'opacity-50 cursor-default'
