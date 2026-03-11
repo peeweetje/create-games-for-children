@@ -13,15 +13,18 @@ interface ChessBoardProps {
 export function ChessBoard({ game, onPieceDrop, boardWidth = 400, moveSquares, onSquareClick }: ChessBoardProps) {
 
     function handlePieceDrop({ sourceSquare, targetSquare, piece }: PieceDropHandlerArgs) {
-        return onPieceDrop(sourceSquare, targetSquare ?? "", piece.pieceType!);
+        if (!targetSquare) return false;
+        return onPieceDrop(sourceSquare, targetSquare, piece.pieceType);
     }
 
-    function handleSquareClick({ square }: { square: string }) {
+    function handleSquareClick({ square }: { square: string}) {
         onSquareClick(square);
     }
 
     function handlePieceDragBegin({ square }: PieceHandlerArgs) {
-        onSquareClick(square);
+        if (square) {
+            onSquareClick(square);
+        }
     }
 
     return (
