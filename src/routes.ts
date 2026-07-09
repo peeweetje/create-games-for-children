@@ -1,11 +1,12 @@
 import { Gamepad2, BookOpen, Puzzle, BookText, MemoryStick, Paintbrush } from 'lucide-react';
-import { ComponentType } from 'react';
-import { PlayPage } from './pages/PlayPage';
-import { PuzzlesPage } from './pages/PuzzlesPage';
-import { LearnPage } from './pages/LearnPage';
-import { ReadingPage } from './pages/ReadingPage';
-import { MemoryPage } from './pages/MemoryPage';
-import { ColoringPage } from './pages/ColoringPage';
+import { ComponentType, lazy } from 'react';
+
+const PlayPage = lazy(() => import('./pages/PlayPage').then(m => ({ default: m.PlayPage })));
+const PuzzlesPage = lazy(() => import('./pages/PuzzlesPage').then(m => ({ default: m.PuzzlesPage })));
+const LearnPage = lazy(() => import('./pages/LearnPage').then(m => ({ default: m.LearnPage })));
+const ReadingPage = lazy(() => import('./pages/ReadingPage').then(m => ({ default: m.ReadingPage })));
+const MemoryPage = lazy(() => import('./pages/MemoryPage').then(m => ({ default: m.MemoryPage })));
+const ColoringPage = lazy(() => import('./pages/ColoringPage').then(m => ({ default: m.ColoringPage })));
 
 // Navigation configuration - easy to extend with new routes
 export const navConfig = [
