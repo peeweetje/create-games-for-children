@@ -16,7 +16,7 @@ export const LearnQuestionCard = ({
     const { t } = useTranslation();
 
     return (
-        <div className="bg-white rounded-3xl shadow-md p-8 mb-6 w-full max-w-sm text-center border-4 border-violet-300 relative h-[180px] overflow-hidden">
+        <div className="bg-white rounded-3xl shadow-md p-8 mb-6 w-full max-w-sm text-center border-4 border-primary-300 relative h-[180px] overflow-hidden">
             <AnimatePresence mode="wait">
                 {!feedback ? (
                     <motion.div
@@ -27,12 +27,12 @@ export const LearnQuestionCard = ({
                         transition={{ duration: 0.3 }}
                         className="absolute inset-0 flex flex-col items-center justify-center p-8"
                     >
-                        <p className="text-gray-400 text-sm mb-2 font-semibold uppercase tracking-wide">
+                        <p className="text-text-400 text-sm mb-2 font-semibold uppercase tracking-wide">
                             {t("learn.question.prompt")}
                         </p>
-                        <div className="text-6xl font-extrabold text-gray-800">
-                            {question.num1}{" "}
-                            <span className="text-violet-500">
+                        <div className="text-6xl font-extrabold text-text-800">
+                             {question.num1}{" "}
+                            <span className="text-primary">
                                 {operationSymbols[question.operation]}
                             </span>{" "}
                             {question.num2} = ?
@@ -47,7 +47,7 @@ export const LearnQuestionCard = ({
                         transition={{ duration: 0.3 }}
                         className="absolute inset-0 flex flex-col items-center justify-center p-8"
                     >
-                        <p className="text-gray-400 text-sm mb-2 font-semibold uppercase tracking-wide">
+                        <p className="text-text-400 text-sm mb-2 font-semibold uppercase tracking-wide">
                             {feedback === "correct" ? "🎉" : "🤔"}
                         </p>
                         <div
