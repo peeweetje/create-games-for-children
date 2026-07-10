@@ -17,7 +17,7 @@ function App() {
                                 key={entry.path}
                                 path={entry.path}
                                 element={
-                                    <Suspense fallback={<div className="flex items-center justify-center min-h-[60vh]"><div className="w-8 h-8 border-4 border-violet-500 border-t-transparent rounded-full animate-spin" /></div>}>
+                                    <Suspense fallback={<div className="flex items-center justify-center min-h-[60vh]"><div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin" /></div>}>
                                         <Component />
                                     </Suspense>
                                 }

@@ -60,21 +60,21 @@ export const HighScoresModal = <T extends string>({
     return (
         <div className={backdropClass}>
             <div className="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
-                <div className={`p-6 border-b ${useBackdropBlur ? 'border-violet-200' : 'border-gray-200'}`}>
+                <div className={`p-6 border-b ${useBackdropBlur ? 'border-primary-200' : 'border-surface-200'}`}>
                     <div className="flex items-center justify-between">
                         <div className="flex items-center gap-3">
                             {useBackdropBlur ? (
                                 <Trophy size={32} className="text-yellow-500" />
                             ) : (
-                                <div className="w-10 h-10 bg-gradient-to-r from-violet-500 to-purple-600 rounded-full flex items-center justify-center">
+                                <div className="w-10 h-10 bg-gradient-to-r from-primary to-accent-600 rounded-full flex items-center justify-center">
                                     <Trophy size={20} className="text-white" />
                                 </div>
                             )}
                             <div>
-                                <h2 className={`text-2xl font-bold ${useBackdropBlur ? 'text-violet-900' : 'text-gray-800'}`}>
+                                <h2 className={`text-2xl font-bold ${useBackdropBlur ? 'text-primary-900' : 'text-text-800'}`}>
                                     {t("learn.highScores.title")}
                                 </h2>
-                                <p className="text-sm text-gray-600">
+                                <p className="text-sm text-text-600">
                                     {t("learn.highScores.subtitle")}
                                 </p>
                             </div>
@@ -82,14 +82,14 @@ export const HighScoresModal = <T extends string>({
                         {useBackdropBlur ? (
                             <CloseButton
                                 onClick={onClose}
-                                className="p-2 text-violet-500 hover:text-violet-700 hover:bg-violet-100 rounded-full transition-colors"
+                                className="p-2 text-primary hover:text-primary-700 hover:bg-primary-100 rounded-full transition-colors"
                                 size={24}
                                 strokeWidth={2}
                             />
                         ) : (
                             <button
                                 onClick={onClose}
-                                className="text-gray-400 hover:text-gray-600 transition-colors"
+                                className="text-text-400 hover:text-text-600 transition-colors"
                             >
                                 <X size={24} />
                             </button>
@@ -107,34 +107,34 @@ export const HighScoresModal = <T extends string>({
                                 key={category}
                                 className={`rounded-xl p-4 md:p-6 border ${
                                     useBackdropBlur
-                                        ? 'bg-white border-violet-200 hover:shadow-md transition-shadow'
-                                        : 'bg-gradient-to-br from-violet-50 to-purple-50 border-violet-200'
+                                        ? 'bg-white border-primary-200 hover:shadow-md transition-shadow'
+                                        : 'bg-gradient-to-br from-background to-accent-50 border-primary-200'
                                 }`}
                             >
                                 <div className="flex items-center justify-between mb-4">
                                     {useBackdropBlur ? (
                                         <div className="flex items-center gap-3">
                                             {renderIcon && (
-                                                <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center">
+                                                <div className="w-10 h-10 bg-surface-100 rounded-full flex items-center justify-center">
                                                     {renderIcon(categoryTyped)}
                                                 </div>
                                             )}
                                             <div>
-                                                <h3 className="text-lg font-semibold text-gray-800">
+                                                <h3 className="text-lg font-semibold text-text-800">
                                                     {categoryLabels[categoryTyped]}
                                                 </h3>
-                                                <p className="text-sm text-gray-500">
+                                                <p className="text-sm text-text-500">
                                                     {t("learn.highScores.lastPlayed")}: {formatDate(scoresTyped.lastPlayed)}
                                                 </p>
                                             </div>
                                         </div>
                                     ) : (
                                         <>
-                                            <h3 className="text-lg font-semibold text-gray-800">
+                                            <h3 className="text-lg font-semibold text-text-800">
                                                 {categoryLabels[categoryTyped]}
                                             </h3>
                                             <div className="flex gap-2">
-                                                <span className="px-2 py-1 bg-violet-200 text-violet-800 rounded-full text-sm font-medium">
+                                                <span className="px-2 py-1 bg-primary-200 text-primary-800 rounded-full text-sm font-medium">
                                                     {scoresTyped.bestStreak} 🔥
                                                 </span>
                                             </div>
@@ -181,10 +181,10 @@ export const HighScoresModal = <T extends string>({
                                     ) : (
                                         <>
                                             <div className="bg-white rounded-lg p-3 md:p-4 shadow-sm">
-                                                <div className="text-xl md:text-2xl font-bold text-violet-600">
+                                                <div className="text-xl md:text-2xl font-bold text-primary-600">
                                                     {scoresTyped.score}
                                                 </div>
-                                                <div className="text-xs md:text-sm text-gray-600">
+                                                <div className="text-xs md:text-sm text-text-600">
                                                     {t("learn.highScores.bestScore")}
                                                 </div>
                                             </div>
@@ -197,7 +197,7 @@ export const HighScoresModal = <T extends string>({
                                                 </div>
                                             </div>
                                             <div className="bg-white rounded-lg p-3 md:p-4 shadow-sm">
-                                                <div className="text-xl md:text-2xl font-bold text-pink-600">
+                                                <div className="text-xl md:text-2xl font-bold text-accent-600">
                                                     {scoresTyped.total}
                                                 </div>
                                                 <div className="text-xs md:text-sm text-gray-600">
@@ -205,7 +205,7 @@ export const HighScoresModal = <T extends string>({
                                                 </div>
                                             </div>
                                             <div className="bg-white rounded-lg p-3 md:p-4 shadow-sm">
-                                                <div className="text-xl md:text-2xl font-bold text-indigo-600">
+                                                <div className="text-xl md:text-2xl font-bold text-primary-600">
                                                     {formatDate(scoresTyped.lastPlayed)}
                                                 </div>
                                                 <div className="text-xs md:text-sm text-gray-600">
@@ -221,9 +221,9 @@ export const HighScoresModal = <T extends string>({
                     </div>
                 </div>
 
-                <div className={`p-6 border-t ${useBackdropBlur ? 'border-gray-200' : 'border-gray-200 bg-gray-50'}`}>
+                <div className={`p-6 border-t ${useBackdropBlur ? 'border-surface-200' : 'border-surface-200 bg-surface-50'}`}>
                     <div className="flex justify-between items-center">
-                        <div className="text-sm text-gray-600">
+                        <div className="text-sm text-text-600">
                             {useBackdropBlur ? t("learn.highScores.keepPracticing") : t("learn.highScores.keepReading")}
                         </div>
                         <div className="flex gap-3">
@@ -237,8 +237,8 @@ export const HighScoresModal = <T extends string>({
                                 onClick={onClose}
                                 className={`px-6 py-2 text-white rounded-lg transition-colors ${
                                     useBackdropBlur
-                                        ? 'bg-violet-600 hover:bg-violet-700'
-                                        : 'bg-violet-500 hover:bg-violet-600'
+                                        ? 'bg-primary-600 hover:bg-primary-700'
+                                        : 'bg-primary hover:bg-primary-600'
                                 }`}
                             >
                                 {t("learn.highScores.close")}

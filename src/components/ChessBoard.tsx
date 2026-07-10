@@ -29,7 +29,7 @@ export function ChessBoard({ game, onPieceDrop, boardWidth = 400, moveSquares, o
 
     return (
         <div
-            className="p-4 bg-violet-50 rounded-xl shadow-inner border-4 border-violet-300 overflow-hidden"
+            className="p-4 bg-background rounded-xl shadow-inner border-4 border-primary-300 overflow-hidden"
             style={{ width: boardWidth }}
         >
             <Chessboard
