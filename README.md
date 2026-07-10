@@ -13,6 +13,7 @@ A kid-friendly games application built with React, Vite, and Chess.js.
 - 🏆 High scores tracking and session completion rewards
 - 🎯 Multiple answer choices with skip functionality
 - 💡 Educational tips and hints for learning operations
+- 🎨 Coloring page with various kid-friendly images to color
 
 ## Games
 
@@ -34,12 +35,24 @@ Interactive math learning game featuring:
 - Educational tips and hints
 
 ### Reading Comprehension
+
 Interactive reading comprehension game featuring:
 - Multiple reading levels with age-appropriate content
 - Reading comprehension questions with multiple choice answers
 - Progressive difficulty with star-based advancement
 - High scores tracking and session completion rewards
 - Educational tips and hints
+
+### Coloring Page
+A fun coloring activity page (WORK IN PROGRESS!) featuring:
+- **Multiple Designs**: 9 coloring templates including flower, house, car, cat, dog, bird, turtle, bike, and blank canvas
+- **Color Palette**: 15 vibrant colors to choose from for creative expression
+- **Tools**: Fill bucket with flood-fill algorithm, pen with adjustable line widths (2px, 4px, 8px, 12px), and eraser
+- **Interactive Canvas**: Click-to-color and freehand drawing functionality
+- **Export**: Download your finished artwork as a PNG image
+- **Touch Support**: Works with both mouse and touch input for tablet use
+- **Accessibility**: Full keyboard navigation and screen reader support
+
 
 ## Tech Stack
 - **Framework**: React 19 + Vite
