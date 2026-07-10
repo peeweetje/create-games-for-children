@@ -11,7 +11,7 @@ export const LearnSkipButton = ({ onClick }: LearnSkipButtonProps) => {
     return (
         <button
             onClick={onClick}
-            className="mt-6 flex items-center gap-1 text-gray-400 hover:text-orange-500 text-sm underline transition-colors"
+            className="mt-6 flex items-center gap-1 text-text-400 hover:text-streak text-sm underline transition-colors"
         >
             <SkipForward size={16} />
             {t("learn.skip")}
