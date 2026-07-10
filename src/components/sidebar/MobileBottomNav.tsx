@@ -32,7 +32,7 @@ export const MobileBottomNav = () => {
     const overflowItems = navItems.slice(3); // Remaining items go to "more"
 
     return (
-        <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-gray-900 border-t border-gray-700 z-50 pb-safe">
+        <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-surface-900 border-t border-surface-700 z-50 pb-safe">
             <ul className="flex items-center h-16 relative">
                 {/* Main navigation items */}
                 {mainItems.map((item) => (
@@ -41,11 +41,11 @@ export const MobileBottomNav = () => {
                             to={item.path}
                             className={({ isActive }) =>
                                 `flex flex-col items-center justify-center h-full w-full gap-1 text-xs font-medium transition-colors ${
-                                    isActive ? 'text-violet-400' : 'text-gray-400'
+                                    isActive ? 'text-primary-light' : 'text-text-400'
                                 }`
                             }
                         >
-                            <item.icon size={24} className="text-violet-400" />
+                            <item.icon size={24} className="text-primary-light" />
                             <span>{t(item.label)}</span>
                         </NavLink>
                     </li>
@@ -55,15 +55,15 @@ export const MobileBottomNav = () => {
                 <li className="flex-1 relative">
                     <button
                         onClick={() => setShowMore(!showMore)}
-                        className="flex flex-col items-center justify-center h-full w-full gap-1 text-xs font-medium text-gray-400 transition-colors hover:text-violet-400"
+                        className="flex flex-col items-center justify-center h-full w-full gap-1 text-xs font-medium text-text-400 transition-colors hover:text-primary-light"
                     >
-                        <MoreHorizontal size={24} className="text-violet-400" />
+                        <MoreHorizontal size={24} className="text-primary-light" />
                         <span>{t('sidebar.more')}</span>
                     </button>
                     
                     {/* Overflow dropdown */}
                     {showMore && (
-                        <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 bg-gray-800 border border-gray-600 rounded-lg shadow-xl py-2 min-w-[120px] z-50">
+                        <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 bg-surface-800 border border-surface-600 rounded-lg shadow-xl py-2 min-w-[120px] z-50">
                             {overflowItems.map((item) => (
                                 <NavLink
                                     key={item.path}
@@ -71,7 +71,7 @@ export const MobileBottomNav = () => {
                                     onClick={() => setShowMore(false)}
                                     className={({ isActive }) =>
                                         `flex items-center gap-3 px-4 py-2 text-sm font-medium transition-colors ${
-                                            isActive ? 'text-violet-400 bg-gray-700' : 'text-gray-300 hover:text-white hover:bg-gray-700'
+                                            isActive ? 'text-primary-light bg-surface-700' : 'text-text-300 hover:text-white hover:bg-surface-700'
                                         }`
                                     }
                                 >
@@ -79,7 +79,7 @@ export const MobileBottomNav = () => {
                                     <span>{t(item.label)}</span>
                                 </NavLink>
                             ))}
-                            <div className="border-t border-gray-600 my-1"></div>
+                            <div className="border-t border-surface-600 my-1"></div>
                             <div className="px-4 py-2">
                                 <LanguageSwitch variant="dropdown" />
                             </div>

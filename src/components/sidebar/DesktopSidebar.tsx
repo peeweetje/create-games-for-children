@@ -27,9 +27,9 @@ export const DesktopSidebar = () => {
     }, [lang]);
 
     return (
-        <aside className="hidden md:flex flex-col w-48 lg:w-64 bg-gray-900 min-h-screen text-gray-100 fixed left-0 top-0 z-50">
+        <aside className="hidden md:flex flex-col w-48 lg:w-64 bg-surface-900 min-h-screen text-text-inverse fixed left-0 top-0 z-50">
             <div className="p-4 mb-4">
-                <h1 className="text-lg font-extrabold text-violet-300 tracking-wide leading-snug">
+                <h1 className="text-lg font-extrabold text-primary-light tracking-wide leading-snug">
                     🦁 {t('sidebar.chess')} 🦄
                 </h1>
             </div>
@@ -43,18 +43,18 @@ export const DesktopSidebar = () => {
                                 className={({ isActive }) =>
                                     `flex items-center gap-3 px-4 py-3 rounded-md transition-all font-semibold ${
                                         isActive
-                                            ? 'bg-violet-300 text-white border-l-4 border-violet-500'
-                                            : 'hover:bg-violet-800 hover:text-white'
+                                            ? 'bg-primary-light text-white border-l-4 border-primary'
+                                            : 'hover:bg-primary-dark hover:text-white'
                                     }`
                                 }
                             >
-                                <item.icon size={20} className="text-violet-400 shrink-0" />
+                                <item.icon size={20} className="text-primary-light shrink-0" />
                                 <span className="text-base truncate">{t(item.label)}</span>
                             </NavLink>
                         </li>
                     ))}
                     <li className="mt-auto">
-                        <div className="p-4 border-t border-gray-700 bg-gray-800">
+                        <div className="p-4 border-t border-surface-700 bg-surface-800">
                             <LanguageSwitch />
                         </div>
                     </li>

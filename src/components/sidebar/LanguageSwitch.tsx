@@ -24,7 +24,7 @@ export const LanguageSwitch = ({
         return (
             <button
                 onClick={() => handleLanguageChange(isDutch ? 'en' : 'nl')}
-                className={`flex flex-col items-center justify-center h-full w-full gap-1 text-xs font-medium text-violet-400 ${className}`}
+                className={`flex flex-col items-center justify-center h-full w-full gap-1 text-xs font-medium text-primary-light ${className}`}
                 title={t('language.switch')}
             >
                 <Languages size={24} />
@@ -36,17 +36,17 @@ export const LanguageSwitch = ({
     if (variant === 'dropdown') {
         return (
             <div className="flex items-center gap-2 px-2 py-1">
-                <Languages size={16} className="text-gray-400" />
+                <Languages size={16} className="text-text-400" />
                 <button 
                     onClick={() => handleLanguageChange('en')} 
-                    className={`text-sm font-medium hover:text-white transition-colors ${lang === 'en' ? 'text-white' : 'text-gray-300'}`}
+                    className={`text-sm font-medium hover:text-white transition-colors ${lang === 'en' ? 'text-white' : 'text-text-300'}`}
                 >
                     {t('language.english')}
                 </button>
-                <span className="text-gray-500">|</span>
+                <span className="text-text-500">|</span>
                 <button 
                     onClick={() => handleLanguageChange('nl')} 
-                    className={`text-sm font-medium hover:text-white transition-colors ${lang === 'nl' ? 'text-white' : 'text-gray-300'}`}
+                    className={`text-sm font-medium hover:text-white transition-colors ${lang === 'nl' ? 'text-white' : 'text-text-300'}`}
                 >
                     {t('language.dutch')}
                 </button>
