@@ -38,25 +38,25 @@ export const PuzzleHeader = ({
     return (
         <div className="text-center space-y-2">
             <div className="flex items-center justify-center gap-3">
-                <h1 className="text-2xl md:text-3xl font-extrabold text-violet-600 flex items-center gap-3 drop-shadow-sm tracking-wide">
+                <h1 className="text-2xl md:text-3xl font-extrabold text-primary-600 flex items-center gap-3 drop-shadow-sm tracking-wide">
                     <Trophy className="w-8 h-8" />
                     {t("puzzles.title")}
                 </h1>
                 <button
                     onClick={onSettingsToggle}
-                    className="p-2 bg-violet-200 hover:bg-violet-300 rounded-full transition-colors"
+                    className="p-2 bg-primary-200 hover:bg-primary-300 rounded-full transition-colors"
                     title={t("puzzles.settings.title")}
                 >
-                    <Settings className="w-6 h-6 text-violet-700" />
+                    <Settings className="w-6 h-6 text-primary-700" />
                 </button>
             </div>
-            <p className="text-xl text-gray-700 font-medium">
+            <p className="text-xl text-text-700 font-medium">
                 {t("puzzles.puzzles")} {currentPuzzleIndex + 1} {t("puzzles.off")} {isAllPuzzles ? PUZZLE_COUNTS.total : filteredPuzzlesLength}
             </p>
             <span className={`inline-block px-3 py-1 rounded-full text-sm font-semibold border ${getDifficultyColor(currentPuzzleDifficulty)}`}>
                 {t(`puzzles.difficulty.${currentPuzzleDifficulty}`)}
             </span>
-            <p className="text-gray-600">{t(currentPuzzleDescriptionKey)}</p>
+            <p className="text-text-600">{t(currentPuzzleDescriptionKey)}</p>
         </div>
     );
 };

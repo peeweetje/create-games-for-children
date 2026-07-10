@@ -13,7 +13,7 @@ interface PuzzleSettingsModalProps {
 const getDifficultyButtonColor = (difficulty: Difficulty | 'all', isSelected: boolean): string => {
     const baseClasses = "w-full py-3 px-4 rounded-xl font-semibold transition-all border-2 ";
     if (!isSelected) {
-        return baseClasses + "bg-white text-gray-600 border-violet-200 hover:border-violet-300";
+        return baseClasses + "bg-white text-text-600 border-primary-200 hover:border-primary-300";
     }
     switch (difficulty) {
         case 'easy':
@@ -23,9 +23,9 @@ const getDifficultyButtonColor = (difficulty: Difficulty | 'all', isSelected: bo
         case 'hard':
             return baseClasses + "bg-red-500 text-white border-red-500 shadow-lg";
         case 'all':
-            return baseClasses + "bg-violet-500 text-white border-violet-500 shadow-lg";
+            return baseClasses + "bg-primary text-white border-primary shadow-lg";
         default:
-            return baseClasses + "bg-gray-500 text-white border-gray-500";
+            return baseClasses + "bg-surface-500 text-white border-surface-500";
     }
 };
 
@@ -43,20 +43,20 @@ export const PuzzleSettingsModal = ({
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
             <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6">
                 <div className="flex items-center justify-between mb-6">
-                    <h2 className="text-2xl font-bold text-violet-600">
+                    <h2 className="text-2xl font-bold text-primary-600">
                         {t("puzzles.settings.title")}
                     </h2>
                     <button
                         onClick={onClose}
-                        className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                        className="p-2 hover:bg-surface-100 rounded-full transition-colors"
                         title={t("puzzles.settings.title")}
                     >
-                        <X className="w-6 h-6 text-violet-500" />
+                        <X className="w-6 h-6 text-primary" />
                     </button>
                 </div>
                 
                 <div className="space-y-3">
-                    <p className="text-gray-600 font-medium mb-4">{t("puzzles.settings.selectDifficulty")}</p>
+                    <p className="text-text-600 font-medium mb-4">{t("puzzles.settings.selectDifficulty")}</p>
                     
                     <button
                         onClick={() => onDifficultyChange('all')}

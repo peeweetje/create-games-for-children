@@ -45,10 +45,10 @@ export function RulesModal({ isOpen, onClose }: RulesModalProps) {
                         icon={X}
                         size={28}
                         strokeWidth={3}
-                        className="absolute top-2 right-2 p-1 hover:scale-110 transition-transform text-violet-500 hover:text-violet-600" 
+                    className="absolute top-2 right-2 p-1 hover:scale-110 transition-transform text-primary hover:text-primary-600" 
                     />
 
-                    <h2 className="text-2xl font-extrabold text-violet-600 mb-4 text-center">{t('rules.title')} 🤔</h2>
+                    <h2 className="text-2xl font-extrabold text-primary-600 mb-4 text-center">{t('rules.title')} 🤔</h2>
 
                     <div className="space-y-3">
                         {RULE_ITEMS.map((item) => (
@@ -60,7 +60,7 @@ export function RulesModal({ isOpen, onClose }: RulesModalProps) {
                         <CloseButton
                             onClick={onClose}
                             showIcon={false}
-                            className="mt-4 bg-violet-500 text-white font-bold py-2 px-6 rounded-full shadow-lg text-base hover:bg-violet-600 transition-colors"
+                            className="mt-4 bg-primary text-white font-bold py-2 px-6 rounded-full shadow-lg text-base hover:bg-primary-600 transition-colors"
                         >
                             {t('rules.gotIt')} 🚀
                         </CloseButton>
