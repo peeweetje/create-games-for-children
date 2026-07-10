@@ -34,25 +34,25 @@ export const ReadingPage = () => {
     }
 
     return (
-        <div className="flex flex-col items-center min-h-full bg-gradient-to-b from-violet-50 to-purple-100 p-6 pb-24">
+        <div className="flex flex-col items-center min-h-full bg-gradient-to-b from-background to-accent-100 p-6 pb-24">
             <ReadingHeader />
             
             <div className="w-full max-w-4xl space-y-8">
                 {/* Settings Section */}
-                <div className="bg-white rounded-2xl shadow-md p-8 border border-violet-200">
-                    <h2 className="text-2xl font-bold text-violet-600 mb-6 text-center">
+                <div className="bg-white rounded-2xl shadow-md p-8 border border-primary-200">
+                    <h2 className="text-2xl font-bold text-primary-600 mb-6 text-center">
                         📚 {t("learn.reading.settings.title")}
                     </h2>
                     
                     <div className="grid md:grid-cols-1 gap-8">
-                        <div className="bg-gradient-to-br from-violet-50 to-purple-50 rounded-2xl p-12 border border-violet-200 shadow-md">
+                        <div className="bg-gradient-to-br from-background to-accent-50 rounded-2xl p-12 border border-primary-200 shadow-md">
                             <ReadingLevelSelector
                                 selectedLevel={selectedLevel}
                                 onSelect={setSelectedLevel}
                             />
                         </div>
                         
-                        <div className="bg-gradient-to-br from-purple-50 to-violet-50 rounded-2xl p-12 border border-purple-200 shadow-md">
+                        <div className="bg-gradient-to-br from-accent-50 to-background rounded-2xl p-12 border border-accent-200 shadow-md">
                             <ReadingThemeSelector
                                 selectedTheme={selectedTheme}
                                 onSelect={setSelectedTheme}
@@ -64,7 +64,7 @@ export const ReadingPage = () => {
                     <div className="mt-8 flex justify-center">
                         <button
                             onClick={handleStartReading}
-                            className="px-8 py-4 bg-gradient-to-r from-purple-500 to-violet-500 text-white text-lg font-bold rounded-xl hover:from-purple-600 hover:to-violet-600 transition-all duration-300 transform hover:scale-105 shadow-2xl"
+                            className="px-8 py-4 bg-gradient-to-r from-accent-500 to-primary text-white text-lg font-bold rounded-xl hover:from-accent-600 hover:to-primary-600 transition-all duration-300 transform hover:scale-105 shadow-2xl"
                         >
                             🚀 {t("learn.reading.startButton")}
                         </button>
@@ -72,7 +72,7 @@ export const ReadingPage = () => {
                 </div>
 
                 {/* High Scores Section */}
-                <div className="bg-white rounded-2xl shadow-md p-6 border border-purple-200">
+                <div className="bg-white rounded-2xl shadow-md p-6 border border-accent-200">
                     <div className="flex justify-center">
                         <ReadingViewHighScoresButton onClick={() => setShowHighScores(true)} />
                     </div>

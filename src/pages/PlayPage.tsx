@@ -82,8 +82,8 @@ export const PlayPage = () => {
                             labelKey: 'app.newGame',
                             icon: RefreshCcw,
                             onClick: resetGame,
-                            color: 'bg-violet-500',
-                            hoverColor: 'hover:bg-violet-600',
+                            color: 'bg-primary',
+                            hoverColor: 'hover:bg-primary-600',
                             size: 18,
                         },
                         {

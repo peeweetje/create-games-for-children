@@ -94,7 +94,7 @@ export const PuzzlesPage = () => {
                     )}
 
                     <div className="border-4 md:border-8 border-white rounded-xl md:rounded-2xl shadow-xl md:shadow-2xl relative">
-                        <div className="p-4 bg-violet-50 rounded-xl shadow-inner border-4 border-violet-300 w-full max-w-xl ">
+                        <div className="p-4 bg-background rounded-xl shadow-inner border-4 border-primary-300 w-full max-w-xl ">
                             <ChessPuzzle.Root
                                 key={key}
                                 puzzle={currentPuzzle}
@@ -119,7 +119,7 @@ export const PuzzlesPage = () => {
                     />
                     {/* Hint Text Display */}
                     <div className="mt-4 text-center ">
-                        <p className="text-sm text-gray-500 italic">Hint: {t(currentPuzzle.hintKey)}</p>
+                        <p className="text-sm text-text-500 italic">Hint: {t(currentPuzzle.hintKey)}</p>
                     </div>
                 </div>
             </div>

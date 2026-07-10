@@ -140,7 +140,7 @@ const handleAnswer = (choice: string) => {
     const sessionAccuracy = total > 0 ? Math.round((score / total) * 100) : 0;
 
     return (
-        <div className="flex flex-col items-center min-h-full bg-gradient-to-b from-violet-50 to-purple-100 p-6 pb-24">
+        <div className="flex flex-col items-center min-h-full bg-gradient-to-b from-background to-accent-100 p-6 pb-24">
             {/* Header and Navigation */}
             <div className="w-full max-w-4xl mb-6">
                 <div className="flex flex-col items-center mb-4">
@@ -155,7 +155,7 @@ const handleAnswer = (choice: string) => {
                             resetSession();
                             onBackToSettings();
                         }}
-                        className="px-4 py-2 bg-gradient-to-r from-purple-500 to-violet-500 text-white rounded-lg hover:from-purple-600 hover:to-violet-600 transition-all duration-200 font-semibold shadow-lg mb-4"
+                        className="px-4 py-2 bg-gradient-to-r from-accent-500 to-primary text-white rounded-lg hover:from-accent-600 hover:to-primary-600 transition-all duration-200 font-semibold shadow-lg mb-4"
                     >
                         {t("reading.backToSettings")}
                     </button>
