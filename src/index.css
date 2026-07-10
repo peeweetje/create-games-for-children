@@ -1,2 +1,89 @@
 @import "tailwindcss";
 
+@theme {
+  /* ===== Primary (violet) ===== */
+  --color-primary-50: var(--color-violet-50);
+  --color-primary-100: var(--color-violet-100);
+  --color-primary-200: var(--color-violet-200);
+  --color-primary-300: var(--color-violet-300);
+  --color-primary-400: var(--color-violet-400);
+  --color-primary-500: var(--color-violet-500);
+  --color-primary-600: var(--color-violet-600);
+  --color-primary-700: var(--color-violet-700);
+  --color-primary-800: var(--color-violet-800);
+  --color-primary-900: var(--color-violet-900);
+
+  --color-primary: var(--color-primary-500);
+  --color-primary-light: var(--color-primary-400);
+  --color-primary-dark: var(--color-primary-800);
+
+  /* ===== Secondary (amber) ===== */
+  --color-secondary-50: var(--color-amber-50);
+  --color-secondary-100: var(--color-amber-100);
+  --color-secondary-200: var(--color-amber-200);
+  --color-secondary-500: var(--color-amber-500);
+  --color-secondary-600: var(--color-amber-600);
+
+  --color-secondary: var(--color-secondary-500);
+  --color-secondary-light: var(--color-amber-400);
+  --color-secondary-dark: var(--color-secondary-600);
+
+  /* ===== Accent (pink) ===== */
+  --color-accent-50: var(--color-pink-50);
+  --color-accent-100: var(--color-pink-100);
+  --color-accent-500: var(--color-pink-500);
+  --color-accent-600: var(--color-pink-600);
+  --color-accent-700: var(--color-pink-700);
+
+  --color-accent: var(--color-accent-500);
+  --color-accent-light: var(--color-pink-400);
+  --color-accent-dark: var(--color-accent-700);
+
+  /* ===== Neutral / Surface ===== */
+  --color-surface: var(--color-white);
+  --color-surface-50: var(--color-gray-50);
+  --color-surface-100: var(--color-gray-100);
+  --color-surface-200: var(--color-gray-200);
+  --color-surface-300: var(--color-gray-300);
+  --color-surface-400: var(--color-gray-400);
+  --color-surface-500: var(--color-gray-500);
+  --color-surface-600: var(--color-gray-600);
+  --color-surface-700: var(--color-gray-700);
+  --color-surface-800: var(--color-gray-800);
+  --color-surface-900: var(--color-gray-900);
+
+  --color-surface-muted: var(--color-primary-50);
+  --color-background: var(--color-primary-50);
+  --color-border: var(--color-surface-200);
+
+  /* ===== Text ===== */
+  --color-text-50: var(--color-gray-50);
+  --color-text-100: var(--color-gray-100);
+  --color-text-200: var(--color-gray-200);
+  --color-text-300: var(--color-gray-300);
+  --color-text-400: var(--color-gray-400);
+  --color-text-500: var(--color-gray-500);
+  --color-text-600: var(--color-gray-600);
+  --color-text-700: var(--color-gray-700);
+  --color-text-800: var(--color-gray-800);
+  --color-text-900: var(--color-gray-900);
+
+  --color-text: var(--color-text-800);
+  --color-text-muted: var(--color-text-500);
+  --color-text-inverse: var(--color-white);
+
+  /* ===== Semantic ===== */
+  --color-success: var(--color-green-500);
+  --color-success-600: var(--color-green-600);
+  --color-warning: var(--color-secondary-500);
+  --color-warning-600: var(--color-secondary-600);
+  --color-error: var(--color-red-500);
+  --color-info: var(--color-blue-500);
+  --color-info-600: var(--color-blue-600);
+
+  /* ===== Utility ===== */
+  --color-star: var(--color-yellow-500);
+  --color-star-600: var(--color-yellow-600);
+  --color-streak: var(--color-orange-500);
+  --color-streak-600: var(--color-orange-600);
+}
