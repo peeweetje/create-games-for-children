@@ -22,14 +22,14 @@ export const ReadingTip = () => {
 
     return (
         <div className="w-full max-w-2xl mx-auto">
-            <div className="bg-gradient-to-r from-purple-300 to-violet-100 rounded-xl p-6 border border-violet-200">
+            <div className="bg-gradient-to-r from-accent-300 to-primary-100 rounded-xl p-6 border border-primary-200">
                 <div className="flex items-start gap-3">
-                    <div className="w-12 h-12 bg-violet-600 rounded-full flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center flex-shrink-0">
                         <span className="text-white text-lg">💡</span>
                     </div>
                     <div className="flex-1">
-                        <h3 className="font-semibold text-gray-800 mb-2">{t("learn.reading.tip.readingTip")}</h3>
-                        <p className="text-gray-700 leading-relaxed">{randomTip}</p>
+                        <h3 className="font-semibold text-text-800 mb-2">{t("learn.reading.tip.readingTip")}</h3>
+                        <p className="text-text-700 leading-relaxed">{randomTip}</p>
                     </div>
                 </div>
             </div>
