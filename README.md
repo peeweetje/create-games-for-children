@@ -55,6 +55,11 @@ Interactive reading comprehension game featuring:
 
 ## Changelog
 
+### 10-07-2026
+- **Theming**: Implemented comprehensive Tailwind CSS custom theme with full color palette
+- **Color System**: Mapped Tailwind's built-in color tokens (violet, amber, pink, slate, etc.) to semantic names (primary, secondary, accent, surface, text) for consistent theming
+- **Semantic Colors**: Added reusable design tokens for success, warning, error, info, star, and streak states
+
 ### 10-03-2026
 - **New Feature**: Added comprehensive memory matching game with multiple themes
 - **Memory Game Features**: 
