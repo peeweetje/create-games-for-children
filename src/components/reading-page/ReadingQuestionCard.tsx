@@ -11,7 +11,6 @@ export const ReadingQuestionCard = ({ question, feedback, feedbackEmoji }: Readi
     const { t, i18n } = useTranslation();
     const isDutch = (i18n.resolvedLanguage ?? i18n.language ?? "en").startsWith("nl");
 
-    // Helper function to get localized answer text
     const getLocalizedAnswer = () => {
         return isDutch && question.translation ? question.translation : question.answer;
     };
@@ -21,28 +20,28 @@ export const ReadingQuestionCard = ({ question, feedback, feedbackEmoji }: Readi
             case "letter":
                 return (
                     <div className="text-center">
-                        <div className="text-6xl font-bold text-violet-600 mb-2">
+                        <div className="text-6xl font-bold text-primary-600 mb-2">
                             {getLocalizedAnswer()}
                         </div>
-                        <p className="text-lg text-gray-600">{t("learn.reading.levels.letters")}</p>
+                        <p className="text-lg text-text-600">{t("learn.reading.levels.letters")}</p>
                     </div>
                 );
             case "word":
                 return (
                     <div className="text-center">
-                        <div className="text-4xl font-bold text-violet-600 mb-2">
+                        <div className="text-4xl font-bold text-primary-600 mb-2">
                             {getLocalizedAnswer()}
                         </div>
-                        <p className="text-lg text-gray-600">{t("learn.reading.levels.words")}</p>
+                        <p className="text-lg text-text-600">{t("learn.reading.levels.words")}</p>
                     </div>
                 );
             case "sentence":
                 return (
                     <div className="text-center">
-                        <div className="text-xl font-semibold text-violet-600 mb-2">
+                        <div className="text-xl font-semibold text-primary-600 mb-2">
                             {getLocalizedAnswer()}
                         </div>
-                        <p className="text-lg text-gray-600">{t("learn.reading.levels.sentences")}</p>
+                        <p className="text-lg text-text-600">{t("learn.reading.levels.sentences")}</p>
                     </div>
                 );
             case "story":
@@ -51,32 +50,31 @@ export const ReadingQuestionCard = ({ question, feedback, feedbackEmoji }: Readi
                     : question.storyContent ?? [];
                 return (
                     <div className="text-center">
-                        <div className="text-xl font-bold text-violet-600 mb-4">
+                        <div className="text-xl font-bold text-primary-600 mb-4">
                             {getLocalizedAnswer()}
                         </div>
                         <div className="text-left space-y-2">
                             {lines.map((line, i) => (
-                                <p key={i} className="text-lg text-gray-700 leading-relaxed">
+                                <p key={i} className="text-lg text-text-700 leading-relaxed">
                                     {line}
                                 </p>
                             ))}
                         </div>
-                        <p className="text-sm text-gray-400 mt-4">{t("learn.reading.levels.stories")}</p>
+                        <p className="text-sm text-text-400 mt-4">{t("learn.reading.levels.stories")}</p>
                     </div>
                 );
         }
     };
 
-
     return (
         <div className="w-full max-w-2xl mx-auto">
-            <div className="bg-white rounded-2xl shadow-lg p-8 border-2 border-violet-100">
+            <div className="bg-white rounded-2xl shadow-lg p-8 border-2 border-primary-100">
                 <div className="text-center mb-6">
-                    <h2 className="text-2xl font-bold text-gray-800 mb-2">{t("learn.reading.questionCard.readingQuestion")}</h2>
-                    <p className="text-gray-600">{t("learn.reading.questionCard.answerBelow")}</p>
+                    <h2 className="text-2xl font-bold text-text-800 mb-2">{t("learn.reading.questionCard.readingQuestion")}</h2>
+                    <p className="text-text-600">{t("learn.reading.questionCard.answerBelow")}</p>
                 </div>
 
-                <div className="bg-gradient-to-br from-violet-50 to-purple-50 rounded-xl p-8 border-2 border-violet-200">
+                <div className="bg-gradient-to-br from-background to-accent-50 rounded-xl p-8 border-2 border-primary-200">
                     {question.image && (
                         <div className="flex justify-center mb-4">
                             <img
@@ -84,7 +82,6 @@ export const ReadingQuestionCard = ({ question, feedback, feedbackEmoji }: Readi
                                 alt={getLocalizedAnswer()}
                                 className="w-32 h-32 object-cover rounded-lg shadow-md"
                                 onError={(e) => {
-                                    // Fallback for missing images
                                     e.currentTarget.style.display = 'none';
                                 }}
                             />
@@ -96,9 +93,8 @@ export const ReadingQuestionCard = ({ question, feedback, feedbackEmoji }: Readi
                     {question.audio && (
                         <div className="mt-4 flex justify-center">
                             <button
-                                className="bg-violet-500 text-white px-4 py-2 rounded-lg hover:bg-violet-600 transition-colors"
+                                className="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-600 transition-colors"
                                 onClick={() => {
-                                    // Create a simple text-to-speech audio using the Web Speech API
                                     if ('speechSynthesis' in window) {
                                         let textToSpeak: string;
                                         if (question.type === "story") {
@@ -109,12 +105,8 @@ export const ReadingQuestionCard = ({ question, feedback, feedbackEmoji }: Readi
                                         } else {
                                             textToSpeak = isDutch && question.translation ? question.translation : question.answer;
                                         }
-
                                         const utterance = new SpeechSynthesisUtterance(textToSpeak);
-
-                                        // Set appropriate language
                                         const langCode = isDutch ? 'nl-NL' : 'en-US';
-
                                         utterance.lang = langCode;
                                         utterance.rate = 0.9;
                                         utterance.pitch = 1;

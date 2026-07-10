@@ -1,4 +1,3 @@
-
 import { SENTENCES, STORIES, WORDS } from "../../helpers/readingHelper";
 
 interface ReadingAnswerChoicesProps {
@@ -20,47 +19,35 @@ export const ReadingAnswerChoices = ({
 }: ReadingAnswerChoicesProps) => {
 
     const getChoiceText = (choice: string) => {
-        // Get current language from localStorage
         const currentLang = localStorage.getItem('i18nextLng') || 'en';
         const isDutch = currentLang.startsWith('nl');
 
-        // For sentences, we need to find the matching translation
         if (question.type === "sentence" && isDutch) {
-            // Find the sentence that matches this choice
             const matchingSentence = Object.values(SENTENCES).flat()
                 .find(s => s.sentence === choice);
-
             if (matchingSentence && matchingSentence.translation) {
                 return matchingSentence.translation;
             }
         }
 
-        // For stories, we need to find the matching translation
         if (question.type === "story" && isDutch) {
-            // Find the story that matches this choice
             const matchingStory = Object.values(STORIES).flat()
                 .find(s => s.title === choice);
-
             if (matchingStory && matchingStory.titleTranslation) {
                 return matchingStory.titleTranslation;
             }
         }
 
-        // For words, we need to find the matching translation
         if (question.type === "word" && isDutch) {
-            // Find the word that matches this choice
             const matchingWord = Object.values(WORDS).flat()
                 .find(w => w.word === choice);
-
             if (matchingWord && matchingWord.translation) {
                 return matchingWord.translation;
             }
         }
 
-
         return choice;
     };
-
 
     return (
         <div className="w-full max-w-2xl mx-auto">
@@ -77,9 +64,9 @@ export const ReadingAnswerChoices = ({
                     } else if (disabled && isWrong) {
                         buttonClass += " border-red-500 bg-red-50 text-red-800 shadow-lg";
                     } else if (isSelected && !disabled) {
-                        buttonClass += " border-violet-500 bg-violet-50 text-violet-800 shadow-md";
+                        buttonClass += " border-primary bg-background text-primary-800 shadow-md";
                     } else {
-                        buttonClass += " border-gray-200 bg-white text-gray-700 hover:border-violet-300 hover:bg-violet-50";
+                        buttonClass += " border-surface-200 bg-white text-text-700 hover:border-primary-300 hover:bg-background";
                     }
 
                     return (
