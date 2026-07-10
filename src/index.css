@@ -28,12 +28,12 @@
   --color-secondary-light: var(--color-amber-400);
   --color-secondary-dark: var(--color-secondary-600);
 
-  /* ===== Accent (pink) ===== */
-  --color-accent-50: var(--color-pink-50);
-  --color-accent-100: var(--color-pink-100);
-  --color-accent-500: var(--color-pink-500);
-  --color-accent-600: var(--color-pink-600);
-  --color-accent-700: var(--color-pink-700);
+  /* ===== Accent (fuchsia) ===== */
+  --color-accent-50: var(--color-fuchsia-50);
+  --color-accent-100: var(--color-fuchsia-100);
+  --color-accent-500: var(--color-fuchsia-500);
+  --color-accent-600: var(--color-fuchsia-600);
+  --color-accent-700: var(--color-fuchsia-700);
 
   --color-accent: var(--color-accent-500);
   --color-accent-light: var(--color-pink-400);
