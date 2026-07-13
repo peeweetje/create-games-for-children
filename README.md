@@ -35,7 +35,6 @@ Interactive math learning game featuring:
 - Educational tips and hints
 
 ### Reading Comprehension
-
 Interactive reading comprehension game featuring:
 - Multiple reading levels with age-appropriate content
 - Reading comprehension questions with multiple choice answers
