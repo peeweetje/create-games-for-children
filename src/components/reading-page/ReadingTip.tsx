@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { useMemo } from "react";
-
+import { Tip } from "../tip/Tip";
 
 export const ReadingTip = () => {
     const { t } = useTranslation();
@@ -21,18 +21,11 @@ export const ReadingTip = () => {
     const randomTip = tips[Math.floor(Math.random() * tips.length)];
 
     return (
-        <div className="w-full max-w-2xl mx-auto">
-            <div className="bg-gradient-to-r from-accent-300 to-primary-100 rounded-xl p-6 border border-primary-200">
-                <div className="flex items-start gap-3">
-                    <div className="w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center flex-shrink-0">
-                        <span className="text-white text-lg">💡</span>
-                    </div>
-                    <div className="flex-1">
-                        <h3 className="font-semibold text-text-800 mb-2">{t("learn.reading.tip.readingTip")}</h3>
-                        <p className="text-text-700 leading-relaxed">{randomTip}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <Tip
+            variant="gradient"
+            title={t("learn.reading.tip.readingTip")}
+        >
+            {randomTip}
+        </Tip>
     );
 };
