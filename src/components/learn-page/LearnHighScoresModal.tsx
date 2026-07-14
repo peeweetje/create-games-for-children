@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Plus, Minus, X, Divide } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { HighScoresModal } from "../HighScoresModal";
+import { HighScoresModal } from "../high-scores-modal";
 import type { Operation } from "../../helpers/mathHelper";
 
 interface HighScore {
