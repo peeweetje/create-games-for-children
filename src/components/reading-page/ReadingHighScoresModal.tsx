@@ -1,7 +1,7 @@
 import { ReadingLevel } from "../../helpers/readingHelper";
 import { useReadingProgress } from "../../helpers/readingHelper";
 import { useTranslation } from "react-i18next";
-import { HighScoresModal } from "../HighScoresModal";
+import { HighScoresModal } from "../high-scores-modal";
 
 interface ReadingHighScoresModalProps {
     isOpen: boolean;
