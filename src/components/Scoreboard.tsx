@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import { StatCard } from "./StatCard";
 
 interface ScoreboardProps {
     score: number;
@@ -36,25 +37,30 @@ export const Scoreboard = ({
                 )}
                 
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                    <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg p-4 border border-green-200">
-                        <div className="text-2xl font-bold text-green-600">{score}</div>
-                        <div className="text-sm text-text-600">{t("learn.reading.scoreboard.correct")}</div>
-                    </div>
-                    
-                    <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-lg p-4 border border-blue-200">
-                        <div className="text-2xl font-bold text-info-600">{total}</div>
-                        <div className="text-sm text-text-600">{t("learn.reading.scoreboard.total")}</div>
-                    </div>
-                    
-                    <div className="bg-gradient-to-br from-purple-50 to-fuchsia-50 rounded-lg p-4 border border-purple-200">
-                        <div className="text-2xl font-bold text-purple-600">{accuracy}%</div>
-                        <div className="text-sm text-text-600">{t("learn.reading.scoreboard.accuracy")}</div>
-                    </div>
-                    
-                    <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-lg p-4 border border-orange-200">
-                        <div className="text-2xl font-bold text-orange-600">{streak}</div>
-                        <div className="text-sm text-text-600">{t("learn.reading.scoreboard.streak")}</div>
-                    </div>
+                    <StatCard
+                        value={score}
+                        label={t("learn.reading.scoreboard.correct")}
+                        valueClassName="text-green-600"
+                        containerClassName="bg-gradient-to-br from-green-50 to-emerald-50 border-green-200"
+                    />
+                    <StatCard
+                        value={total}
+                        label={t("learn.reading.scoreboard.total")}
+                        valueClassName="text-info-600"
+                        containerClassName="bg-gradient-to-br from-blue-50 to-cyan-50 border-blue-200"
+                    />
+                    <StatCard
+                        value={`${accuracy}%`}
+                        label={t("learn.reading.scoreboard.accuracy")}
+                        valueClassName="text-purple-600"
+                        containerClassName="bg-gradient-to-br from-purple-50 to-fuchsia-50 border-purple-200"
+                    />
+                    <StatCard
+                        value={streak}
+                        label={t("learn.reading.scoreboard.streak")}
+                        valueClassName="text-orange-600"
+                        containerClassName="bg-gradient-to-br from-orange-50 to-amber-50 border-orange-200"
+                    />
                 </div>
                 
                 {streak > 0 && streak % 3 === 0 && (
