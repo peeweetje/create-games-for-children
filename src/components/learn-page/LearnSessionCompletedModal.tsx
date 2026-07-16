@@ -1,8 +1,8 @@
-import { Trophy } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import type { Operation } from "../../helpers/mathHelper";
+import { SessionCompletedModal } from "../SessionCompletedModal";
 
-interface SessionCompletedModalProps {
+interface LearnSessionCompletedModalProps {
     isOpen: boolean;
     onClose: () => void;
     onTryAgain: () => void;
@@ -26,75 +26,22 @@ export const LearnSessionCompletedModal = ({
     stars,
     operation,
     questionsPerSession,
-}: SessionCompletedModalProps) => {
+}: LearnSessionCompletedModalProps) => {
     const { t } = useTranslation();
 
-    if (!isOpen) return null;
-
     return (
-        <div className="fixed inset-0 bg-transparent backdrop-blur-sm flex items-center justify-center p-4 z-50">
-            <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 text-center">
-                <div className="mb-4">
-                    <Trophy size={48} className="text-star mx-auto mb-2" />
-                    <h2 className="text-2xl font-bold text-primary-900 mb-2">
-                        {t("learn.sessionCompleted.title")}
-                    </h2>
-                    <p className="text-text-600 mb-4">
-                        {t("learn.sessionCompleted.subtitle", { 
-                            count: questionsPerSession, 
-                            operation: t(`learn.operations.${operation}`) 
-                        })}
-                    </p>
-                </div>
-                
-                <div className="grid grid-cols-2 gap-4 mb-6 text-center">
-                    <div>
-                        <div className="text-2xl font-bold text-success">{score}</div>
-                        <div className="text-sm text-text-600">
-                            {t("learn.sessionCompleted.correct")}
-                        </div>
-                    </div>
-                    <div>
-                        <div className="text-2xl font-bold text-info-600">{total}</div>
-                        <div className="text-sm text-text-600">
-                            {t("learn.sessionCompleted.total")}
-                        </div>
-                    </div>
-                    <div>
-                        <div className="text-2xl font-bold text-purple-600">{accuracy}%</div>
-                        <div className="text-sm text-text-600">
-                            {t("learn.sessionCompleted.accuracy")}
-                        </div>
-                    </div>
-                    <div>
-                        <div className="text-2xl font-bold text-streak">{streak}</div>
-                        <div className="text-sm text-text-600">
-                            {t("learn.sessionCompleted.bestStreak")}
-                        </div>
-                    </div>
-                    <div>
-                        <div className="text-2xl font-bold text-purple-600">{stars}</div>
-                        <div className="text-sm text-text-600">
-                            {t("learn.sessionCompleted.starsEarned")}
-                        </div>
-                    </div>
-                </div>
-                
-                <div className="flex gap-3">
-                    <button
-                        onClick={onTryAgain}
-                        className="flex-1 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors font-medium"
-                    >
-                        {t("learn.sessionCompleted.tryAgain")}
-                    </button>
-                    <button
-                        onClick={onClose}
-                        className="flex-1 px-4 py-2 bg-star text-white rounded-lg hover:bg-star-600 transition-colors font-medium"
-                    >
-                        {t("learn.sessionCompleted.viewHighScores")}
-                    </button>
-                </div>
-            </div>
-        </div>
+        <SessionCompletedModal
+            isOpen={isOpen}
+            onClose={onClose}
+            onTryAgain={onTryAgain}
+            score={score}
+            total={total}
+            accuracy={accuracy}
+            streak={streak}
+            stars={stars}
+            categoryLabel={t(`learn.operations.${operation}`)}
+            questionsPerSession={questionsPerSession}
+            variant="learn"
+        />
     );
 };
