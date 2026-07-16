@@ -21,7 +21,7 @@ export const HighScoresModalFooter = ({
     };
 
     return (
-        <div className={`p-6 border-t ${useBackdropBlur ? 'border-surface-200' : 'border-surface-200 bg-surface-50'}`}>
+        <div className={`p-4 border-t ${useBackdropBlur ? 'border-surface-200' : 'border-surface-200 bg-surface-50'}`}>
             <div className="flex justify-between items-center">
                 <div className="text-sm text-text-600">
                     {useBackdropBlur ? t("learn.highScores.keepPracticing") : t("learn.highScores.keepReading")}

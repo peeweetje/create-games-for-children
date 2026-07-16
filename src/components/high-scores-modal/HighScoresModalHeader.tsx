@@ -11,21 +11,21 @@ export const HighScoresModalHeader = ({ onClose, useBackdropBlur }: HighScoresMo
     const { t } = useTranslation();
 
     return (
-        <div className={`p-6 border-b ${useBackdropBlur ? 'border-primary-200' : 'border-surface-200'}`}>
+        <div className={`p-4 border-b ${useBackdropBlur ? 'border-primary-200' : 'border-surface-200'}`}>
             <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
                     {useBackdropBlur ? (
-                        <Trophy size={32} className="text-yellow-500" />
+                        <Trophy size={24} className="text-yellow-500" />
                     ) : (
-                        <div className="w-10 h-10 bg-gradient-to-r from-primary to-accent-600 rounded-full flex items-center justify-center">
-                            <Trophy size={20} className="text-white" />
+                        <div className="w-8 h-8 bg-gradient-to-r from-primary to-accent-600 rounded-full flex items-center justify-center">
+                            <Trophy size={16} className="text-white" />
                         </div>
                     )}
                     <div>
-                        <h2 className={`text-2xl font-bold ${useBackdropBlur ? 'text-primary-900' : 'text-text-800'}`}>
+                        <h2 className={`text-lg font-bold ${useBackdropBlur ? 'text-primary-900' : 'text-text-800'}`}>
                             {t("learn.highScores.title")}
                         </h2>
-                        <p className="text-sm text-text-600">
+                        <p className="text-xs text-text-600">
                             {t("learn.highScores.subtitle")}
                         </p>
                     </div>
@@ -42,7 +42,7 @@ export const HighScoresModalHeader = ({ onClose, useBackdropBlur }: HighScoresMo
                         onClick={onClose}
                         className="text-text-400 hover:text-text-600 transition-colors"
                     >
-                        <X size={24} />
+                        <X size={20} />
                     </button>
                 )}
             </div>

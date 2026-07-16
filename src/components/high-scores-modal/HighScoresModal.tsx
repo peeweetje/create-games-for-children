@@ -1,4 +1,3 @@
-import { useTranslation } from "react-i18next";
 import { HighScoresModalHeader } from "./HighScoresModalHeader";
 import { HighScoreCard } from "./HighScoreCard";
 import { HighScoresModalFooter } from "./HighScoresModalFooter";
@@ -13,7 +12,6 @@ export const HighScoresModal = <T extends string>({
     renderIcon,
     useBackdropBlur = false,
 }: HighScoresModalProps<T>) => {
-    const { t } = useTranslation();
 
     if (!isOpen) return null;
 
@@ -23,14 +21,14 @@ export const HighScoresModal = <T extends string>({
 
     return (
         <div className={backdropClass}>
-            <div className="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="bg-white rounded-2xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
                 <HighScoresModalHeader
                     onClose={onClose}
                     useBackdropBlur={useBackdropBlur}
                 />
 
-                <div className="p-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="p-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {Object.entries(highScores).map(([category, scores]) => {
                             const categoryTyped = category as T;
                             const scoresTyped = scores as HighScore;
