@@ -10,16 +10,18 @@ import {
 import { LearnHeader } from "../components/learn-page/LearnHeader";
 import { LearnStars } from "../components/learn-page/LearnStars";
 import { LearnOperationSelector } from "../components/learn-page/LearnOperationSelector";
-import { LearnScoreboard } from "../components/learn-page/LearnScoreboard";
+import { Scoreboard } from "../components/Scoreboard";
 import { LearnQuestionCard } from "../components/learn-page/LearnQuestionCard";
 import { LearnAnswerChoices } from "../components/learn-page/LearnAnswerChoices";
-import { LearnSkipButton } from "../components/learn-page/LearnSkipButton";
-import { LearnTip } from "../components/learn-page/LearnTip";
+import { SkipButton } from "../components/buttons/SkipButton";
+import { Tip } from "../components/tip/Tip";
+import { useTranslation } from "react-i18next";
 import { LearnHighScoresModal } from "../components/learn-page/LearnHighScoresModal";
 import { LearnSessionCompletedModal } from "../components/learn-page/LearnSessionCompletedModal";
-import { LearnViewHighScoresButton } from "../components/learn-page/LearnViewHighScoresButton";
+import { ViewHighScoresButton } from "../components/buttons/ViewHighScoresButton";
 
 export const LearnPage = () => {
+    const { t } = useTranslation();
     const [selectedOp, setSelectedOp] = useState<Operation>("addition");
     const [question, setQuestion] = useState<Question>(() => generateQuestion("addition"));
     const [choices, setChoices] = useState<number[]>([]);
@@ -35,9 +37,6 @@ export const LearnPage = () => {
     const [showHighScores, setShowHighScores] = useState(false);
     const [sessionCompleted, setSessionCompleted] = useState(false);
     const [sessionQuestions, setSessionQuestions] = useState(0);
-
-    // values to display in completed modal (avoid stale state)
-    // no need for separate final values; use live state directly
 
     // guard to prevent double-answer processing
     const answeredRef = useRef(false);
@@ -183,12 +182,11 @@ export const LearnPage = () => {
                 selectedOperation={selectedOp}
                 onSelect={handleOperationChange}
             />
-            <LearnScoreboard
+            <Scoreboard
                 score={score}
                 total={total}
                 accuracy={sessionAccuracy}
                 streak={streak}
-                selectedOperation={selectedOp}
             />
             <LearnQuestionCard
                 question={question}
@@ -203,10 +201,12 @@ export const LearnPage = () => {
                 onSelect={handleAnswer}
                 disabled={selected !== null}
             />
-            <LearnSkipButton onClick={() => newQuestion(selectedOp)} />
-            <LearnTip />
+            <SkipButton onClick={() => newQuestion(selectedOp)} />
+            <Tip variant="simple">
+                {t("learn.tip")}
+            </Tip>
             
-            <LearnViewHighScoresButton onClick={() => setShowHighScores(true)} />
+            <ViewHighScoresButton onClick={() => setShowHighScores(true)} />
             
             <LearnHighScoresModal
                 isOpen={showHighScores}
