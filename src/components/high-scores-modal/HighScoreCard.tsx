@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { useTranslation } from "react-i18next";
-import { HighScoreStatItem } from "./HighScoreStatItem";
+import { StatCard } from "../StatCard";
 import type { HighScore } from "./types";
 
 interface HighScoreCardProps<T extends string> {
@@ -33,54 +33,35 @@ export const HighScoreCard = <T extends string>({
     };
 
     const cardClassName = useBackdropBlur
-        ? "rounded-xl p-4 md:p-6 border bg-white border-primary-200 hover:shadow-md transition-shadow"
-        : "rounded-xl p-4 md:p-6 border bg-gradient-to-br from-background to-accent-50 border-primary-200";
-
-    const backdropStat = (value: string | number, label: string, bg: string, textColor: string) => (
-        <div className={`${bg} rounded-lg p-3`}>
-            <div className={`text-2xl font-bold ${textColor}`}>
-                {value}
-            </div>
-            <div className={`text-xs font-medium ${textColor}`}>
-                {label}
-            </div>
-        </div>
-    );
-
-    const normalStat = (value: string | number, label: string, textColor: string) => (
-        <HighScoreStatItem
-            value={value}
-            label={label}
-            valueClassName={`text-xl md:text-2xl font-bold ${textColor}`}
-        />
-    );
+        ? "rounded-xl p-3 border bg-white border-primary-200"
+        : "rounded-xl p-3 border bg-gradient-to-br from-background to-accent-50 border-primary-200";
 
     return (
         <div className={cardClassName}>
-            <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center justify-between mb-3">
                 {useBackdropBlur ? (
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-2">
                         {renderIcon && (
-                            <div className="w-10 h-10 bg-surface-100 rounded-full flex items-center justify-center">
+                            <div className="w-8 h-8 bg-surface-100 rounded-full flex items-center justify-center">
                                 {renderIcon(category)}
                             </div>
                         )}
                         <div>
-                            <h3 className="text-lg font-semibold text-text-800">
+                            <h3 className="text-base font-semibold text-text-800">
                                 {categoryLabel}
                             </h3>
-                            <p className="text-sm text-text-500">
+                            <p className="text-xs text-text-500">
                                 {t("learn.highScores.lastPlayed")}: {formatDate(scores.lastPlayed)}
                             </p>
                         </div>
                     </div>
                 ) : (
                     <>
-                        <h3 className="text-lg font-semibold text-text-800">
+                        <h3 className="text-base font-semibold text-text-800">
                             {categoryLabel}
                         </h3>
                         <div className="flex gap-2">
-                            <span className="px-2 py-1 bg-primary-200 text-primary-800 rounded-full text-sm font-medium">
+                            <span className="px-2 py-1 bg-primary-200 text-primary-800 rounded-full text-xs font-medium">
                                 {scores.bestStreak} 🔥
                             </span>
                         </div>
@@ -88,20 +69,68 @@ export const HighScoreCard = <T extends string>({
                 )}
             </div>
 
-            <div className="grid grid-cols-2 gap-3 md:gap-4 text-center">
+            <div className="grid grid-cols-2 gap-2 text-center">
                 {useBackdropBlur ? (
                     <>
-                        {backdropStat(scores.score, t("learn.highScores.bestScore"), "bg-green-50", "text-green-600")}
-                        {backdropStat(`${scores.accuracy}%`, t("learn.highScores.bestAccuracy"), "bg-blue-50", "text-blue-600")}
-                        {backdropStat(scores.bestStreak, t("learn.highScores.bestStreak"), "bg-orange-50", "text-orange-600")}
-                        {backdropStat(scores.total, t("learn.highScores.totalQuestions"), "bg-purple-50", "text-purple-600")}
+                        <StatCard
+                            value={scores.score}
+                            label={t("learn.highScores.bestScore")}
+                            valueClassName="text-green-600"
+                            containerClassName="bg-green-50 border-0"
+                            variant="simple"
+                        />
+                        <StatCard
+                            value={`${scores.accuracy}%`}
+                            label={t("learn.highScores.bestAccuracy")}
+                            valueClassName="text-blue-600"
+                            containerClassName="bg-blue-50 border-0"
+                            variant="simple"
+                        />
+                        <StatCard
+                            value={scores.bestStreak}
+                            label={t("learn.highScores.bestStreak")}
+                            valueClassName="text-orange-600"
+                            containerClassName="bg-orange-50 border-0"
+                            variant="simple"
+                        />
+                        <StatCard
+                            value={scores.total}
+                            label={t("learn.highScores.totalQuestions")}
+                            valueClassName="text-purple-600"
+                            containerClassName="bg-purple-50 border-0"
+                            variant="simple"
+                        />
                     </>
                 ) : (
                     <>
-                        {normalStat(scores.score, t("learn.highScores.bestScore"), "text-primary-600")}
-                        {normalStat(`${scores.accuracy}%`, t("learn.highScores.bestAccuracy"), "text-purple-600")}
-                        {normalStat(scores.total, t("learn.highScores.totalQuestions"), "text-accent-600")}
-                        {normalStat(formatDate(scores.lastPlayed), t("learn.highScores.lastPlayed"), "text-primary-600")}
+                        <StatCard
+                            value={scores.score}
+                            label={t("learn.highScores.bestScore")}
+                            valueClassName="text-primary-600"
+                            containerClassName="bg-white rounded-lg p-3 md:p-4 shadow-sm"
+                            variant="simple"
+                        />
+                        <StatCard
+                            value={`${scores.accuracy}%`}
+                            label={t("learn.highScores.bestAccuracy")}
+                            valueClassName="text-purple-600"
+                            containerClassName="bg-white rounded-lg p-3 md:p-4 shadow-sm"
+                            variant="simple"
+                        />
+                        <StatCard
+                            value={scores.total}
+                            label={t("learn.highScores.totalQuestions")}
+                            valueClassName="text-accent-600"
+                            containerClassName="bg-white rounded-lg p-3 md:p-4 shadow-sm"
+                            variant="simple"
+                        />
+                        <StatCard
+                            value={formatDate(scores.lastPlayed)}
+                            label={t("learn.highScores.lastPlayed")}
+                            valueClassName="text-primary-600"
+                            containerClassName="bg-white rounded-lg p-3 md:p-4 shadow-sm"
+                            variant="simple"
+                        />
                     </>
                 )}
             </div>
