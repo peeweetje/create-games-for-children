@@ -6,14 +6,14 @@ import {
     useReadingProgress 
 } from "../helpers/readingHelper";
 import { ReadingStars } from "../components/reading-page/ReadingStars";
-import { ReadingScoreboard } from "../components/reading-page/ReadingScoreboard";
+import { Scoreboard } from "../components/Scoreboard";
 import { ReadingQuestionCard } from "../components/reading-page/ReadingQuestionCard";
 import { ReadingAnswerChoices } from "../components/reading-page/ReadingAnswerChoices";
-import { ReadingSkipButton } from "../components/reading-page/ReadingSkipButton";
-import { ReadingTip } from "../components/reading-page/ReadingTip";
+import { SkipButton } from "../components/buttons/SkipButton";
+import { Tip } from "../components/tip/Tip";
 import { ReadingHighScoresModal } from "../components/reading-page/ReadingHighScoresModal";
 import { ReadingSessionCompletedModal } from "../components/reading-page/ReadingSessionCompletedModal";
-import { ReadingViewHighScoresButton } from "../components/reading-page/ReadingViewHighScoresButton";
+import { ViewHighScoresButton } from "../components/buttons/ViewHighScoresButton";
 import { useTranslation } from "react-i18next";
 
 interface ReadingQuestionPageProps {
@@ -139,6 +139,13 @@ const handleAnswer = (choice: string) => {
 
     const sessionAccuracy = total > 0 ? Math.round((score / total) * 100) : 0;
 
+    const levelLabels: Record<ReadingLevel, string> = {
+        letters: t("learn.reading.levels.letters"),
+        words: t("learn.reading.levels.words"), 
+        sentences: t("learn.reading.levels.sentences"),
+        stories: t("learn.reading.levels.stories")
+    };
+
     return (
         <div className="flex flex-col items-center min-h-full bg-gradient-to-b from-background to-accent-100 p-6 pb-24">
             {/* Header and Navigation */}
@@ -162,12 +169,13 @@ const handleAnswer = (choice: string) => {
                     <ReadingStars count={stars} />
                 </div>
                 
-                <ReadingScoreboard
+                <Scoreboard
                     score={score}
                     total={total}
                     accuracy={sessionAccuracy}
                     streak={streak}
-                    selectedLevel={selectedLevel}
+                    title={t("learn.reading.scoreboard.readingProgress")}
+                    levelLabel={levelLabels[selectedLevel]}
                 />
             </div>
 
@@ -196,9 +204,14 @@ const handleAnswer = (choice: string) => {
 
                 {/* Actions */}
                 <div className="w-full flex flex-col items-center space-y-4">
-                    <ReadingSkipButton onClick={newQuestion} />
-                    <ReadingTip />
-                    <ReadingViewHighScoresButton onClick={() => setShowHighScores(true)} />
+                    <SkipButton onClick={newQuestion} />
+                    <Tip
+                        variant="gradient"
+                        title={t("learn.reading.tip.readingTip")}
+                    >
+                        {t("learn.reading.tip.tipText")}
+                    </Tip>
+                    <ViewHighScoresButton onClick={() => setShowHighScores(true)} />
                 </div>
             </div>
             

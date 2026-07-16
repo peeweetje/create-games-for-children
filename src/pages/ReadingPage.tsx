@@ -4,7 +4,7 @@ import { ReadingHeader } from "../components/reading-page/ReadingHeader";
 import { ReadingLevelSelector } from "../components/reading-page/ReadingLevelSelector";
 import { ReadingThemeSelector } from "../components/reading-page/ReadingThemeSelector";
 import { ReadingHighScoresModal } from "../components/reading-page/ReadingHighScoresModal";
-import { ReadingViewHighScoresButton } from "../components/reading-page/ReadingViewHighScoresButton";
+import { ViewHighScoresButton } from "../components/buttons/ViewHighScoresButton";
 import { ReadingQuestionPage } from "./ReadingQuestionPage";
 import { useTranslation } from "react-i18next";
 
@@ -74,7 +74,7 @@ export const ReadingPage = () => {
                 {/* High Scores Section */}
                 <div className="bg-white rounded-2xl shadow-md p-6 border border-accent-200">
                     <div className="flex justify-center">
-                        <ReadingViewHighScoresButton onClick={() => setShowHighScores(true)} />
+                        <ViewHighScoresButton onClick={() => setShowHighScores(true)} />
                     </div>
                 </div>
             </div>
