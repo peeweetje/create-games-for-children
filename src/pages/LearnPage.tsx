@@ -202,7 +202,7 @@ export const LearnPage = () => {
                 disabled={selected !== null}
             />
             <SkipButton onClick={() => newQuestion(selectedOp)} />
-            <Tip variant="simple">
+            <Tip>
                 {t("learn.tip")}
             </Tip>
             

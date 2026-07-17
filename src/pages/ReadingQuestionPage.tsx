@@ -206,7 +206,6 @@ const handleAnswer = (choice: string) => {
                 <div className="w-full flex flex-col items-center space-y-4">
                     <SkipButton onClick={newQuestion} />
                     <Tip
-                        variant="gradient"
                         title={t("learn.reading.tip.readingTip")}
                     >
                         {t("learn.reading.tip.tipText")}
