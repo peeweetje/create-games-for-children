@@ -222,7 +222,19 @@
          "fillMode": "Fill with Current Color",
         "eraserMode": "Eraser Mode",
         "instructions": "Click and drag to color. Use the eraser to fix mistakes!",
-        "instructionsFill": "Click on a area to fill it with the current color."
+        "instructionsFill": "Click on a area to fill it with the current color.",
+        "imagesLabel": "Images",
+        "images": {
+            "flower": "Flower",
+            "house": "House",
+            "car": "Car",
+            "cat": "Cat",
+            "dog": "Dog",
+            "bird": "Bird",
+            "turtle": "Turtle",
+            "bike": "Bike",
+            "blank": "Blank"
+        }
     },
     "puzzles": {
         "title": "Chess Puzzles",

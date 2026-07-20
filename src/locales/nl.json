@@ -223,7 +223,19 @@
         "fillMode": "Vullen met Huidige Kleur",
         "eraserMode": "Gum Modus",
         "instructions": "Klik en sleep om te kleuren. Gebruik de gum om fouten te herstellen!",
-        "instructionsFill": "Klik op een gebied om het te vullen met de huidige kleur."
+        "instructionsFill": "Klik op een gebied om het te vullen met de huidige kleur.",
+        "imagesLabel": "Afbeeldingen",
+        "images": {
+            "flower": "Bloem",
+            "house": "Huis",
+            "car": "Auto",
+            "cat": "Kat",
+            "dog": "Hond",
+            "bird": "Vogel",
+            "turtle": "Schildpad",
+            "bike": "Fiets",
+            "blank": "Leeg"
+        }
     },
     "puzzles": {
         "title": "Schaakpuzzels",
