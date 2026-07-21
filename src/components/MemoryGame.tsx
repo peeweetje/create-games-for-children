@@ -1,10 +1,9 @@
 import { useState, useEffect, useRef } from 'react'
-import { Card } from './memory-game/MemoryCard'
+import type { Card } from './memory-game/MemoryCard'
 import { GameStats } from './memory-game/GameStats'
-import { ThemeSelector } from './memory-game/ThemeSelector'
+import { ThemeSelector, ThemeType, THEMES } from './memory-game/ThemeSelector'
 import { MemoryBoard } from './memory-game/MemoryBoard'
 import { GameOverModal } from './memory-game/GameOverModal'
-import { ThemeType, THEMES } from './memory-game/ThemeSelector'
 
 export const MemoryGame = () => {
     const [theme, setTheme] = useState<ThemeType>('animals')
@@ -17,18 +16,13 @@ export const MemoryGame = () => {
     // Refs for timeout management
     const matchTimeoutRef = useRef<number | null>(null)
 
-    // Clear any existing timeout
-    const clearExistingTimeout = () => {
+    // Initialize game
+    const initializeGame = () => {
+        // Clear any existing timeout before resetting the game
         if (matchTimeoutRef.current !== null) {
             clearTimeout(matchTimeoutRef.current)
             matchTimeoutRef.current = null
         }
-    }
-
-    // Initialize game
-    const initializeGame = () => {
-        // Clear any existing timeout before resetting the game
-        clearExistingTimeout()
         
         const selectedTheme = THEMES[theme]
         const pairs = selectedTheme.slice(0, 6) // Use 6 pairs = 12 cards
@@ -75,9 +69,6 @@ export const MemoryGame = () => {
         
         setMoves(prev => prev + 1)
 
-        // Clear any existing timeout before setting a new one
-        clearExistingTimeout()
-
         const timeoutId = window.setTimeout(() => {
             if (isMatch) {
                 setCards(prev => prev.map(c =>
@@ -96,10 +87,8 @@ export const MemoryGame = () => {
             setFlippedCards([])
         }, isMatch ? 500 : 1000)
 
-        // Store the timeout ID and return cleanup function
         matchTimeoutRef.current = timeoutId
-        return () => window.clearTimeout(timeoutId)
-    }, [flippedCards, cards])
+    }, [flippedCards])
 
     // Check if game is over
     useEffect(() => {
@@ -116,7 +105,9 @@ export const MemoryGame = () => {
     // Cleanup on component unmount
     useEffect(() => {
         return () => {
-            clearExistingTimeout()
+            if (matchTimeoutRef.current !== null) {
+                clearTimeout(matchTimeoutRef.current)
+            }
         }
     }, [])
 
