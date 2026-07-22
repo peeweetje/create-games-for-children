@@ -7,7 +7,7 @@ import {
 } from "../helpers/readingHelper";
 import { ReadingStars } from "../components/reading-page/ReadingStars";
 import { Scoreboard } from "../components/Scoreboard";
-import { ReadingQuestionCard } from "../components/reading-page/ReadingQuestionCard";
+import { ReadingQuestionCard } from "../components/reading-page/reading-question-card/ReadingQuestionCard";
 import { ReadingAnswerChoices } from "../components/reading-page/ReadingAnswerChoices";
 import { SkipButton } from "../components/buttons/SkipButton";
 import { Tip } from "../components/tip/Tip";
