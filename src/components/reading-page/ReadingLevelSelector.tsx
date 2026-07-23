@@ -18,11 +18,6 @@ export const ReadingLevelSelector = ({ selectedLevel, onSelect }: ReadingLevelSe
 
     return (
         <div className="w-full">
-            <div className="text-center mb-6">
-                <h2 className="text-2xl font-bold text-primary-600 mb-2">{t("learn.reading.title")}</h2>
-                <p className="text-text-600">{t("learn.reading.subtitle")}</p>
-            </div>
-            
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {levels.map((level) => (
                     <button
