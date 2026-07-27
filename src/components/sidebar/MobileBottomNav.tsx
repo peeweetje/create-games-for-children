@@ -21,7 +21,7 @@ export const MobileBottomNav = () => {
     const navItems = useMemo<NavItem[]>(() => {
         const routes = routeTranslations[lang] || routeTranslations.en;
         return navConfig.map(config => ({
-            path: config.key === 'play' ? '/' : `/${routes[config.key]}`,
+            path: config.key === 'activities' ? '/' : `/${routes[config.key]}`,
             label: `sidebar.${config.key}`,
             icon: config.icon,
         }));
