@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { navConfig, routeTranslations } from '../routes';
 import { Tip } from '../components/tip/Tip';
-import { LucideIcon } from 'lucide-react';
+import { Gamepad2, LucideIcon } from 'lucide-react';
 
 type ActivityItem = {
     key: string;
@@ -35,8 +35,9 @@ export const ActivitiesPage = () => {
             <div className="max-w-6xl mx-auto px-4 md:px-6">
                 {/* Header */}
                 <div className="text-center mb-10 md:mb-12">
-                    <h1 className="text-4xl md:text-5xl font-extrabold text-primary-700 mb-3">
-                        🎮 {t('activities.title')}
+                    <h1 className="text-4xl md:text-5xl font-extrabold text-primary-700 mb-3 flex items-center justify-center gap-3">
+                        <Gamepad2 size={60} className="text-primary-500" />
+                        {t('activities.title')}
                     </h1>
                     <p className="text-lg text-text-600 max-w-2xl mx-auto">
                         {t('activities.subtitle')}
