@@ -50,6 +50,7 @@
         "reading": "Lezen",
         "memory": "Geheugen",
         "coloring": "Kleurplaten",
+        "activities": "Activiteiten",
         "play": "Schaken",
         "more": "Meer",
         "routes": {
@@ -58,6 +59,19 @@
             "reading": "lezen",
             "coloring": "kleurplaten"
         }
+    },
+    "activities": {
+        "title": "Speeltjes & Leren!",
+        "subtitle": "Kies een leuke activiteit om te beginnen met spelen en leren!",
+        "descriptions": {
+            "play": "Speel schaken tegen de computer en leer strategie!",
+            "puzzles": "Los schaakpuzzels op en verbeter je vaardigheden!",
+            "learn": "Oefen optellen, aftrekken, vermenigvuldigen en delen!",
+            "reading": "Leer lezen met leuke verhaaltjes en oefeningen!",
+            "memory": "Vind overeenkomende paren en train je geheugen!",
+            "coloring": "Kleur mooie plaatjes en wees creatief!"
+        },
+        "tip": "🌟 Elk spel helpt je iets nieuws te leren. Heb plezier en blijf ontdekken!"
     },
     "reading": {
         "backToSettings": "← Terug"

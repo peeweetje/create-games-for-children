@@ -50,6 +50,7 @@
         "reading": "Reading",
         "memory": "Memory",
         "coloring": "Coloring",
+        "activities": "Activities",
         "play": "Chess",
         "more": "More",
         "routes": {
@@ -58,6 +59,19 @@
             "reading": "reading",
             "coloring": "coloring"
         }
+    },
+    "activities": {
+        "title": "Games & Learning!",
+        "subtitle": "Choose a fun activity to start playing and learning!",
+        "descriptions": {
+            "play": "Play chess against the computer and learn strategy!",
+            "puzzles": "Solve chess puzzles and improve your skills!",
+            "learn": "Practice addition, subtraction, multiplication and division!",
+            "reading": "Learn to read with fun stories and exercises!",
+            "memory": "Find matching pairs and train your memory!",
+            "coloring": "Color beautiful pictures and get creative!"
+        },
+        "tip": "🌟 Each game helps you learn something new. Have fun and keep exploring!"
     },
     "reading": {
         "backToSettings": "← Back to Settings"
