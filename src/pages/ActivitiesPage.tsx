@@ -1,9 +1,9 @@
 import { useMemo } from 'react';
-import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { navConfig, routeTranslations } from '../routes';
 import { Tip } from '../components/tip/Tip';
 import { Gamepad2, LucideIcon } from 'lucide-react';
+import { ActivityCard } from '../components/activity-page/ActivityCard';
 
 type ActivityItem = {
     key: string;
@@ -46,28 +46,15 @@ export const ActivitiesPage = () => {
 
                 {/* Activity Cards */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                    {activities.map((activity) => {
-                        const Icon = activity.icon;
-                        return (
-                            <Link
-                                key={activity.key}
-                                to={activity.path}
-                                className="group block"
-                            >
-                                <div className="bg-white rounded-2xl shadow-lg border-2 border-surface-200 p-6 h-full transition-all duration-300 group-hover:shadow-2xl group-hover:scale-105 group-hover:border-primary-300">
-                                    <div className="flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-primary-100 to-accent-100 group-hover:from-primary-200 group-hover:to-accent-200 transition-colors">
-                                        <Icon size={32} className="text-primary-600" />
-                                    </div>
-                                    <h2 className="text-xl font-bold text-center text-text-800 mb-2 group-hover:text-primary-700 transition-colors">
-                                        {t(activity.label)}
-                                    </h2>
-                                    <p className="text-sm text-center text-text-500 group-hover:text-text-600 transition-colors">
-                                        {t(activity.description, { defaultValue: '' })}
-                                    </p>
-                                </div>
-                            </Link>
-                        );
-                    })}
+                    {activities.map((activity) => (
+                        <ActivityCard
+                            key={activity.key}
+                            path={activity.path}
+                            icon={activity.icon}
+                            label={activity.label}
+                            description={activity.description}
+                        />
+                    ))}
                 </div>
 
                 {/* Tip */}
