@@ -1,4 +1,4 @@
-import { Gamepad2, BookOpen, Puzzle, BookText, MemoryStick, Paintbrush } from 'lucide-react';
+import { Gamepad2, BookOpen, Puzzle, BookText, MemoryStick, Paintbrush, Grid2x2 } from 'lucide-react';
 import { ComponentType, lazy } from 'react';
 
 const PlayPage = lazy(() => import('./pages/PlayPage').then(m => ({ default: m.PlayPage })));
@@ -7,10 +7,13 @@ const LearnPage = lazy(() => import('./pages/LearnPage').then(m => ({ default: m
 const ReadingPage = lazy(() => import('./pages/ReadingPage').then(m => ({ default: m.ReadingPage })));
 const MemoryPage = lazy(() => import('./pages/MemoryPage').then(m => ({ default: m.MemoryPage })));
 const ColoringPage = lazy(() => import('./pages/ColoringPage').then(m => ({ default: m.ColoringPage })));
+const ActivitiesPage = lazy(() => import('./pages/ActivitiesPage').then(m => ({ default: m.ActivitiesPage })));
 
 // Navigation configuration - easy to extend with new routes
+// Activities is the home page, accessible at the root path
 export const navConfig = [
-    { key: 'play', path: '/', icon: Gamepad2 },
+    { key: 'activities', path: '/', icon: Grid2x2 },
+    { key: 'play', path: '/chess', icon: Gamepad2 },
     { key: 'puzzles', path: '/puzzles', icon: Puzzle },
     { key: 'learn', path: '/learn', icon: BookOpen },
     { key: 'reading', path: '/reading', icon: BookText },
@@ -20,8 +23,8 @@ export const navConfig = [
 
 // Route mappings for all supported languages
 export const routeTranslations: Record<string, Record<string, string>> = {
-    en: { puzzles: 'puzzles', learn: 'learn', reading: 'reading', memory: 'memory', coloring: 'coloring' },
-    nl: { puzzles: 'puzzels', learn: 'leren', reading: 'lezen', memory: 'geheugen', coloring: 'kleurplaten' },
+    en: { puzzles: 'puzzles', learn: 'learn', reading: 'reading', memory: 'memory', coloring: 'coloring', activities: 'activities', play: 'chess' },
+    nl: { puzzles: 'puzzels', learn: 'leren', reading: 'lezen', memory: 'geheugen', coloring: 'kleurplaten', activities: 'activiteiten', play: 'schaken' },
 };
 
 // Helper to get all route variations (merges all language routes)
@@ -38,11 +41,16 @@ export const pageComponents: Record<string, ComponentType> = {
     reading: ReadingPage,
     memory: MemoryPage,
     coloring: ColoringPage,
+    activities: ActivitiesPage,
 };
 
 // Generate all route paths for a given route key (all language variations)
 export const getRoutePaths = (key: string): string[] => {
-    if (key === 'play') return ['/'];
+    // Activities is the home page - include root path and translated paths for backwards compatibility
+    if (key === 'activities') {
+        const translatedPaths = Object.values(routeTranslations).map(routes => `/${routes[key]}`);
+        return ['/', ...translatedPaths];
+    }
     
     // Only generate paths for keys that exist in routeTranslations
     const validKeys = Object.values(routeTranslations)[0];
@@ -56,16 +64,12 @@ type RouteEntry = { path: string; key: string };
 export const getAllRouteEntries = (): RouteEntry[] => {
     const entries: RouteEntry[] = [];
     navConfig.forEach(config => {
-        if (config.key === 'play') {
-            entries.push({ path: '/', key: 'play' });
-        } else {
-            const paths = getRoutePaths(config.key);
-            paths.forEach(path => {
-                if (path && path !== '/undefined') {
-                    entries.push({ path, key: config.key });
-                }
-            });
-        }
+        const paths = getRoutePaths(config.key);
+        paths.forEach(path => {
+            if (path && path !== '/undefined') {
+                entries.push({ path, key: config.key });
+            }
+        });
     });
     return entries;
 };
