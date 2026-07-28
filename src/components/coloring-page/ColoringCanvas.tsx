@@ -150,7 +150,7 @@ export const ColoringCanvas = forwardRef<ColoringCanvasHandle, ColoringCanvasPro
                 </div>
             </div>
 
-            <div className="flex justify-center w-full overflow-hidden bg-gray-50 rounded-lg relative touch-none mx-auto">
+            <div className="relative mx-auto w-full max-w-[600px] aspect-square overflow-hidden bg-gray-50 rounded-lg touch-none">
                 <canvas
                     ref={canvasRef}
                     onMouseDown={startDrawing}
@@ -161,12 +161,9 @@ export const ColoringCanvas = forwardRef<ColoringCanvasHandle, ColoringCanvasPro
                     onTouchMove={draw}
                     onTouchEnd={stopDrawing}
                     onTouchCancel={stopDrawing}
-                    className={`border-2 border-gray-300 bg-white shadow-sm mx-auto ${tool === 'fill' ? 'cursor-pointer' : 'cursor-crosshair'}`}
+                    className={`absolute inset-0 w-full h-full border-2 border-gray-300 bg-white shadow-sm ${tool === 'fill' ? 'cursor-pointer' : 'cursor-crosshair'}`}
                     style={{
                         touchAction: 'none',
-                        width: '100%',
-                        aspectRatio: '1/1',
-                        maxWidth: '600px',
                         objectFit: 'contain'
                     }}
                 />
