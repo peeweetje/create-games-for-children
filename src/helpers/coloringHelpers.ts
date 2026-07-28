@@ -123,18 +123,14 @@ export const drawOutline = (ctx: CanvasRenderingContext2D, imageType: ColoringIm
     ctx.lineCap = 'round';
     ctx.lineJoin = 'round';
     ctx.globalCompositeOperation = 'source-over';
-    
+
     if (imageType === 'flower') {
-        ctx.beginPath(); ctx.arc(300, 300, 80, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.arc(300, 200, 50, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.arc(380, 300, 50, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.arc(300, 400, 50, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.arc(220, 300, 50, 0, Math.PI * 2); ctx.stroke();
-        
-        ctx.beginPath(); ctx.moveTo(300, 380); ctx.lineTo(300, 550); ctx.stroke();
-        
-        ctx.beginPath(); ctx.ellipse(230, 450, 60, 30, Math.PI / 4, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.ellipse(370, 450, 60, 30, -Math.PI / 4, 0, Math.PI * 2); ctx.stroke();
+        ctx.beginPath(); ctx.arc(300, 300, 70, 0, Math.PI * 2); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(300, 190); ctx.lineTo(260, 250); ctx.lineTo(205, 250); ctx.lineTo(240, 300); ctx.lineTo(205, 350); ctx.lineTo(260, 350); ctx.lineTo(300, 410); ctx.lineTo(340, 350); ctx.lineTo(395, 350); ctx.lineTo(360, 300); ctx.lineTo(395, 250); ctx.lineTo(340, 250); ctx.closePath(); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(300, 200); ctx.lineTo(280, 120); ctx.moveTo(300, 200); ctx.lineTo(320, 120); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(300, 370); ctx.lineTo(300, 520); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(300, 520); ctx.quadraticCurveTo(280, 500, 260, 470); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(300, 520); ctx.quadraticCurveTo(320, 500, 340, 470); ctx.stroke();
     } else if (imageType === 'house') {
         ctx.strokeRect(200, 300, 200, 200);
         
@@ -161,79 +157,88 @@ export const drawOutline = (ctx: CanvasRenderingContext2D, imageType: ColoringIm
         ctx.moveTo(43, 43); ctx.lineTo(57, 57); ctx.moveTo(157, 157); ctx.lineTo(143, 143);
         ctx.moveTo(157, 43); ctx.lineTo(143, 57); ctx.moveTo(43, 157); ctx.lineTo(57, 143); ctx.stroke();
     } else if (imageType === 'car') {
-        ctx.beginPath(); ctx.arc(200, 400, 50, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.arc(400, 400, 50, 0, Math.PI * 2); ctx.stroke();
-        
-        ctx.beginPath(); ctx.arc(200, 400, 20, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.arc(400, 400, 20, 0, Math.PI * 2); ctx.stroke();
-
-        ctx.beginPath(); ctx.moveTo(100, 400); ctx.lineTo(150, 400); ctx.moveTo(250, 400); ctx.lineTo(350, 400);
-        ctx.moveTo(450, 400); ctx.lineTo(500, 400); ctx.lineTo(500, 300); ctx.lineTo(420, 300); ctx.lineTo(350, 200);
-        ctx.lineTo(200, 200); ctx.lineTo(120, 300); ctx.lineTo(100, 320); ctx.closePath(); ctx.stroke();
-        
-        ctx.beginPath(); ctx.moveTo(210, 210); ctx.lineTo(340, 210); ctx.lineTo(400, 290); ctx.lineTo(290, 290); ctx.closePath(); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(200, 210); ctx.lineTo(140, 300); ctx.lineTo(280, 300); ctx.lineTo(280, 210); ctx.closePath(); ctx.stroke();
-        
-        ctx.beginPath(); ctx.moveTo(285, 300); ctx.lineTo(285, 400); ctx.stroke();
+        ctx.beginPath(); ctx.arc(200, 400, 60, 0, Math.PI * 2); ctx.stroke();
+        ctx.beginPath(); ctx.arc(400, 400, 60, 0, Math.PI * 2); ctx.stroke();
+        ctx.beginPath(); ctx.arc(200, 400, 24, 0, Math.PI * 2); ctx.stroke();
+        ctx.beginPath(); ctx.arc(400, 400, 24, 0, Math.PI * 2); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(120, 400); ctx.lineTo(180, 400); ctx.lineTo(220, 350); ctx.lineTo(360, 350); ctx.lineTo(430, 400); ctx.lineTo(500, 400); ctx.lineTo(500, 345); ctx.lineTo(440, 300); ctx.lineTo(365, 230); ctx.lineTo(215, 230); ctx.lineTo(145, 300); ctx.lineTo(120, 345); ctx.closePath(); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(240, 230); ctx.lineTo(340, 230); ctx.lineTo(390, 300); ctx.lineTo(270, 300); ctx.closePath(); ctx.stroke();
     } else if (imageType === 'cat') {
-        ctx.beginPath(); ctx.arc(300, 250, 70, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(250, 200); ctx.lineTo(230, 120); ctx.lineTo(290, 180); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(350, 200); ctx.lineTo(370, 120); ctx.lineTo(310, 180); ctx.stroke();
-        ctx.beginPath(); ctx.arc(275, 240, 10, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.arc(325, 240, 10, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(290, 260); ctx.lineTo(310, 260); ctx.lineTo(300, 270); ctx.closePath(); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(300, 270); ctx.lineTo(290, 280); ctx.moveTo(300, 270); ctx.lineTo(310, 280); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(260, 260); ctx.lineTo(210, 250); ctx.moveTo(260, 270); ctx.lineTo(200, 270); ctx.moveTo(260, 280); ctx.lineTo(210, 290); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(340, 260); ctx.lineTo(390, 250); ctx.moveTo(340, 270); ctx.lineTo(400, 270); ctx.moveTo(340, 280); ctx.lineTo(390, 290); ctx.stroke();
-        ctx.beginPath(); ctx.ellipse(300, 400, 80, 100, 0, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(370, 450); ctx.quadraticCurveTo(450, 400, 420, 320); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(260, 490); ctx.lineTo(260, 520); ctx.lineTo(280, 520); ctx.lineTo(280, 490); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(320, 490); ctx.lineTo(320, 520); ctx.lineTo(340, 520); ctx.lineTo(340, 490); ctx.stroke();
+        ctx.beginPath(); ctx.ellipse(300, 250, 74, 68, 0, 0, Math.PI * 2); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(240, 205); ctx.lineTo(215, 140); ctx.lineTo(280, 185); ctx.closePath(); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(360, 205); ctx.lineTo(385, 140); ctx.lineTo(320, 185); ctx.closePath(); ctx.stroke();
+        ctx.beginPath(); ctx.arc(280, 240, 8, 0, Math.PI * 2); ctx.stroke();
+        ctx.beginPath(); ctx.arc(320, 240, 8, 0, Math.PI * 2); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(270, 260); ctx.quadraticCurveTo(300, 272, 330, 260); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(258, 252); ctx.lineTo(225, 248); ctx.moveTo(258, 270); ctx.lineTo(225, 278); ctx.moveTo(342, 252); ctx.lineTo(375, 248); ctx.moveTo(342, 270); ctx.lineTo(375, 278); ctx.stroke();
+        ctx.beginPath(); ctx.ellipse(300, 375, 115, 90, 0, 0, Math.PI * 2); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(260, 330); ctx.quadraticCurveTo(245, 360, 250, 395); ctx.quadraticCurveTo(255, 430, 285, 450); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(340, 330); ctx.quadraticCurveTo(355, 360, 350, 395); ctx.quadraticCurveTo(345, 430, 315, 450); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(270, 405); ctx.quadraticCurveTo(265, 430, 270, 450); ctx.moveTo(330, 405); ctx.quadraticCurveTo(335, 430, 330, 450); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(185, 365); ctx.quadraticCurveTo(150, 330, 135, 300); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(300, 320); ctx.quadraticCurveTo(280, 350, 255, 380); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(300, 320); ctx.quadraticCurveTo(320, 350, 345, 380); ctx.stroke();
     } else if (imageType === 'dog') {
-        ctx.beginPath(); ctx.arc(300, 250, 70, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.ellipse(220, 250, 20, 60, -Math.PI/6, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.ellipse(380, 250, 20, 60, Math.PI/6, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.arc(275, 230, 8, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.arc(325, 230, 8, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.ellipse(300, 270, 40, 30, 0, 0, Math.PI * 2); ctx.fillStyle = '#FFFFFF'; ctx.fill(); ctx.stroke();
+        ctx.beginPath(); ctx.arc(300, 250, 80, 0, Math.PI * 2); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(225, 215); ctx.lineTo(190, 155); ctx.lineTo(255, 190); ctx.closePath(); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(375, 215); ctx.lineTo(410, 155); ctx.lineTo(345, 190); ctx.closePath(); ctx.stroke();
+        ctx.beginPath(); ctx.arc(275, 232, 8, 0, Math.PI * 2); ctx.stroke();
+        ctx.beginPath(); ctx.arc(325, 232, 8, 0, Math.PI * 2); ctx.stroke();
+        ctx.beginPath(); ctx.ellipse(300, 270, 46, 34, 0, 0, Math.PI * 2); ctx.stroke();
         ctx.beginPath(); ctx.arc(300, 260, 12, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(300, 272); ctx.lineTo(300, 285); ctx.moveTo(300, 285); ctx.quadraticCurveTo(280, 290, 275, 280); ctx.moveTo(300, 285); ctx.quadraticCurveTo(320, 290, 325, 280); ctx.stroke();
-        ctx.beginPath(); ctx.ellipse(300, 400, 70, 90, 0, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(260, 480); ctx.lineTo(250, 530); ctx.lineTo(280, 530); ctx.lineTo(280, 485); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(340, 480); ctx.lineTo(350, 530); ctx.lineTo(320, 530); ctx.lineTo(320, 485); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(300, 272); ctx.lineTo(300, 288); ctx.moveTo(300, 288); ctx.quadraticCurveTo(280, 292, 275, 282); ctx.moveTo(300, 288); ctx.quadraticCurveTo(320, 292, 325, 282); ctx.stroke();
+        ctx.beginPath(); ctx.ellipse(300, 400, 80, 100, 0, 0, Math.PI * 2); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(260, 480); ctx.quadraticCurveTo(255, 510, 250, 530); ctx.quadraticCurveTo(265, 540, 280, 530); ctx.quadraticCurveTo(280, 505, 280, 485); ctx.closePath(); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(340, 480); ctx.quadraticCurveTo(345, 510, 350, 530); ctx.quadraticCurveTo(335, 540, 320, 530); ctx.quadraticCurveTo(320, 505, 320, 485); ctx.closePath(); ctx.stroke();
         ctx.beginPath(); ctx.moveTo(360, 450); ctx.quadraticCurveTo(420, 420, 430, 380); ctx.stroke();
     } else if (imageType === 'bird') {
-        ctx.beginPath(); ctx.ellipse(300, 320, 90, 60, 0, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.arc(380, 260, 45, 0, Math.PI * 2); ctx.fillStyle = '#FFFFFF'; ctx.fill(); ctx.stroke();
+        ctx.beginPath(); ctx.ellipse(300, 320, 100, 70, 0, 0, Math.PI * 2); ctx.stroke();
+        ctx.beginPath(); ctx.arc(380, 260, 45, 0, Math.PI * 2); ctx.stroke();
         ctx.beginPath(); ctx.arc(395, 250, 6, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(420, 255); ctx.lineTo(460, 265); ctx.lineTo(420, 275); ctx.closePath(); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(420, 255); ctx.lineTo(455, 265); ctx.lineTo(420, 275); ctx.closePath(); ctx.stroke();
         ctx.beginPath(); ctx.moveTo(280, 300); ctx.quadraticCurveTo(200, 280, 240, 380); ctx.quadraticCurveTo(300, 350, 280, 300); ctx.stroke();
         ctx.beginPath(); ctx.moveTo(215, 335); ctx.lineTo(130, 380); ctx.lineTo(160, 320); ctx.lineTo(130, 290); ctx.lineTo(215, 305); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(280, 380); ctx.lineTo(280, 440); ctx.lineTo(260, 450); ctx.moveTo(280, 440); ctx.lineTo(290, 450); ctx.moveTo(280, 440); ctx.lineTo(280, 455); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(320, 380); ctx.lineTo(320, 440); ctx.lineTo(300, 450); ctx.moveTo(320, 440); ctx.lineTo(330, 450); ctx.moveTo(320, 440); ctx.lineTo(320, 455); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(280, 380); ctx.lineTo(280, 440); ctx.lineTo(260, 450); ctx.moveTo(280, 440); ctx.lineTo(290, 450); ctx.moveTo(280, 440); ctx.lineTo(280, 455); ctx.moveTo(320, 380); ctx.lineTo(320, 440); ctx.lineTo(300, 450); ctx.moveTo(320, 440); ctx.lineTo(330, 450); ctx.moveTo(320, 440); ctx.lineTo(320, 455); ctx.stroke();
     } else if (imageType === 'turtle') {
         ctx.beginPath(); ctx.arc(300, 350, 100, Math.PI, 0); ctx.closePath(); ctx.stroke();
         ctx.beginPath(); ctx.moveTo(240, 350); ctx.lineTo(250, 310); ctx.lineTo(290, 290); ctx.lineTo(330, 310); ctx.lineTo(340, 350); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(250, 310); ctx.lineTo(220, 280); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(290, 290); ctx.lineTo(300, 250); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(330, 310); ctx.lineTo(370, 290); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(250, 310); ctx.lineTo(220, 280); ctx.moveTo(290, 290); ctx.lineTo(300, 250); ctx.moveTo(330, 310); ctx.lineTo(370, 290); ctx.stroke();
         ctx.beginPath(); ctx.ellipse(430, 330, 40, 25, 0, 0, Math.PI * 2); ctx.stroke();
         ctx.beginPath(); ctx.arc(445, 320, 5, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.ellipse(230, 360, 30, 15, Math.PI/4, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.ellipse(370, 360, 30, 15, -Math.PI/4, 0, Math.PI * 2); ctx.stroke();
+        // Front left foot
+        ctx.beginPath();
+        ctx.moveTo(215, 352);
+        ctx.quadraticCurveTo(210, 370, 225, 370);
+        ctx.quadraticCurveTo(238, 370, 240, 352);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(216, 371, 2.5, 0, Math.PI * 2); ctx.stroke();
+        ctx.arc(225, 373, 2.5, 0, Math.PI * 2); ctx.stroke();
+        ctx.arc(234, 371, 2.5, 0, Math.PI * 2); ctx.stroke();
+        
+        // Front right foot
+        ctx.beginPath();
+        ctx.moveTo(360, 352);
+        ctx.quadraticCurveTo(362, 370, 375, 370);
+        ctx.quadraticCurveTo(390, 370, 385, 352);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(366, 371, 2.5, 0, Math.PI * 2); ctx.stroke();
+        ctx.arc(375, 373, 2.5, 0, Math.PI * 2); ctx.stroke();
+        ctx.arc(384, 371, 2.5, 0, Math.PI * 2); ctx.stroke();
         ctx.beginPath(); ctx.moveTo(200, 350); ctx.lineTo(160, 340); ctx.lineTo(195, 330); ctx.stroke();
     } else if (imageType === 'bike') {
         ctx.beginPath(); ctx.arc(200, 400, 60, 0, Math.PI * 2); ctx.stroke();
         ctx.beginPath(); ctx.arc(400, 400, 60, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.arc(200, 400, 50, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.arc(400, 400, 50, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(200, 400); ctx.lineTo(280, 400); ctx.lineTo(350, 300); ctx.lineTo(250, 300); ctx.closePath(); ctx.stroke();
+        ctx.beginPath(); ctx.arc(200, 400, 24, 0, Math.PI * 2); ctx.stroke();
+        ctx.beginPath(); ctx.arc(400, 400, 24, 0, Math.PI * 2); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(200, 400); ctx.lineTo(280, 400); ctx.lineTo(350, 300); ctx.lineTo(250, 300); ctx.stroke();
         ctx.beginPath(); ctx.moveTo(400, 400); ctx.lineTo(340, 250); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(340, 250); ctx.lineTo(320, 240); ctx.moveTo(340, 250); ctx.lineTo(370, 230); ctx.stroke();
         ctx.beginPath(); ctx.moveTo(280, 400); ctx.lineTo(240, 270); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(220, 270); ctx.lineTo(260, 270); ctx.lineTo(270, 260); ctx.lineTo(210, 260); ctx.closePath(); ctx.stroke();
-        ctx.beginPath(); ctx.arc(280, 400, 15, 0, Math.PI * 2); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(220, 270); ctx.lineTo(260, 270); ctx.lineTo(270, 260); ctx.lineTo(210, 260); ctx.stroke();
         ctx.beginPath(); ctx.moveTo(280, 400); ctx.lineTo(280, 430); ctx.lineTo(295, 430); ctx.moveTo(280, 400); ctx.lineTo(280, 370); ctx.lineTo(265, 370); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(340, 250); ctx.lineTo(360, 250); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(360, 250); ctx.lineTo(370, 230); ctx.stroke();
     }
 };
 
