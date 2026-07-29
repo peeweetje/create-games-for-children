@@ -43,11 +43,13 @@ Interactive reading comprehension game featuring:
 - Educational tips and hints
 
 ### Coloring Page
-A fun coloring activity page (WORK IN PROGRESS!) featuring:
-- **Multiple Designs**: 9 coloring templates including flower, house, car, cat, dog, bird, turtle, bike, and blank canvas
+A fun coloring activity page featuring:
+- **Multiple Designs**: 5 coloring templates including snake, dragon, deer, cat, and blank canvas
+- **Real Images**: High-quality photo-based coloring pages loaded from JPG images
 - **Color Palette**: 15 vibrant colors to choose from for creative expression
 - **Tools**: Fill bucket with flood-fill algorithm, pen with adjustable line widths (2px, 4px, 8px, 12px), and eraser
 - **Interactive Canvas**: Click-to-color and freehand drawing functionality
+- **Image Caching**: Smart caching system for fast image loading and switching
 - **Export**: Download your finished artwork as a PNG image
 - **Touch Support**: Works with both mouse and touch input for tablet use
 - **Accessibility**: Full keyboard navigation and screen reader support
@@ -66,6 +68,13 @@ A fun coloring activity page (WORK IN PROGRESS!) featuring:
 - **State Management**: Zustand for global state management
 
 ## Changelog
+
+### 29-07-2026
+- **Coloring Page Overhaul**: Replaced simple SVG templates with real photo-based coloring images
+- **New Images**: Added 4 high-quality JPG coloring pages (cat, deer, dragon, snake) plus blank canvas
+- **Image Loading System**: Implemented image caching and centered drawing for better performance
+- **Refactored Helpers**: Simplified and optimized coloring helper utilities
+- **Updated Translations**: Updated Dutch and English translations for the new image set
 
 ### 10-07-2026
 - **Theming**: Implemented comprehensive Tailwind CSS custom theme with full color palette
