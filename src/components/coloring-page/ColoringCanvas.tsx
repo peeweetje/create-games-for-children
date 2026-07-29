@@ -4,7 +4,7 @@ import { drawOutline, floodFill } from '../../helpers/coloringHelpers';
 import type { ColoringImageItem, ToolType } from '../../helpers/coloringHelpers';
 
 export interface ColoringCanvasHandle {
-    clear: () => void;
+    clear: () => Promise<void>;
     download: () => void;
 }
 
@@ -26,13 +26,13 @@ export const ColoringCanvas = forwardRef<ColoringCanvasHandle, ColoringCanvasPro
     const isDrawingRef = useRef(false);
 
     useImperativeHandle(ref, () => ({
-        clear: () => {
+        clear: async () => {
             const canvas = canvasRef.current;
             if (!canvas) return;
             const ctx = canvas.getContext('2d', { willReadFrequently: true });
             if (!ctx) return;
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            drawOutline(ctx, currentImage);
+            await drawOutline(ctx, currentImage);
         },
         download: () => {
             const canvas = canvasRef.current;
@@ -44,7 +44,7 @@ export const ColoringCanvas = forwardRef<ColoringCanvasHandle, ColoringCanvasPro
         },
     }), [currentImage]);
 
-    const initCanvas = useCallback(() => {
+    const initCanvas = useCallback(async () => {
         const canvas = canvasRef.current;
         if (!canvas) return;
         const ctx = canvas.getContext('2d', { willReadFrequently: true });
@@ -53,7 +53,7 @@ export const ColoringCanvas = forwardRef<ColoringCanvasHandle, ColoringCanvasPro
         canvas.width = 600;
         canvas.height = 600;
 
-        drawOutline(ctx, currentImage);
+        await drawOutline(ctx, currentImage);
     }, [currentImage]);
 
     useEffect(() => {
