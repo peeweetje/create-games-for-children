@@ -1,4 +1,4 @@
-export type ColoringImageItem = 'flower' | 'house' | 'car' | 'cat' | 'dog' | 'bird' | 'turtle' | 'bike' | 'blank';
+export type ColoringImageItem = 'blank' | 'snake' | 'dragon' | 'deer' | 'cat';
 export type ToolType = 'pen' | 'fill' | 'eraser';
 
 const hexToRgb = (hex: string) => {
@@ -114,131 +114,83 @@ const floodFill = (ctx: CanvasRenderingContext2D, startX: number, startY: number
     ctx.putImageData(imageData, 0, 0);
 };
 
-export const drawOutline = (ctx: CanvasRenderingContext2D, imageType: ColoringImageItem) => {
+const loadedImagesCache = new Map<string, HTMLImageElement>();
+
+const loadImage = (src: string): Promise<HTMLImageElement> => {
+    return new Promise((resolve, reject) => {
+        const cached = loadedImagesCache.get(src);
+        if (cached) {
+            resolve(cached);
+            return;
+        }
+        const img = new Image();
+        img.onload = () => {
+            loadedImagesCache.set(src, img);
+            resolve(img);
+        };
+        img.onerror = (e) => {
+            console.error('Failed to load image:', src, e);
+            reject(new Error(`Failed to load image: ${src}`));
+        };
+        img.src = src;
+    });
+};
+
+const drawImageOnCanvas = async (ctx: CanvasRenderingContext2D, imageName: string) => {
+    try {
+        const img = await loadImage(`${import.meta.env.BASE_URL}${imageName}`);
+        const canvasWidth = ctx.canvas.width;
+        const canvasHeight = ctx.canvas.height;
+        const imgAspect = img.width / img.height;
+        const canvasAspect = canvasWidth / canvasHeight;
+        
+        let drawWidth: number, drawHeight: number;
+        if (imgAspect > canvasAspect) {
+            drawWidth = canvasWidth;
+            drawHeight = canvasWidth / imgAspect;
+        } else {
+            drawHeight = canvasHeight;
+            drawWidth = canvasHeight * imgAspect;
+        }
+        
+        const offsetX = (canvasWidth - drawWidth) / 2;
+        const offsetY = (canvasHeight - drawHeight) / 2;
+        
+        ctx.fillStyle = '#FFFFFF';
+        ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+        ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
+    } catch (e) {
+        ctx.fillStyle = '#FFFFFF';
+        ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+        ctx.strokeStyle = '#000000';
+        ctx.lineWidth = 4;
+        ctx.strokeRect(50, 50, ctx.canvas.width - 100, ctx.canvas.height - 100);
+        ctx.font = '24px sans-serif';
+        ctx.fillStyle = '#000000';
+        ctx.textAlign = 'center';
+        ctx.fillText(`Could not load ${imageName}`, ctx.canvas.width / 2, ctx.canvas.height / 2);
+    }
+};
+
+export const drawOutline = async (ctx: CanvasRenderingContext2D, imageType: ColoringImageItem) => {
     ctx.fillStyle = '#FFFFFF';
     ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
-    ctx.lineWidth = 4;
-    ctx.strokeStyle = '#000000';
-    ctx.lineCap = 'round';
-    ctx.lineJoin = 'round';
-    ctx.globalCompositeOperation = 'source-over';
-
-    if (imageType === 'flower') {
-        ctx.beginPath(); ctx.arc(300, 300, 70, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(300, 190); ctx.lineTo(260, 250); ctx.lineTo(205, 250); ctx.lineTo(240, 300); ctx.lineTo(205, 350); ctx.lineTo(260, 350); ctx.lineTo(300, 410); ctx.lineTo(340, 350); ctx.lineTo(395, 350); ctx.lineTo(360, 300); ctx.lineTo(395, 250); ctx.lineTo(340, 250); ctx.closePath(); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(300, 200); ctx.lineTo(280, 120); ctx.moveTo(300, 200); ctx.lineTo(320, 120); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(300, 370); ctx.lineTo(300, 520); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(300, 520); ctx.quadraticCurveTo(280, 500, 260, 470); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(300, 520); ctx.quadraticCurveTo(320, 500, 340, 470); ctx.stroke();
-    } else if (imageType === 'house') {
-        ctx.strokeRect(200, 300, 200, 200);
-        
-        ctx.beginPath(); ctx.moveTo(150, 300); ctx.lineTo(300, 150); ctx.lineTo(450, 300); ctx.closePath(); ctx.stroke();
-        
-        ctx.fillStyle = '#FFFFFF';
-        ctx.fillRect(270, 400, 60, 100);
-        ctx.strokeRect(270, 400, 60, 100);
-        
-        ctx.beginPath(); ctx.arc(320, 450, 5, 0, Math.PI * 2); ctx.stroke();
-        
-        ctx.fillStyle = '#FFFFFF';
-        ctx.fillRect(220, 320, 50, 50);
-        ctx.strokeRect(220, 320, 50, 50);
-        ctx.fillRect(330, 320, 50, 50);
-        ctx.strokeRect(330, 320, 50, 50);
-        
-        ctx.beginPath(); ctx.moveTo(245, 320); ctx.lineTo(245, 370); ctx.moveTo(220, 345); ctx.lineTo(270, 345);
-        ctx.moveTo(355, 320); ctx.lineTo(355, 370); ctx.moveTo(330, 345); ctx.lineTo(380, 345); ctx.stroke();
-        
-        ctx.beginPath(); ctx.arc(100, 100, 50, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(100, 20); ctx.lineTo(100, 40); ctx.moveTo(100, 160); ctx.lineTo(100, 180);
-        ctx.moveTo(20, 100); ctx.lineTo(40, 100); ctx.moveTo(160, 100); ctx.lineTo(180, 100);
-        ctx.moveTo(43, 43); ctx.lineTo(57, 57); ctx.moveTo(157, 157); ctx.lineTo(143, 143);
-        ctx.moveTo(157, 43); ctx.lineTo(143, 57); ctx.moveTo(43, 157); ctx.lineTo(57, 143); ctx.stroke();
-    } else if (imageType === 'car') {
-        ctx.beginPath(); ctx.arc(200, 400, 60, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.arc(400, 400, 60, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.arc(200, 400, 24, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.arc(400, 400, 24, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(120, 400); ctx.lineTo(180, 400); ctx.lineTo(220, 350); ctx.lineTo(360, 350); ctx.lineTo(430, 400); ctx.lineTo(500, 400); ctx.lineTo(500, 345); ctx.lineTo(440, 300); ctx.lineTo(365, 230); ctx.lineTo(215, 230); ctx.lineTo(145, 300); ctx.lineTo(120, 345); ctx.closePath(); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(240, 230); ctx.lineTo(340, 230); ctx.lineTo(390, 300); ctx.lineTo(270, 300); ctx.closePath(); ctx.stroke();
-    } else if (imageType === 'cat') {
-        ctx.beginPath(); ctx.ellipse(300, 250, 74, 68, 0, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(240, 205); ctx.lineTo(215, 140); ctx.lineTo(280, 185); ctx.closePath(); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(360, 205); ctx.lineTo(385, 140); ctx.lineTo(320, 185); ctx.closePath(); ctx.stroke();
-        ctx.beginPath(); ctx.arc(280, 240, 8, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.arc(320, 240, 8, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(270, 260); ctx.quadraticCurveTo(300, 272, 330, 260); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(258, 252); ctx.lineTo(225, 248); ctx.moveTo(258, 270); ctx.lineTo(225, 278); ctx.moveTo(342, 252); ctx.lineTo(375, 248); ctx.moveTo(342, 270); ctx.lineTo(375, 278); ctx.stroke();
-        ctx.beginPath(); ctx.ellipse(300, 375, 115, 90, 0, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(260, 330); ctx.quadraticCurveTo(245, 360, 250, 395); ctx.quadraticCurveTo(255, 430, 285, 450); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(340, 330); ctx.quadraticCurveTo(355, 360, 350, 395); ctx.quadraticCurveTo(345, 430, 315, 450); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(270, 405); ctx.quadraticCurveTo(265, 430, 270, 450); ctx.moveTo(330, 405); ctx.quadraticCurveTo(335, 430, 330, 450); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(185, 365); ctx.quadraticCurveTo(150, 330, 135, 300); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(300, 320); ctx.quadraticCurveTo(280, 350, 255, 380); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(300, 320); ctx.quadraticCurveTo(320, 350, 345, 380); ctx.stroke();
-    } else if (imageType === 'dog') {
-        ctx.beginPath(); ctx.arc(300, 250, 80, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(225, 215); ctx.lineTo(190, 155); ctx.lineTo(255, 190); ctx.closePath(); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(375, 215); ctx.lineTo(410, 155); ctx.lineTo(345, 190); ctx.closePath(); ctx.stroke();
-        ctx.beginPath(); ctx.arc(275, 232, 8, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.arc(325, 232, 8, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.ellipse(300, 270, 46, 34, 0, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.arc(300, 260, 12, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(300, 272); ctx.lineTo(300, 288); ctx.moveTo(300, 288); ctx.quadraticCurveTo(280, 292, 275, 282); ctx.moveTo(300, 288); ctx.quadraticCurveTo(320, 292, 325, 282); ctx.stroke();
-        ctx.beginPath(); ctx.ellipse(300, 400, 80, 100, 0, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(260, 480); ctx.quadraticCurveTo(255, 510, 250, 530); ctx.quadraticCurveTo(265, 540, 280, 530); ctx.quadraticCurveTo(280, 505, 280, 485); ctx.closePath(); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(340, 480); ctx.quadraticCurveTo(345, 510, 350, 530); ctx.quadraticCurveTo(335, 540, 320, 530); ctx.quadraticCurveTo(320, 505, 320, 485); ctx.closePath(); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(360, 450); ctx.quadraticCurveTo(420, 420, 430, 380); ctx.stroke();
-    } else if (imageType === 'bird') {
-        ctx.beginPath(); ctx.ellipse(300, 320, 100, 70, 0, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.arc(380, 260, 45, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.arc(395, 250, 6, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(420, 255); ctx.lineTo(455, 265); ctx.lineTo(420, 275); ctx.closePath(); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(280, 300); ctx.quadraticCurveTo(200, 280, 240, 380); ctx.quadraticCurveTo(300, 350, 280, 300); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(215, 335); ctx.lineTo(130, 380); ctx.lineTo(160, 320); ctx.lineTo(130, 290); ctx.lineTo(215, 305); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(280, 380); ctx.lineTo(280, 440); ctx.lineTo(260, 450); ctx.moveTo(280, 440); ctx.lineTo(290, 450); ctx.moveTo(280, 440); ctx.lineTo(280, 455); ctx.moveTo(320, 380); ctx.lineTo(320, 440); ctx.lineTo(300, 450); ctx.moveTo(320, 440); ctx.lineTo(330, 450); ctx.moveTo(320, 440); ctx.lineTo(320, 455); ctx.stroke();
-    } else if (imageType === 'turtle') {
-        ctx.beginPath(); ctx.arc(300, 350, 100, Math.PI, 0); ctx.closePath(); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(240, 350); ctx.lineTo(250, 310); ctx.lineTo(290, 290); ctx.lineTo(330, 310); ctx.lineTo(340, 350); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(250, 310); ctx.lineTo(220, 280); ctx.moveTo(290, 290); ctx.lineTo(300, 250); ctx.moveTo(330, 310); ctx.lineTo(370, 290); ctx.stroke();
-        ctx.beginPath(); ctx.ellipse(430, 330, 40, 25, 0, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.arc(445, 320, 5, 0, Math.PI * 2); ctx.stroke();
-        // Front left foot
-        ctx.beginPath();
-        ctx.moveTo(215, 352);
-        ctx.quadraticCurveTo(210, 370, 225, 370);
-        ctx.quadraticCurveTo(238, 370, 240, 352);
-        ctx.stroke();
-        ctx.beginPath();
-        ctx.arc(216, 371, 2.5, 0, Math.PI * 2); ctx.stroke();
-        ctx.arc(225, 373, 2.5, 0, Math.PI * 2); ctx.stroke();
-        ctx.arc(234, 371, 2.5, 0, Math.PI * 2); ctx.stroke();
-        
-        // Front right foot
-        ctx.beginPath();
-        ctx.moveTo(360, 352);
-        ctx.quadraticCurveTo(362, 370, 375, 370);
-        ctx.quadraticCurveTo(390, 370, 385, 352);
-        ctx.stroke();
-        ctx.beginPath();
-        ctx.arc(366, 371, 2.5, 0, Math.PI * 2); ctx.stroke();
-        ctx.arc(375, 373, 2.5, 0, Math.PI * 2); ctx.stroke();
-        ctx.arc(384, 371, 2.5, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(200, 350); ctx.lineTo(160, 340); ctx.lineTo(195, 330); ctx.stroke();
-    } else if (imageType === 'bike') {
-        ctx.beginPath(); ctx.arc(200, 400, 60, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.arc(400, 400, 60, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.arc(200, 400, 24, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.arc(400, 400, 24, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(200, 400); ctx.lineTo(280, 400); ctx.lineTo(350, 300); ctx.lineTo(250, 300); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(400, 400); ctx.lineTo(340, 250); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(280, 400); ctx.lineTo(240, 270); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(220, 270); ctx.lineTo(260, 270); ctx.lineTo(270, 260); ctx.lineTo(210, 260); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(280, 400); ctx.lineTo(280, 430); ctx.lineTo(295, 430); ctx.moveTo(280, 400); ctx.lineTo(280, 370); ctx.lineTo(265, 370); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(340, 250); ctx.lineTo(360, 250); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(360, 250); ctx.lineTo(370, 230); ctx.stroke();
+    if (imageType === 'snake') {
+        await drawImageOnCanvas(ctx, 'snake.jpg');
+        return;
+    }
+    if (imageType === 'dragon') {
+        await drawImageOnCanvas(ctx, 'dragon.jpg');
+        return;
+    }
+    if (imageType === 'deer') {
+        await drawImageOnCanvas(ctx, 'deer.jpg');
+        return;
+    }
+    if (imageType === 'cat') {
+        await drawImageOnCanvas(ctx, 'cat.jpg');
+        return;
     }
 };
 
