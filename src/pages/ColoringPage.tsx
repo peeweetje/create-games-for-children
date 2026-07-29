@@ -11,7 +11,7 @@ export function ColoringPage() {
     const [color, setColor] = useState('#FF6B6B');
     const [lineWidth, setLineWidth] = useState(4);
     const [tool, setTool] = useState<ToolType>('fill');
-    const [currentImage, setCurrentImage] = useState<ColoringImageItem>('flower');
+    const [currentImage, setCurrentImage] = useState<ColoringImageItem>('snake');
 
     const handleImageChange = (image: ColoringImageItem) => {
         setCurrentImage(image);
