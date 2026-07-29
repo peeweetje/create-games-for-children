@@ -240,15 +240,11 @@
         "instructionsFill": "Klik op een gebied om het te vullen met de huidige kleur.",
         "imagesLabel": "Afbeeldingen",
         "images": {
-            "flower": "Bloem",
-            "house": "Huis",
-            "car": "Auto",
-            "cat": "Kat",
-            "dog": "Hond",
-            "bird": "Vogel",
-            "turtle": "Schildpad",
-            "bike": "Fiets",
-            "blank": "Leeg"
+            "blank": "Leeg",
+            "snake": "Slang",
+            "dragon": "Draak",
+            "deer": "Hert",
+            "cat": "Kat"
         }
     },
     "puzzles": {
