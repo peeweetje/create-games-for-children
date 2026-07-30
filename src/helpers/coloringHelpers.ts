@@ -1,4 +1,4 @@
-export type ColoringImageItem = 'blank' | 'snake' | 'dragon' | 'deer' | 'cat';
+export type ColoringImageItem = 'blank' | 'snake' | 'dragon' | 'deer' | 'cat' | 'duck' | 'bear' | 'hedgie';
 export type ToolType = 'pen' | 'fill' | 'eraser';
 
 const hexToRgb = (hex: string) => {
@@ -190,6 +190,18 @@ export const drawOutline = async (ctx: CanvasRenderingContext2D, imageType: Colo
     }
     if (imageType === 'cat') {
         await drawImageOnCanvas(ctx, 'cat.jpg');
+        return;
+    }
+    if (imageType === 'duck') {
+        await drawImageOnCanvas(ctx, 'duck.jpg');
+        return;
+    }
+    if (imageType === 'bear') {
+        await drawImageOnCanvas(ctx, 'bear.jpg');
+        return;
+    }
+    if (imageType === 'hedgie') {
+        await drawImageOnCanvas(ctx, 'hedgie.jpg');
         return;
     }
 };
