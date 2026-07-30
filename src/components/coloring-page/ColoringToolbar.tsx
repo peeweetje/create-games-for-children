@@ -23,7 +23,7 @@ interface ColoringToolbarProps {
     onDownload: () => void;
 }
 
-const IMAGES: ColoringImageItem[] = ['snake', 'dragon', 'deer', 'cat', 'blank'];
+const IMAGES: ColoringImageItem[] = ['snake', 'dragon', 'deer', 'cat', 'duck', 'bear', 'hedgie', 'blank'];
 
 export const ColoringToolbar = ({
     currentImage,
