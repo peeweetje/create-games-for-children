@@ -6,6 +6,7 @@ import type { ColoringImageItem, ToolType } from '../../helpers/coloringHelpers'
 export interface ColoringCanvasHandle {
     clear: () => Promise<void>;
     download: () => void;
+    getSnapshot: () => string | null;
 }
 
 interface ColoringCanvasProps {
@@ -13,6 +14,7 @@ interface ColoringCanvasProps {
     color: string;
     lineWidth: number;
     tool: ToolType;
+    snapshot?: string;
 }
 
 export const ColoringCanvas = forwardRef<ColoringCanvasHandle, ColoringCanvasProps>(({
@@ -20,6 +22,7 @@ export const ColoringCanvas = forwardRef<ColoringCanvasHandle, ColoringCanvasPro
     color,
     lineWidth,
     tool,
+    snapshot,
 }, ref) => {
     const { t } = useTranslation();
     const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -42,6 +45,11 @@ export const ColoringCanvas = forwardRef<ColoringCanvasHandle, ColoringCanvasPro
             link.href = canvas.toDataURL();
             link.click();
         },
+        getSnapshot: () => {
+            const canvas = canvasRef.current;
+            if (!canvas) return null;
+            return canvas.toDataURL();
+        },
     }), [currentImage]);
 
     const initCanvas = useCallback(async () => {
@@ -53,8 +61,16 @@ export const ColoringCanvas = forwardRef<ColoringCanvasHandle, ColoringCanvasPro
         canvas.width = 600;
         canvas.height = 600;
 
-        await drawOutline(ctx, currentImage);
-    }, [currentImage]);
+        if (snapshot) {
+            const img = new Image();
+            img.onload = () => {
+                ctx.drawImage(img, 0, 0);
+            };
+            img.src = snapshot;
+        } else {
+            await drawOutline(ctx, currentImage);
+        }
+    }, [currentImage, snapshot]);
 
     useEffect(() => {
         initCanvas();

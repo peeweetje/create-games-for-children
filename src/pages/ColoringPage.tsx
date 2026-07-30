@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ColoringToolbar } from '../components/coloring-page/ColoringToolbar';
 import { ColoringCanvas } from '../components/coloring-page/ColoringCanvas';
@@ -12,10 +12,26 @@ export function ColoringPage() {
     const [lineWidth, setLineWidth] = useState(4);
     const [tool, setTool] = useState<ToolType>('fill');
     const [currentImage, setCurrentImage] = useState<ColoringImageItem>('snake');
+    const snapshotsRef = useRef<Map<ColoringImageItem, string>>(new Map());
 
-    const handleImageChange = (image: ColoringImageItem) => {
+    const handleImageChange = useCallback((image: ColoringImageItem) => {
+        // Save current canvas state before switching
+        const currentSnapshot = canvasRef.current?.getSnapshot();
+        if (currentSnapshot) {
+            snapshotsRef.current.set(currentImage, currentSnapshot);
+        }
         setCurrentImage(image);
-    };
+    }, [currentImage]);
+
+    const handleClear = useCallback(() => {
+        canvasRef.current?.clear();
+        // Remove saved snapshot since we cleared it
+        snapshotsRef.current.delete(currentImage);
+    }, [currentImage]);
+
+    const handleDownload = useCallback(() => {
+        canvasRef.current?.download();
+    }, []);
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-pink-100 via-purple-50 to-indigo-100 py-4 lg:py-8">
@@ -37,8 +53,8 @@ export function ColoringPage() {
                         onColorChange={setColor}
                         onLineWidthChange={setLineWidth}
                         onToolChange={setTool}
-                        onClear={() => canvasRef.current?.clear()}
-                        onDownload={() => canvasRef.current?.download()}
+                        onClear={handleClear}
+                        onDownload={handleDownload}
                     />
 
                     <ColoringCanvas
@@ -47,6 +63,7 @@ export function ColoringPage() {
                         color={color}
                         lineWidth={lineWidth}
                         tool={tool}
+                        snapshot={snapshotsRef.current.get(currentImage)}
                     />
                 </div>
             </div>
