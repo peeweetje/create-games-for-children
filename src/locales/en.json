@@ -243,7 +243,10 @@
             "snake": "Snake",
             "dragon": "Dragon",
             "deer": "Deer",
-            "cat": "Cat"
+            "cat": "Cat",
+            "duck": "Duck",
+            "bear": "Bear",
+            "hedgie": "Hedgie"
         }
     },
     "puzzles": {
