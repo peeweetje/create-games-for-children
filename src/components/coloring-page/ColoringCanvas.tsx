@@ -149,7 +149,7 @@ export const ColoringCanvas = forwardRef<ColoringCanvasHandle, ColoringCanvasPro
     }, []);
 
     return (
-        <div className="lg:col-span-3 bg-white rounded-xl p-3 sm:p-6 shadow-lg">
+        <div className="lg:col-span-3 bg-white rounded-xl p-3 sm:p-6 shadow-lg border-2 border-primary-200">
             <div className="flex justify-between items-center mb-4">
                 <h2 className="text-lg font-semibold text-gray-700">
                     {t('coloring.canvas', { defaultValue: 'Canvas' })}
