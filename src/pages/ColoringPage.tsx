@@ -1,6 +1,6 @@
 import { useState, useRef, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ColoringToolbar } from '../components/coloring-page/ColoringToolbar';
+import { ColoringToolbar } from '../components/coloring-page/coloring-toolbar/ColoringToolbar';
 import { ColoringCanvas } from '../components/coloring-page/ColoringCanvas';
 import type { ColoringCanvasHandle } from '../components/coloring-page/ColoringCanvas';
 import type { ColoringImageItem, ToolType } from '../helpers/coloringHelpers';
