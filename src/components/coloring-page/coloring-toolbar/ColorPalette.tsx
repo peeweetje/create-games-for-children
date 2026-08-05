@@ -17,8 +17,8 @@ export const ColorPalette = ({ color, onColorChange }: ColorPaletteProps) => {
 
     return (
         <div>
-            <label className="block text-sm font-medium text-gray-600 mb-2">
-                {t('coloring.colors', { defaultValue: 'Color Palette' })}
+            <label className="block text-sm font-medium text-text-600 mb-2">
+                {t('coloring.colors')}
             </label>
             <div className="grid grid-cols-5 gap-1.5">
                 {COLOR_OPTIONS.map((colorOption) => (
@@ -26,7 +26,7 @@ export const ColorPalette = ({ color, onColorChange }: ColorPaletteProps) => {
                         key={colorOption}
                         onClick={() => onColorChange(colorOption)}
                         className={`w-8 h-8 mx-auto rounded-full border-2 transition-all ${
-                            color === colorOption ? 'border-gray-400 scale-110 shadow-md' : 'border-gray-200 hover:scale-105'
+                            color === colorOption ? 'border-text-400 scale-110 shadow-md' : 'border-surface-200 hover:scale-105'
                         }`}
                         style={{ backgroundColor: colorOption }}
                         title={colorOption}

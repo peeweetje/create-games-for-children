@@ -14,8 +14,8 @@ export const ImageSelector = ({ currentImage, onImageChange }: ImageSelectorProp
 
     return (
         <div>
-            <label className="block text-sm font-medium text-gray-600 mb-2">
-                {t('coloring.imagesLabel', { defaultValue: 'Images' })}
+            <label className="block text-sm font-medium text-text-600 mb-2">
+                {t('coloring.imagesLabel')}
             </label>
             <div className="grid grid-cols-3 gap-1.5">
                 {IMAGES.map(img => (
@@ -23,12 +23,12 @@ export const ImageSelector = ({ currentImage, onImageChange }: ImageSelectorProp
                         key={img}
                         onClick={() => onImageChange(img)}
                         className={`flex flex-col items-center justify-center p-1.5 rounded-lg border-2 transition-all ${
-                            currentImage === img ? 'border-purple-500 bg-purple-50' : 'border-gray-200 hover:border-purple-300'
+                            currentImage === img ? 'border-primary-500 bg-primary-50' : 'border-surface-200 hover:border-primary-300'
                         }`}
                     >
-                        <ImageIcon size={20} className="mb-1 text-gray-600" />
-                        <span className="text-xs uppercase font-medium text-gray-600">
-                            {t(`coloring.images.${img}`, { defaultValue: img })}
+                        <ImageIcon size={20} className="mb-1 text-text-600" />
+                        <span className="text-xs uppercase font-medium text-text-600">
+                            {t(`coloring.images.${img}`)}
                         </span>
                     </button>
                 ))}

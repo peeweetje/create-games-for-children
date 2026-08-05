@@ -3,7 +3,7 @@ import { ImageSelector } from './ImageSelector';
 import { ColorPalette } from './ColorPalette';
 import { ToolSelector } from './ToolSelector';
 import { LineWidthSelector } from './LineWidthSelector';
-import { Actions } from './Actions';
+import { Actions } from './ActionButtons';
 
 interface ColoringToolbarProps {
     currentImage: ColoringImageItem;
@@ -31,7 +31,7 @@ export const ColoringToolbar = ({
     onDownload,
 }: ColoringToolbarProps) => {
     return (
-        <div className="lg:col-span-1 bg-white rounded-xl p-4 shadow-lg flex flex-col gap-4 border-2 border-primary-200">
+        <div className="lg:col-span-1 bg-surface rounded-xl p-4 shadow-lg flex flex-col gap-4 border-2 border-primary-200">
             <ImageSelector currentImage={currentImage} onImageChange={onImageChange} />
             <ColorPalette color={color} onColorChange={onColorChange} />
             <ToolSelector tool={tool} onToolChange={onToolChange} />
