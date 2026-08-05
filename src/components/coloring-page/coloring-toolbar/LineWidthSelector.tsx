@@ -15,8 +15,8 @@ export const LineWidthSelector = ({ lineWidth, onLineWidthChange, show }: LineWi
 
     return (
         <div>
-            <label className="block text-sm font-medium text-gray-600 mb-2">
-                {t('coloring.lineWidth', { defaultValue: 'Line Width' })}
+            <label className="block text-sm font-medium text-text-600 mb-2">
+                {t('coloring.lineWidth')}
             </label>
             <div className="grid grid-cols-4 gap-1">
                 {LINE_WIDTHS.map((width) => (
@@ -25,8 +25,8 @@ export const LineWidthSelector = ({ lineWidth, onLineWidthChange, show }: LineWi
                         onClick={() => onLineWidthChange(width)}
                         className={`px-1 py-1 rounded-full text-xs font-medium transition-all ${
                             lineWidth === width
-                                ? 'bg-purple-500 text-white'
-                                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                                ? 'bg-primary-500 text-text-inverse'
+                                : 'bg-surface-200 text-text-700 hover:bg-surface-300'
                         }`}
                     >
                         {width}px
