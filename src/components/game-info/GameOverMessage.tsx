@@ -17,9 +17,9 @@ export function GameOverMessage({ turn, isCheckmate, isDraw }: GameOverMessagePr
             className="text-2xl font-bold text-center"
         >
             {isCheckmate ? (
-                <span className="text-purple-600">🎉 {turn === 'w' ? t('gameInfo.gameOverBlack') : t('gameInfo.gameOverWhite')} 🎉</span>
+                <span className="text-primary-600">🎉 {turn === 'w' ? t('gameInfo.gameOverBlack') : t('gameInfo.gameOverWhite')} 🎉</span>
             ) : isDraw ? (
-                <span className="text-gray-600">{t('gameInfo.draw')} 🤝</span>
+                <span className="text-text-600">{t('gameInfo.draw')} 🤝</span>
             ) : null}
         </motion.div>
     );
