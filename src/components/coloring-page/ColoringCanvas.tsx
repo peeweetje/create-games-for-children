@@ -149,24 +149,24 @@ export const ColoringCanvas = forwardRef<ColoringCanvasHandle, ColoringCanvasPro
     }, []);
 
     return (
-        <div className="lg:col-span-3 bg-white rounded-xl p-3 sm:p-6 shadow-lg border-2 border-primary-200">
+        <div className="lg:col-span-3 bg-surface rounded-xl p-3 sm:p-6 shadow-lg border-2 border-primary-200">
             <div className="flex justify-between items-center mb-4">
-                <h2 className="text-lg font-semibold text-gray-700">
-                    {t('coloring.canvas', { defaultValue: 'Canvas' })}
+                <h2 className="text-lg font-semibold text-primary-500">
+                    {t('coloring.canvas')}
                 </h2>
-                <div className="text-sm text-gray-500 flex items-center gap-2">
+                <div className="text-sm text-text-500 flex items-center gap-2">
                     <span>
                         {tool === 'fill' ? t('coloring.fillMode') :
                          tool === 'pen' ? t('coloring.currentColor') :
-                         t('coloring.eraserMode', { defaultValue: 'Eraser active' })}
+                         t('coloring.eraserMode')}
                     </span>
                     {tool !== 'eraser' && (
-                        <span style={{ backgroundColor: color }} className="inline-block w-4 h-4 rounded-full border border-gray-300 pointer-events-none" />
+                        <span style={{ backgroundColor: color }} className="inline-block w-4 h-4 rounded-full border border-surface-300 pointer-events-none" />
                     )}
                 </div>
             </div>
 
-            <div className="relative mx-auto w-full max-w-[600px] aspect-square overflow-hidden bg-gray-50 rounded-lg touch-none">
+            <div className="relative mx-auto w-full max-w-[600px] aspect-square overflow-hidden bg-surface-50 rounded-lg touch-none">
                 <canvas
                     ref={canvasRef}
                     onMouseDown={startDrawing}
@@ -177,7 +177,7 @@ export const ColoringCanvas = forwardRef<ColoringCanvasHandle, ColoringCanvasPro
                     onTouchMove={draw}
                     onTouchEnd={stopDrawing}
                     onTouchCancel={stopDrawing}
-                    className={`absolute inset-0 w-full h-full border-2 border-gray-300 bg-white shadow-sm ${tool === 'fill' ? 'cursor-pointer' : 'cursor-crosshair'}`}
+                    className={`absolute inset-0 w-full h-full border-2 border-surface-300 bg-surface shadow-sm ${tool === 'fill' ? 'cursor-pointer' : 'cursor-crosshair'}`}
                     style={{
                         touchAction: 'none',
                         objectFit: 'contain'
@@ -185,7 +185,7 @@ export const ColoringCanvas = forwardRef<ColoringCanvasHandle, ColoringCanvasPro
                 />
             </div>
 
-            <div className="mt-4 text-center text-sm text-gray-500">
+            <div className="mt-4 text-center text-sm text-text-500">
                 {tool === 'fill'
                     ? t('coloring.instructionsFill')
                     : t('coloring.instructions')}
