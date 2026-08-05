@@ -28,7 +28,7 @@ export const PuzzleButtons = ({
             {showConfetti && (
                 <button
                     onClick={onNextPuzzle}
-                    className="flex items-center gap-2 px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg font-semibold shadow-md transition-all cursor-pointer animate-pulse text-sm"
+                    className="flex items-center gap-2 px-4 py-2 bg-success hover:bg-success-600 text-text-inverse rounded-lg font-semibold shadow-md transition-all cursor-pointer animate-pulse text-sm"
                 >
                     {t("puzzles.buttons.nextPuzzle")}
                     <ArrowRight className="w-4 h-4" />
