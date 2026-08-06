@@ -33,7 +33,7 @@ export const HighScoreCard = <T extends string>({
     };
 
     const cardClassName = useBackdropBlur
-        ? "rounded-xl p-3 border bg-white border-primary-200"
+        ? "rounded-xl p-3 border bg-surface border-primary-200"
         : "rounded-xl p-3 border bg-gradient-to-br from-background to-accent-50 border-primary-200";
 
     return (
@@ -75,29 +75,29 @@ export const HighScoreCard = <T extends string>({
                         <StatCard
                             value={scores.score}
                             label={t("learn.highScores.bestScore")}
-                            valueClassName="text-green-600"
-                            containerClassName="bg-green-50 border-0"
+                            valueClassName="text-success-600"
+                            containerClassName="bg-surface border border-success"
                             variant="simple"
                         />
                         <StatCard
                             value={`${scores.accuracy}%`}
                             label={t("learn.highScores.bestAccuracy")}
-                            valueClassName="text-blue-600"
-                            containerClassName="bg-blue-50 border-0"
+                            valueClassName="text-info-600"
+                            containerClassName="bg-surface border border-info"
                             variant="simple"
                         />
                         <StatCard
                             value={scores.bestStreak}
                             label={t("learn.highScores.bestStreak")}
-                            valueClassName="text-orange-600"
-                            containerClassName="bg-orange-50 border-0"
+                            valueClassName="text-streak-600"
+                            containerClassName="bg-surface border border-streak"
                             variant="simple"
                         />
                         <StatCard
                             value={scores.total}
                             label={t("learn.highScores.totalQuestions")}
-                            valueClassName="text-purple-600"
-                            containerClassName="bg-purple-50 border-0"
+                            valueClassName="text-accent-600"
+                            containerClassName="bg-surface border border-accent"
                             variant="simple"
                         />
                     </>
@@ -107,28 +107,28 @@ export const HighScoreCard = <T extends string>({
                             value={scores.score}
                             label={t("learn.highScores.bestScore")}
                             valueClassName="text-primary-600"
-                            containerClassName="bg-white rounded-lg p-3 md:p-4 shadow-sm"
+                            containerClassName="bg-surface border border-primary-200 rounded-lg p-3 md:p-4 shadow-sm"
                             variant="simple"
                         />
                         <StatCard
                             value={`${scores.accuracy}%`}
                             label={t("learn.highScores.bestAccuracy")}
-                            valueClassName="text-purple-600"
-                            containerClassName="bg-white rounded-lg p-3 md:p-4 shadow-sm"
+                            valueClassName="text-accent-600"
+                            containerClassName="bg-surface border border-accent rounded-lg p-3 md:p-4 shadow-sm"
                             variant="simple"
                         />
                         <StatCard
                             value={scores.total}
                             label={t("learn.highScores.totalQuestions")}
                             valueClassName="text-accent-600"
-                            containerClassName="bg-white rounded-lg p-3 md:p-4 shadow-sm"
+                            containerClassName="bg-surface border border-accent rounded-lg p-3 md:p-4 shadow-sm"
                             variant="simple"
                         />
                         <StatCard
                             value={formatDate(scores.lastPlayed)}
                             label={t("learn.highScores.lastPlayed")}
                             valueClassName="text-primary-600"
-                            containerClassName="bg-white rounded-lg p-3 md:p-4 shadow-sm"
+                            containerClassName="bg-surface border border-primary-200 rounded-lg p-3 md:p-4 shadow-sm"
                             variant="simple"
                         />
                     </>
