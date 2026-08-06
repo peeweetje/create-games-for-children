@@ -20,11 +20,11 @@ export const LearnAnswerChoices = ({
                     "py-5 text-3xl font-bold rounded-2xl shadow-md transition-all duration-200 border-4 ";
                 if (selected === null) {
                     btnClass +=
-                        "bg-white border-surface-200 hover:border-primary-400 hover:shadow-lg text-text-800 cursor-pointer";
+                        "bg-surface border-surface-200 hover:border-primary-400 hover:shadow-lg text-text-800 cursor-pointer";
                 } else if (choice === correctAnswer) {
-                    btnClass += "bg-green-100 border-green-500 text-green-700";
+                    btnClass += "bg-surface border-success text-success-600";
                 } else if (choice === selected) {
-                    btnClass += "bg-red-100 border-red-400 text-red-600";
+                    btnClass += "bg-surface border-error text-error";
                 } else {
                     btnClass += "bg-surface-50 border-surface-200 text-text-400 opacity-60";
                 }
