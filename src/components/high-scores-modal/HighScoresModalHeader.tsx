@@ -15,10 +15,10 @@ export const HighScoresModalHeader = ({ onClose, useBackdropBlur }: HighScoresMo
             <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
                     {useBackdropBlur ? (
-                        <Trophy size={24} className="text-yellow-500" />
+                        <Trophy size={24} className="text-star" />
                     ) : (
                         <div className="w-8 h-8 bg-gradient-to-r from-primary to-accent-600 rounded-full flex items-center justify-center">
-                            <Trophy size={16} className="text-white" />
+                            <Trophy size={16} className="text-text-inverse" />
                         </div>
                     )}
                     <div>
