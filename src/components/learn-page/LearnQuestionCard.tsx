@@ -16,7 +16,7 @@ export const LearnQuestionCard = ({
     const { t } = useTranslation();
 
     return (
-        <div className="bg-white rounded-3xl shadow-md p-8 mb-6 w-full max-w-sm text-center border-4 border-primary-300 relative h-[180px] overflow-hidden">
+        <div className="bg-surface rounded-3xl shadow-md p-8 mb-6 w-full max-w-sm text-center border-4 border-primary-300 relative h-[180px] overflow-hidden">
             <AnimatePresence mode="wait">
                 {!feedback ? (
                     <motion.div
@@ -52,7 +52,7 @@ export const LearnQuestionCard = ({
                         </p>
                         <div
                             className={`text-4xl font-bold ${
-                                feedback === "correct" ? "text-green-500" : "text-red-400"
+                                feedback === "correct" ? "text-success" : "text-error"
                             }`}
                         >
                             {feedbackEmoji}{" "}

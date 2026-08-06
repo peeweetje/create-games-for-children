@@ -13,7 +13,7 @@ export const LearnStars = ({ count }: LearnStarsProps) => {
                 <Star
                     key={i}
                     size={28}
-                    className="text-yellow-400 fill-yellow-400 animate-bounce"
+                    className="text-star fill-star animate-bounce"
                     style={{ animationDelay: `${i * 80}ms` }}
                 />
             ))}
