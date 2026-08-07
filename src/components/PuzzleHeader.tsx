@@ -15,13 +15,13 @@ interface PuzzleHeaderProps {
 const getDifficultyColor = (difficulty: Difficulty): string => {
     switch (difficulty) {
         case 'easy':
-            return 'bg-green-100 text-green-700 border-green-300';
+            return 'bg-success text-text-inverse border-success';
         case 'medium':
-            return 'bg-yellow-100 text-yellow-700 border-yellow-300';
+            return 'bg-warning text-text-inverse border-warning';
         case 'hard':
-            return 'bg-red-100 text-red-700 border-red-300';
+            return 'bg-error text-text-inverse border-error';
         default:
-            return 'bg-gray-100 text-gray-700 border-gray-300';
+            return 'bg-surface-500 text-text-inverse border-surface-500';
     }
 };
 
