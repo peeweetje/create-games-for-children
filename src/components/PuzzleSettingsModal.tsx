@@ -13,19 +13,19 @@ interface PuzzleSettingsModalProps {
 const getDifficultyButtonColor = (difficulty: Difficulty | 'all', isSelected: boolean): string => {
     const baseClasses = "w-full py-3 px-4 rounded-xl font-semibold transition-all border-2 ";
     if (!isSelected) {
-        return baseClasses + "bg-white text-text-600 border-primary-200 hover:border-primary-300";
+        return baseClasses + "bg-surface text-text-600 border-primary-200 hover:border-primary-300";
     }
     switch (difficulty) {
         case 'easy':
-            return baseClasses + "bg-green-500 text-white border-green-500 shadow-lg";
+            return baseClasses + "bg-success text-text-inverse border-success shadow-lg";
         case 'medium':
-            return baseClasses + "bg-yellow-500 text-white border-yellow-500 shadow-lg";
+            return baseClasses + "bg-warning text-text-inverse border-warning shadow-lg";
         case 'hard':
-            return baseClasses + "bg-red-500 text-white border-red-500 shadow-lg";
+            return baseClasses + "bg-error text-text-inverse border-error shadow-lg";
         case 'all':
-            return baseClasses + "bg-primary text-white border-primary shadow-lg";
+            return baseClasses + "bg-primary text-text-inverse border-primary shadow-lg";
         default:
-            return baseClasses + "bg-surface-500 text-white border-surface-500";
+            return baseClasses + "bg-surface-500 text-text-inverse border-surface-500";
     }
 };
 
@@ -41,7 +41,7 @@ export const PuzzleSettingsModal = ({
 
     return (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-            <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6">
+            <div className="bg-surface rounded-2xl shadow-2xl max-w-md w-full p-6">
                 <div className="flex items-center justify-between mb-6">
                     <h2 className="text-2xl font-bold text-primary-600">
                         {t("puzzles.settings.title")}
