@@ -8,10 +8,10 @@ interface TipProps {
 }
 
 const styles = {
-    container: "bg-yellow-100 border-2 border-yellow-300 rounded-2xl px-6 py-4 max-w-sm w-full",
+    container: "bg-star/15 border-2 border-star rounded-2xl px-6 py-4 max-w-sm w-full",
     iconWrapper: "shrink-0 mt-0.5",
-    iconColor: "text-yellow-500",
-    text: "text-yellow-700 font-semibold text-sm",
+    iconColor: "text-star",
+    text: "text-star-600 font-semibold text-sm",
 };
 
 export const Tip = ({
