@@ -60,13 +60,13 @@ export const ReadingAnswerChoices = ({
                     let buttonClass = "p-6 rounded-xl border-2 text-center transition-all duration-300 font-semibold text-lg";
 
                     if (disabled && isCorrect) {
-                        buttonClass += " border-green-500 bg-green-50 text-green-800 shadow-lg scale-105";
+                        buttonClass += " border-success bg-surface text-success-600 shadow-lg scale-105";
                     } else if (disabled && isWrong) {
-                        buttonClass += " border-red-500 bg-red-50 text-red-800 shadow-lg";
+                        buttonClass += " border-error bg-surface text-error shadow-lg";
                     } else if (isSelected && !disabled) {
-                        buttonClass += " border-primary bg-background text-primary-800 shadow-md";
+                        buttonClass += " border-primary bg-surface text-primary-800 shadow-md";
                     } else {
-                        buttonClass += " border-surface-200 bg-white text-text-700 hover:border-primary-300 hover:bg-background";
+                        buttonClass += " border-surface-200 bg-surface text-text-700 hover:border-primary-300 hover:bg-background";
                     }
 
                     return (

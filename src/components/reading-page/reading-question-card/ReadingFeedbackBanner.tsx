@@ -13,10 +13,10 @@ export const ReadingFeedbackBanner = ({ feedback, feedbackEmoji, localizedAnswer
 
     return (
         <div
-            className={`mt-6 text-center p-4 rounded-lg ${
+            className={`mt-6 text-center p-4 rounded-lg border-2 ${
                 feedback === "correct"
-                    ? "bg-green-100 border-green-200 text-green-800"
-                    : "bg-red-100 border-red-200 text-red-800"
+                    ? "bg-surface border-success text-success-600"
+                    : "bg-surface border-error text-error"
             }`}
         >
             <div className="text-2xl mb-2">{feedbackEmoji}</div>
