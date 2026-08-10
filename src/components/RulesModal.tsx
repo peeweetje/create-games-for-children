@@ -18,12 +18,12 @@ interface RuleItemData {
 }
 
 const RULE_ITEMS: RuleItemData[] = [
-    { emoji: '♟️', titleKey: 'rules.pawn', descKey: 'rules.pawnDesc', bgColor: 'bg-orange-50', textColor: 'text-orange-800' },
-    { emoji: '🏰', titleKey: 'rules.rook', descKey: 'rules.rookDesc', bgColor: 'bg-blue-50', textColor: 'text-blue-800' },
-    { emoji: '🐴', titleKey: 'rules.knight', descKey: 'rules.knightDesc', bgColor: 'bg-purple-50', textColor: 'text-purple-800' },
-    { emoji: '♝', titleKey: 'rules.bishop', descKey: 'rules.bishopDesc', bgColor: 'bg-green-50', textColor: 'text-green-800' },
-    { emoji: '♛', titleKey: 'rules.queen', descKey: 'rules.queenDesc', bgColor: 'bg-red-50', textColor: 'text-red-800' },
-    { emoji: '👑', titleKey: 'rules.king', descKey: 'rules.kingDesc', bgColor: 'bg-yellow-50', textColor: 'text-yellow-800' },
+    { emoji: '♟️', titleKey: 'rules.pawn', descKey: 'rules.pawnDesc', bgColor: 'bg-streak/10 border-streak', textColor: 'text-streak-600' },
+    { emoji: '🏰', titleKey: 'rules.rook', descKey: 'rules.rookDesc', bgColor: 'bg-info/10 border-info', textColor: 'text-info-600' },
+    { emoji: '🐴', titleKey: 'rules.knight', descKey: 'rules.knightDesc', bgColor: 'bg-primary/10 border-primary', textColor: 'text-primary-600' },
+    { emoji: '♝', titleKey: 'rules.bishop', descKey: 'rules.bishopDesc', bgColor: 'bg-success/10 border-success', textColor: 'text-success-600' },
+    { emoji: '♛', titleKey: 'rules.queen', descKey: 'rules.queenDesc', bgColor: 'bg-error/10 border-error', textColor: 'text-error' },
+    { emoji: '👑', titleKey: 'rules.king', descKey: 'rules.kingDesc', bgColor: 'bg-star/10 border-star', textColor: 'text-star-600' },
 ];
 
 export function RulesModal({ isOpen, onClose }: RulesModalProps) {
@@ -38,7 +38,7 @@ export function RulesModal({ isOpen, onClose }: RulesModalProps) {
                     initial={{ scale: 0.8, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     exit={{ scale: 0.8, opacity: 0 }}
-                    className="bg-white rounded-xl p-3 md:p-6 max-w-sm md:max-w-lg w-full shadow-2xl border-2 md:border-4 border-orange-400 relative overflow-y-auto max-h-[80vh] md:max-h-[85vh]"
+                    className="bg-surface rounded-xl p-3 md:p-6 max-w-sm md:max-w-lg w-full shadow-2xl border-2 md:border-4 border-streak relative overflow-y-auto max-h-[80vh] md:max-h-[85vh]"
                 >
                     <CloseButton 
                         onClick={onClose} 
@@ -60,7 +60,7 @@ export function RulesModal({ isOpen, onClose }: RulesModalProps) {
                         <CloseButton
                             onClick={onClose}
                             showIcon={false}
-                            className="mt-4 bg-primary text-white font-bold py-2 px-6 rounded-full shadow-lg text-base hover:bg-primary-600 transition-colors"
+                            className="mt-4 bg-primary text-text-inverse font-bold py-2 px-6 rounded-full shadow-lg text-base hover:bg-primary-600 transition-colors"
                         >
                             {t('rules.gotIt')} 🚀
                         </CloseButton>
