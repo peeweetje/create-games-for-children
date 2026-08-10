@@ -48,7 +48,7 @@ export const SessionCompletedModal = ({
 
     return (
         <div className={backdropClass}>
-            <div className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full">
+            <div className="bg-surface rounded-2xl shadow-2xl max-w-2xl w-full">
                 <div className="p-6 border-b border-surface-200">
                     <div className="text-center">
                         {variant === "learn" ? (
@@ -80,33 +80,33 @@ export const SessionCompletedModal = ({
                             value={score}
                             label={t("learn.sessionCompleted.correct")}
                             valueClassName="text-success"
-                            containerClassName="bg-gradient-to-br from-green-50 to-emerald-50 border-green-200"
+                            containerClassName="bg-surface border border-success"
                         />
                         {showTotalStat && (
                             <StatCard
                                 value={total}
                                 label={t("learn.sessionCompleted.total")}
                                 valueClassName="text-info-600"
-                                containerClassName="bg-gradient-to-br from-blue-50 to-cyan-50 border-blue-200"
+                                containerClassName="bg-surface border border-info"
                             />
                         )}
                         <StatCard
                             value={`${accuracy}%`}
                             label={t("learn.sessionCompleted.accuracy")}
-                            valueClassName="text-purple-600"
-                            containerClassName="bg-gradient-to-br from-purple-50 to-fuchsia-50 border-purple-200"
+                            valueClassName="text-accent-600"
+                            containerClassName="bg-surface border border-primary-200"
                         />
                         <StatCard
                             value={streak}
                             label={t("learn.sessionCompleted.bestStreak")}
                             valueClassName="text-streak"
-                            containerClassName="bg-gradient-to-br from-orange-50 to-amber-50 border-orange-200"
+                            containerClassName="bg-surface border border-streak"
                         />
                         <StatCard
                             value={stars}
                             label={t("learn.sessionCompleted.starsEarned")}
                             valueClassName="text-star-600"
-                            containerClassName="bg-gradient-to-br from-yellow-50 to-amber-50 border-yellow-200"
+                            containerClassName="bg-surface border border-star"
                         />
                     </div>
 
@@ -124,14 +124,14 @@ export const SessionCompletedModal = ({
                     <div className="flex flex-col sm:flex-row gap-3 justify-center">
                         <button
                             onClick={onTryAgain}
-                            className="px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary-600 transition-colors font-semibold"
+                            className="px-6 py-3 bg-primary text-text-inverse rounded-lg hover:bg-primary-600 transition-colors font-semibold"
                         >
                             {t("learn.sessionCompleted.tryAgain")}
                         </button>
                         {onViewHighScores && (
                             <button
                                 onClick={onViewHighScores}
-                                className="px-6 py-3 bg-gradient-to-r from-accent-500 to-primary text-white rounded-lg hover:from-accent-600 hover:to-primary-600 transition-colors font-semibold"
+                                className="px-6 py-3 bg-gradient-to-r from-accent-500 to-primary text-text-inverse rounded-lg hover:from-accent-600 hover:to-primary-600 transition-colors font-semibold"
                             >
                                 {t("learn.sessionCompleted.viewHighScores")}
                             </button>
