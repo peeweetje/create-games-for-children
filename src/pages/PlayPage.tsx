@@ -66,7 +66,7 @@ export const PlayPage = () => {
                     isDraw={isDraw}
                 />
 
-                <div className="border-4 md:border-8 border-white rounded-xl md:rounded-2xl shadow-xl md:shadow-2xl relative">
+                <div className="border-4 md:border-8 border-surface rounded-xl md:rounded-2xl shadow-xl md:shadow-2xl relative">
                     <ChessBoard
                         game={game}
                         onPieceDrop={onDrop}
@@ -90,8 +90,8 @@ export const PlayPage = () => {
                             labelKey: 'app.help',
                             icon: BadgeQuestionMark,
                             onClick: () => setShowRules(true),
-                            color: 'bg-fuchsia-400',
-                            hoverColor: 'hover:bg-fuchsia-500',
+                            color: 'bg-accent',
+                            hoverColor: 'hover:bg-accent-600',
                             size: 18,
                         },
                     ]}
