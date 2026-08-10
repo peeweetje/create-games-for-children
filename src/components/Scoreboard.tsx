@@ -22,7 +22,7 @@ export const Scoreboard = ({
 
     return (
         <div className="w-full max-w-2xl mx-auto p-2">
-            <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-primary-100">
+            <div className="bg-surface rounded-2xl shadow-lg p-6 border-2 border-primary-100">
                 {title && (
                     <div className="flex items-center justify-between mb-4">
                         <h3 className="text-xl font-bold text-primary-600">{title}</h3>
@@ -40,26 +40,26 @@ export const Scoreboard = ({
                     <StatCard
                         value={score}
                         label={t("learn.reading.scoreboard.correct")}
-                        valueClassName="text-green-600"
-                        containerClassName="bg-gradient-to-br from-green-50 to-emerald-50 border-green-200"
+                        valueClassName="text-success-600"
+                        containerClassName="bg-surface border border-success"
                     />
                     <StatCard
                         value={total}
                         label={t("learn.reading.scoreboard.total")}
                         valueClassName="text-info-600"
-                        containerClassName="bg-gradient-to-br from-blue-50 to-cyan-50 border-blue-200"
+                        containerClassName="bg-surface border border-info"
                     />
                     <StatCard
                         value={`${accuracy}%`}
                         label={t("learn.reading.scoreboard.accuracy")}
-                        valueClassName="text-purple-600"
-                        containerClassName="bg-gradient-to-br from-purple-50 to-fuchsia-50 border-purple-200"
+                        valueClassName="text-accent-600"
+                        containerClassName="bg-surface border border-primary-200"
                     />
                     <StatCard
                         value={streak}
                         label={t("learn.reading.scoreboard.streak")}
-                        valueClassName="text-orange-600"
-                        containerClassName="bg-gradient-to-br from-orange-50 to-amber-50 border-orange-200"
+                        valueClassName="text-streak-600"
+                        containerClassName="bg-surface border border-streak"
                     />
                 </div>
                 
