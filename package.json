@@ -10,8 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@react-chess-tools/react-chess-game": "^2.0.0",
-    "@react-chess-tools/react-chess-puzzle": "^2.0.0",
+    "@react-chess-tools/react-chess-game": "^2.1.0",
+    "@react-chess-tools/react-chess-puzzle": "^2.1.0",
     "chess.js": "^1.4.0",
     "framer-motion": "^13.1.0",
     "i18next": "^26.3.6",
