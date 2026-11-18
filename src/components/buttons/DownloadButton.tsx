@@ -11,9 +11,9 @@ export const DownloadButton = ({ onDownload }: DownloadButtonProps) => {
     return (
         <button
             onClick={onDownload}
-            className="flex items-center justify-center gap-1.5 px-2 py-1 bg-success text-text-inverse rounded-md text-sm hover:bg-success-600 transition-colors"
+            className="flex min-h-12 items-center justify-center gap-2 rounded-lg bg-success px-4 py-3 text-base font-semibold text-text-inverse transition-colors hover:bg-success-600 lg:min-h-10 lg:gap-1.5 lg:px-3 lg:py-2 lg:text-sm"
         >
-            <Download size={14} />
+            <Download size={18} className="lg:h-4 lg:w-4" />
             {t('coloring.download')}
         </button>
     );
