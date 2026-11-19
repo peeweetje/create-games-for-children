@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next';
 const COLOR_OPTIONS = [
     '#000000', '#FF0000', '#4ECDC4', '#45B7D1', '#96CEB4',
     '#FFFF00', '#DDA0DD', '#FF69B4', '#F7DC6F', '#BB8FCE',
-    '#48aaeb', '#F8C471', '#82E0AA', '#F1948A', '#85C1E9',
-    '#F1C27D', '#FF8C00', '#8B4513', '#32CD32', '#0000FF'
+    '#48aaeb', '#F1C27D', '#82E0AA', '#F1948A', '#85C1E9',
+    '#FF8C00', '#8B4513', '#32CD32', '#0000FF', '#00CED1'
 ];
 
 interface ColorPaletteProps {
