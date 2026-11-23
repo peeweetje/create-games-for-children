@@ -10,6 +10,7 @@ export interface ColoringCanvasHandle {
 }
 
 interface ColoringCanvasProps {
+    className?: string;
     currentImage: ColoringImageItem;
     color: string;
     lineWidth: number;
@@ -18,6 +19,7 @@ interface ColoringCanvasProps {
 }
 
 export const ColoringCanvas = forwardRef<ColoringCanvasHandle, ColoringCanvasProps>(({
+    className,
     currentImage,
     color,
     lineWidth,
@@ -149,7 +151,7 @@ export const ColoringCanvas = forwardRef<ColoringCanvasHandle, ColoringCanvasPro
     }, []);
 
     return (
-        <div className="lg:col-span-3 bg-surface rounded-xl p-3 sm:p-6 shadow-lg border-2 border-primary-200">
+        <div className={`lg:col-span-3 bg-surface rounded-xl p-3 sm:p-6 shadow-lg border-2 border-primary-200 ${className ?? ''}`}>
             <div className="flex justify-between items-center mb-4">
                 <h2 className="text-lg font-semibold text-primary-500">
                     {t('coloring.canvas')}

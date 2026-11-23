@@ -6,6 +6,7 @@ import { LineWidthSelector } from './LineWidthSelector';
 import { Actions } from './ActionButtons';
 
 interface ColoringToolbarProps {
+    className?: string;
     currentImage: ColoringImageItem;
     color: string;
     lineWidth: number;
@@ -19,6 +20,7 @@ interface ColoringToolbarProps {
 }
 
 export const ColoringToolbar = ({
+    className,
     currentImage,
     color,
     lineWidth,
@@ -31,7 +33,7 @@ export const ColoringToolbar = ({
     onDownload,
 }: ColoringToolbarProps) => {
     return (
-        <div className="lg:col-span-1 bg-surface rounded-xl p-4 shadow-lg flex flex-col gap-4 border-2 border-primary-200">
+        <div className={`lg:col-span-1 bg-surface rounded-xl p-4 shadow-lg flex flex-col gap-4 border-2 border-primary-200 ${className ?? ''}`}>
             <ImageSelector currentImage={currentImage} onImageChange={onImageChange} />
             <ColorPalette color={color} onColorChange={onColorChange} />
             <ToolSelector tool={tool} onToolChange={onToolChange} />
